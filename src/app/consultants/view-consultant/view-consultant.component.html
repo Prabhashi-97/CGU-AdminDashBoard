@@ -1,0 +1,23 @@
+<mat-card *ngFor="let consultant of consultantDetails?.data">
+    <mat-card-title>{{ consultant.consultantName }}</mat-card-title>
+  
+    <mat-card-content>
+      <p>{{ consultant.title }}</p>
+      <p>{{ consultant.email }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">
+        <a
+          class="action-link"
+          [routerLink]="['/consultants/update', consultantId]"
+          >Update</a>
+      </button>
+      <button mat-raised-button color="primary">
+        <a
+          class="action-link"
+          [routerLink]="['/consultants/delete', consultantId]"
+          >Delete</a>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  

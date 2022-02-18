@@ -1,0 +1,46 @@
+<h1 class="topics">Consultants List</h1>
+<div class="topics">
+    <button mat-raised-button color="primary" ><a href="consultants/add" class="action-link">Add New Consultant</a></button>
+</div>
+<br>
+
+
+    <mat-card>
+        
+        <mat-card-content>
+            
+        <br>
+            <mat-list role="list">
+    
+    
+            <table>
+                
+                <tr>
+                    <td class="table-header">Consultant Name</td>
+                    <td class="table-header">Title</td>
+                    <td class="table-header">Email</td>
+                    <td class="table-header" >Action</td>
+          
+                </tr>
+                <br>
+             
+               
+                    <tr *ngFor="let consultant of listConsultants?.data">
+                        <td><mat-list-item role="listitem" class="username"><a class="consultantName" [routerLink]="['/consultants/view',consultant.id]">{{consultant.consultantName}}</a></mat-list-item></td>
+                        <td><mat-list-item role="listitem" class="username">{{consultant.title}}</mat-list-item></td>
+                        <td><mat-list-item role="listitem" class="username">{{consultant.email}}</mat-list-item></td>
+                        <td><button mat-raised-button color="primary"><a class="action-link" [routerLink]="['/consultants/update',consultant.id]">Update</a></button>
+                            <button mat-raised-button color="primary"><a class="action-link" [routerLink]="['/consultants/delete',consultant.id]">Delete</a></button>
+                        </td>
+                        
+                    </tr>
+                   
+             
+                
+            </table>
+              
+      </mat-list>  
+    </mat-card-content>
+    </mat-card>
+    
+
