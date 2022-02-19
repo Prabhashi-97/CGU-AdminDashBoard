@@ -1,0 +1,25 @@
+<div class = "main-content">
+    <mat-card class="card1" >
+      <h1 *ngIf ="listVacancies">Pending vacancies ({{listVacancies.data.length}})</h1>
+      <mat-list role="list" >
+        <mat-list-item role="listitem" *ngFor= "let vacancy of listVacancies.data">
+           <span class="username"> {{vacancy.companyName}} </span> <span class="username"> {{ vacancy.companyEmail }} </span> <span class="username"> {{ vacancy.vacancyTitle}} </span>   
+           <button mat-raised-button class="button" color="primary" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">view </button> 
+           <button mat-raised-button class="button1" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button>  
+           <button mat-raised-button class="button" color="warn" [routerLink] = "['/vacancies/delete',vacancy.vacancyId]" >Reject</button>   
+        </mat-list-item> 
+      </mat-list>
+    </mat-card> 
+</div>
+    
+<div>
+    <mat-card class="card2">
+       <h1 >Accepted vacancies </h1> 
+       <mat-list role="list" >
+         <mat-list-item role="listitem" *ngFor= "let vacancy of acceptedvacancies.data">
+           <span class="username"> {{vacancy.companyName}} </span> <span class="username"> {{ vacancy.companyEmail }} </span> <span class="username"> {{ vacancy.vacancyTitle}} </span>   
+           <button mat-raised-button class="button" color="primary" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">view </button> 
+         </mat-list-item> 
+      </mat-list>
+     </mat-card>   
+</div>
