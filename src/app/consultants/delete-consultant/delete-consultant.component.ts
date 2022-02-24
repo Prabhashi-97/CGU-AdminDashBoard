@@ -18,7 +18,8 @@ export class DeleteConsultantComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data =>{
-      this.consultantId=data['id'];
+      this.consultantId=data['consultantId'];
+      console.log(this.consultantId);
     })
     if(this.consultantId){
       this.consultantService.deleteConsultant(this.consultantId).subscribe(data =>{

@@ -16,7 +16,7 @@ export class ListConsultantsComponent implements OnInit {
     // console.log("hello");
     this.consultantService.listConsultants().subscribe(data=>{
       this.listConsultants=data;
-      // console.log(this.listConsultants);
+     console.log(this.listConsultants);
     });
   }  
 }

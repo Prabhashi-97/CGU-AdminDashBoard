@@ -19,7 +19,7 @@ export class ViewConsultantComponent implements OnInit {
   ngOnInit(): void {
     
     this.activatedRoute.params.subscribe(data=>{
-      this.consultantId=data['id'];
+      this.consultantId=data['consultantId'];
       // console.log(this.consultantId); //--to check whether we are getting the id
     })
     this.consultantService.viewConsultant(this.consultantId).subscribe(data=>{

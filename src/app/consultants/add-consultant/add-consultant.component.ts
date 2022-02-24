@@ -17,8 +17,10 @@ export class AddConsultantComponent implements OnInit {
 
   ngOnInit(): void {
     this.addConsultantForm=this.formBuilder.group({
-      'consultantName': new FormControl('', [Validators.required]),
-      'title':new FormControl('',[Validators.required]),
+      'consultantFName': new FormControl('', [Validators.required]),
+      'consultantLName': new FormControl('', [Validators.required]),
+      'universityName': new FormControl('', [Validators.required]),
+      'post':new FormControl('',[Validators.required]),
       'email': new FormControl('',[Validators.required, Validators.email])
     })
   }

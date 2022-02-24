@@ -1,8 +1,9 @@
 <mat-card *ngFor="let consultant of consultantDetails?.data">
-    <mat-card-title>{{ consultant.consultantName }}</mat-card-title>
+    <mat-card-title>{{consultant.consultantFName +" "+consultant.consultantLName}}</mat-card-title>
   
     <mat-card-content>
-      <p>{{ consultant.title }}</p>
+      <p>{{ consultant.universityName }}</p>
+      <p>{{ consultant.post }}</p>
       <p>{{ consultant.email }}</p>
     </mat-card-content>
     <mat-card-actions>

@@ -4,21 +4,44 @@
         <form [formGroup]="addConsultantForm" (submit)="createConsultant()">
             <p>
               <mat-form-field appearance="outline">
-                <mat-label>Consultant Name</mat-label>
+                <mat-label>First Name</mat-label>
                 <input
                   matInput
-                  placeholder="Consultant Name"
-                  formControlName="consultantName"
+                  placeholder="First Name"
+                  formControlName="consultantFName"
                 />
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
             
               </mat-form-field>
             </p>
-        
             <p>
               <mat-form-field appearance="outline">
-                <mat-label>Title</mat-label>
-                <input matInput placeholder="Title" formControlName="title" />
+                <mat-label>Last Name</mat-label>
+                <input
+                  matInput
+                  placeholder="Last Name"
+                  formControlName="consultantLName"
+                />
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>University Name</mat-label>
+                <input
+                  matInput
+                  placeholder="University Name"
+                  formControlName="universityName"
+                />
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Post</mat-label>
+                <input matInput placeholder="Post" formControlName="post" />
                 <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
               
               </mat-form-field>
