@@ -1,0 +1,13 @@
+<mat-card class="user-details" *ngIf="sessionDetails">
+    <mat-card-title>{{sessionDetails[0].sessionTopic}}</mat-card-title><br><br>
+    <mat-card-content>
+        <!-- {{programDetails[0].programImage}}<br> -->
+        <b>Session Date:</b>{{sessionDetails[0].sessionDate}}<br><br>
+        <b>Target Group:</b>{{sessionDetails[0].TargetGroup}}<br><br>
+        <b>Session Description:</b>{{sessionDetails[0].sessionDesc}}
+    </mat-card-content>
+    <button class="btn btn-success"  [routerLink]="['/company-sessions/edit',sessionDetails[0].sessionId]">Accept</button>&nbsp;&nbsp;
+    <button class="btn btn-danger" [routerLink]="['/company-sessions/delete',sessionDetails[0].sessionId]">Reject</button>
+        
+</mat-card>
+
