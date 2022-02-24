@@ -1,0 +1,13 @@
+
+<mat-card class="user-details" *ngIf="programDetails">
+    <mat-card-title>{{programDetails[0].programName}}</mat-card-title><br><br>
+    <mat-card-content>
+        <!-- {{programDetails[0].programImage}}<br> -->
+        <b>Event Categoty:</b>{{programDetails[0].programCat}}<br><br>
+        {{programDetails[0].programDesc}}
+    </mat-card-content>
+    <button class="btn btn-success"  [routerLink]="['/programs/edit',programDetails[0].programId]">Update</button>&nbsp;&nbsp;
+    <button class="btn btn-danger" [routerLink]="['/programs/delete',programDetails[0].programId]">Delete</button>
+        
+</mat-card>
+
