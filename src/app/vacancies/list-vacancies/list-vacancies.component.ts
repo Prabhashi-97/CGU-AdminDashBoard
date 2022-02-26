@@ -3,6 +3,9 @@ import { observable } from 'rxjs';
 import { VacancyService } from 'src/app/services/vacancy.service';
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from '@angular/router';
+import { MatPaginator } from '@angular/material/paginator';
+import {AfterViewInit, ViewChild} from '@angular/core';
+
 
 @Component({
   selector: 'app-list-vacancies',
@@ -10,35 +13,18 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./list-vacancies.component.scss']
 })
 export class ListVacanciesComponent implements OnInit {
-  
-  // columns = [
-    
-  //   {
-  //     columnDef: 'CompanyName',
-  //     header: 'Company Name',
-  //     cell: (element: PeriodicElement) => `${element.name}`,
-  //   },
-  //   {
-  //     columnDef: 'companyEmail',
-  //     header: 'Company Email',
-  //     cell: (element: PeriodicElement) => `${element.weight}`,
-  //   },
-  //   {
-  //     columnDef: 'vacancyTitle',
-  //     header: 'Vacancy Title',
-  //     cell: (element: PeriodicElement) => `${element.symbol}`,
-  //   },
-  // ];
-  // dataSource = ELEMENT_DATA;
-  // displayedColumns = this.columns.map(c => c.columnDef);
   listVacancies : any = [];
   acceptedvacancies: any = [];
-  
+
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+
   constructor(private activatedRoute: ActivatedRoute,private VacancyService : VacancyService) { }
 
+  ngAfterViewInit() {
+    this.listVacancies.paginator = this.paginator;
+  }
+
   ngOnInit(): void {
-   
-    
     this.VacancyService.listPendingVacancies().subscribe(data =>{
       this.listVacancies = data as String[];
       console.log(this.listVacancies);
