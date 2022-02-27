@@ -14,7 +14,8 @@
    </div> -->
   
    <mat-card class="card" role="list">
-   <table  class="table table-borderless">
+     <h1>All Events and Workshops</h1>
+   <table  class="table table-hover">
        <thead>
          <tr>
            <th  scope="col">Event Name</th>
@@ -27,9 +28,9 @@
          <tr *ngFor="let program of listPrograms">
            <td width="500px" ><span class="programname"> <a class="action-link" [routerLink]="['/programs/view',program.programId]">{{program.programName}}</a></span></td>
            <td width="200px" ><span>{{program.programCat}}</span></td>
-           <td><span >{{program.programDate}}</span></td>
-           <td><button class="btn btn-success"  [routerLink]="['/programs/edit',program.programId]">Update</button>&nbsp;&nbsp;<button class="btn btn-danger" [routerLink]="['/programs/delete',program.programId]">Delete</button></td>
-           
+           <td><span >{{program.programDate | date:'longDate'}}</span></td>
+           <!-- <td><button mat-raised-button class="button-accept" [routerLink]="['/programs/edit',program.programId]">Update</button>&nbsp;&nbsp;<button class="btn btn-danger" [routerLink]="['/programs/delete',program.programId]">Delete</button></td> -->
+           <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/programs/edit',program.programId]">Update</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/programs/delete',program.programId]">Delete</button></td>
          </tr>
          
        </tbody>
