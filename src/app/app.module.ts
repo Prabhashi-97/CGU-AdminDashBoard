@@ -1,20 +1,33 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { LayoutModule } from './layout/layout.module';
+
+
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { ConsultantsModule } from './consultants/consultants.module';
-import { HttpClientModule } from '@angular/common/http';
+
+
+
+
+import { VacanciesModule } from './vacancies/vacancies.module';
+
 import {MatListModule} from '@angular/material/list';
-import { ConsultationRequestsModule } from './consultation-requests/consultation-requests.module';
+import {MatTableModule} from '@angular/material/table';
+import { AppRoutingModule } from './app-routing.module';
+
+
+import { ProgramsModule } from './programs/programs.module';
+import {HttpClientModule} from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CompanySessionsModule} from './company-sessions/company-sessions.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,10 +37,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LayoutModule,
     HttpClientModule,
     ConsultantsModule,
-    ConsultationRequestsModule,
+    
     MatListModule,
     NgbModule,
     
+    VacanciesModule,
+ 
+  
+    MatTableModule,
+    ProgramsModule,
+    
+    NgbModule,
+    CompanySessionsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
