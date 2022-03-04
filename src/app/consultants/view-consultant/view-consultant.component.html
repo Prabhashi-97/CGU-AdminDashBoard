@@ -1,24 +1,27 @@
-<mat-card *ngFor="let consultant of consultantDetails?.data">
-    <mat-card-title>{{consultant.consultantFName +" "+consultant.consultantLName}}</mat-card-title>
-  
-    <mat-card-content>
-      <p>{{ consultant.universityName }}</p>
-      <p>{{ consultant.post }}</p>
-      <p>{{ consultant.email }}</p>
+<div class="user-Details">
+<mat-card *ngFor="let consultant of consultantDetails?.data" >
+    <mat-card-title class="header">{{consultant.consultantFName +" "+consultant.consultantLName}}</mat-card-title>
+  <br><br>
+  <div class="content">
+    <mat-card-content >
+      <b>University:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ consultant.universityName }}<br><br>
+      <b>Consultant's Post:</b>&nbsp;&nbsp;&nbsp;{{ consultant.post }}<br><br>
+      <b>Email Address:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ consultant.email }}<br><br>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-raised-button color="primary">
+    <mat-card-actions class="text-right action-link">
+      <button mat-raised-button class="button-update" color="primary">
         <a
           class="action-link"
           [routerLink]="['/consultants/update', consultantId]"
           >Update</a>
       </button>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button class="button-delete" color="warn">
         <a
           class="action-link"
           [routerLink]="['/consultants/delete', consultantId]"
           >Delete</a>
       </button>
     </mat-card-actions>
+  </div>
   </mat-card>
-  
+</div>

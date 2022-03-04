@@ -1,48 +1,48 @@
-<h1 class="topics">Consultants List</h1>
-<div class="topics">
-    <button mat-raised-button color="primary" ><a href="consultants/add" class="action-link">Add New Consultant</a></button>
-</div>
-<br>
+<div class="margin">
+ <br><h1 class="heading"><b>Consultants</b></h1><br>
+
+    <button class="btn btn-info" [routerLink]="['/consultants/add']">Add New Consultant</button>
 
 
-    <mat-card>
+
+
+    <mat-card class="card" role="list">
         
-        <mat-card-content>
-            
-        <br>
-            <mat-list role="list">
-    
-    
-            <table>
-                
+        <h1>All Consultants</h1>
+            <table class="table table-hover">
+                <thead>
                 <tr>
-                    <td class="table-header">Consultant Name</td>
-                    <td class="table-header">University Name</td>
-                    <td class="table-header">Post</td>
-                    <td class="table-header">Email</td>
-                    <td class="table-header" >Action</td>
+                    <th scope="col">Consultant Name</th>
+                    <th scope="col">University Name</th>
+                    <th scope="col">Post</th>
+                    <th scope="col">Email</th>
+                    <th scope="col" >Action</th>
           
                 </tr>
-                <br>
-             
-               
+                </thead>
+                <tbody>
                     <tr *ngFor="let consultant of listConsultants?.data">
-                        <td><mat-list-item role="listitem" class="username"><a class="consultantName" [routerLink]="['/consultants/view',consultant.consultantId]">{{consultant.consultantFName +" "+consultant.consultantLName}}</a></mat-list-item></td>
-                        <td><mat-list-item role="listitem" class="username">{{consultant.universityName}}</mat-list-item></td>
-                        <td><mat-list-item role="listitem" class="username">{{consultant.post}}</mat-list-item></td>
-                        <td><mat-list-item role="listitem" class="username">{{consultant.email}}</mat-list-item></td>
-                        <td><button mat-raised-button color="primary"><a class="action-link" [routerLink]="['/consultants/update',consultant.consultantId]">Update</a></button>
-                            <button mat-raised-button color="primary"><a class="action-link" [routerLink]="['/consultants/delete',consultant.consultantId]">Delete</a></button>
+                        <td width="220px"><span class="consultantname"><a class="action-link" [routerLink]="['/consultants/view',consultant.consultantId]">{{consultant.consultantFName +" "+consultant.consultantLName}}</a></span></td>
+                        <td width="200px" ><span>{{consultant.universityName}}</span></td>
+                        <td width="250px" ><span>{{consultant.post}}</span></td>
+                        <td><span>{{consultant.email}}</span></td>
+                        <td><button mat-raised-button class="button-update" color="primary" [routerLink]="['/consultants/update',consultant.consultantId]">Update</button>&nbsp;&nbsp;
+                            <button mat-raised-button class="button-delete" color="warn" [routerLink]="['/consultants/delete',consultant.consultantId]">Delete</button>
                         </td>
                         
                     </tr>
+                </tbody>
+               
+                    
                    
              
                 
             </table>
               
-      </mat-list>  
-    </mat-card-content>
+   
     </mat-card>
-    
+  </div>  
 
+
+
+ 

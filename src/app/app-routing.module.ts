@@ -22,6 +22,7 @@ import { ListAcceptedRequestsComponent } from './company-sessions/list-accepted-
 
 
 
+
   
 
   
@@ -67,7 +68,7 @@ children: [
 },
 {path:'consultants',
     children:[
-      {path: '', component:ListConsultantsComponent},
+      // {path: '', component:ListConsultantsComponent},
       {path: 'list', component:ListConsultantsComponent},
       {path: 'view/:consultantId', component:ViewConsultantComponent},
       {path: 'delete/:consultantId', component:DeleteConsultantComponent},
@@ -75,6 +76,7 @@ children: [
       {path: 'add', component: AddConsultantComponent},
     ]
   },
+
   
 ];
 

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { ConsultantService } from 'src/app/services/consultant.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-add-consultant',
@@ -12,8 +15,8 @@ export class AddConsultantComponent implements OnInit {
 
   addConsultantForm: FormGroup =new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder, private consultantService:ConsultantService,
-    private _snackBar: MatSnackBar) { }
+
+  constructor(private formBuilder: FormBuilder, private consultantService:ConsultantService, private router: Router,private  _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.addConsultantForm=this.formBuilder.group({
@@ -26,11 +29,27 @@ export class AddConsultantComponent implements OnInit {
   }
 
   createConsultant(){
+    
     this.consultantService.addConsultant(this.addConsultantForm.value).subscribe(data =>{
-      this._snackBar.open("Consultant Added Successfully!");
+      
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Consultant Created Successfully',
+        showConfirmButton: false,
+        timer: 1500
+      });
+      
     },err =>{
-      this._snackBar.open("Unable to Add Consultant!");
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Unable to Create Consultant',
+        showConfirmButton: false,
+        timer: 1500
+      });
     })
+    this.router.navigate(["/consultants/list"]);
   }
 
 }
