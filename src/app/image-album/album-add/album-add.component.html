@@ -1,0 +1,17 @@
+<h2>Create a New Album</h2>
+<form (ngSubmit)="createNewAlbum()">
+    <!-- <form [formGroup]="addAlbumForm" (ngSubmit)="createNewAlbum()"></form> -->
+    <label>Album Name : </label>
+    <input type="text" formControlName="name" placeholder="Enter the album Name here "><br>
+
+    <label>Description : </label>
+    <input type="text" formControlName="description" placeholder="Description "><br><br>
+
+    <div>
+        <input type="file" (change)="onFileSelected($event)">
+        <!-- <button (click)="onUpload()">Upload </button> -->
+        <br><br>
+    </div>
+
+    <button>Create Album</button>
+</form>

@@ -1,0 +1,7 @@
+<h2>Photo Album</h2>
+<button (click)="addAlbumCall()">Add Album</button>
+
+<!-- <mat-card class="card" role="list"> -->
+<app-album *ngFor="let album of listOfAlbums.data" [album]="album">
+</app-album>
+<!-- </mat-card> -->
