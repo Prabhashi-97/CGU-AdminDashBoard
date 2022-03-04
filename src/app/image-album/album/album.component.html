@@ -1,0 +1,6 @@
+<h2>{{album?.name}}</h2>
+<p>{{album?.description}}</p>
+
+<button><a routerLink="view/:id"> View Album</a></button> |
+<button><a routerLink="edit/:id">Update Album</a> </button> |
+<button><a routerLink="delete/:id" (click)="onDelete()">Delete Album</a></button>
