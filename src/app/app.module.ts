@@ -9,6 +9,8 @@ import { LayoutModule } from './layout/layout.module';
 import { ConsultantsModule } from './consultants/consultants.module';
 import { HttpClientModule } from '@angular/common/http';
 import {MatListModule} from '@angular/material/list';
+import { ConsultationRequestsModule } from './consultation-requests/consultation-requests.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,10 @@ import {MatListModule} from '@angular/material/list';
     LayoutModule,
     HttpClientModule,
     ConsultantsModule,
-    MatListModule
+    ConsultationRequestsModule,
+    MatListModule,
+    NgbModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
