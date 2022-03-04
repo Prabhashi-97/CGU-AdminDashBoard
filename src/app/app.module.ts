@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -29,8 +30,7 @@ import { CompanySessionsModule } from './company-sessions/company-sessions.modul
     VacanciesModule,
     MatTableModule,
     ProgramsModule,  
-    NgbModule,
-    CompanySessionsModule,
+    CompanySessionsModule, NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
