@@ -5,6 +5,8 @@ import { CommonModule } from "@angular/common";
 import { ActivatedRoute } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import {AfterViewInit, ViewChild} from '@angular/core';
+import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +20,7 @@ export class ListVacanciesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  constructor(private activatedRoute: ActivatedRoute,private VacancyService : VacancyService) { }
+  constructor(private activatedRoute: ActivatedRoute,private VacancyService : VacancyService, private router: Router) { }
 
   ngAfterViewInit() {
     this.listVacancies.paginator = this.paginator;
@@ -38,7 +40,9 @@ export class ListVacanciesComponent implements OnInit {
     });
       
     }
+     
   }
+  
 
 
 

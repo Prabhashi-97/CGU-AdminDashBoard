@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { VacancyService } from 'src/app/services/vacancy.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-delete-vacancies',
@@ -14,20 +14,65 @@ import { Router } from '@angular/router';
 export class DeleteVacanciesComponent implements OnInit {
   vacancyId: string = '';
  constructor(private activatedRoute: ActivatedRoute, private VacancyService : VacancyService,
- private _snackBar: MatSnackBar, private router: Router) { }
+ private router: Router) { }
 
  ngOnInit(): void {
    this.activatedRoute.params.subscribe(data => {
       this.vacancyId = data.vacancyId;
       console.log(this.vacancyId);
    });
-   if(this.vacancyId){
-     this.VacancyService.deleteVacancies(this.vacancyId).subscribe(data => {
-           this._snackBar.open("Vacancy deleted successfully");
-     },err => {
-       this._snackBar.open("Unable to delete");
-      })
-   }
+
+   const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger',   
+    },
+    buttonsStyling: true,
+    confirmButtonColor: 'limegreen',
+    cancelButtonColor:'red'
+  })
+
+
+  swalWithBootstrapButtons.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, delete it!',
+    cancelButtonText: 'No, cancel!',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      if(this.vacancyId){
+        this.VacancyService.deleteVacancies(this.vacancyId).subscribe(data => {
+         Swal.fire({
+           position: 'center',
+           icon: 'success',
+           title: 'Vacancy deleted successfully',
+           showConfirmButton: true,  
+           buttonsStyling: true,
+           confirmButtonColor: 'limegreen',    
+         })
+        },err => {
+         Swal.fire({
+           position: 'center',
+           icon: 'error',
+           title: 'Unable to Create Vacancy',
+           showConfirmButton: true,   
+         })
+         })
+      }
+    } else if (
+      result.dismiss === Swal.DismissReason.cancel
+    ) {
+      swalWithBootstrapButtons.fire(
+        'Cancelled',
+        '',
+        'error'
+      )
+    }
+  })
      this.router.navigateByUrl('/vacancies/list');
   }
  }
