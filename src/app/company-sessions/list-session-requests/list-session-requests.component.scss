@@ -3,11 +3,16 @@
 }
 
 .action-link{
+    min-width: 300px;
     padding: 10px;
+    color: black;
+    text-decoration: none;
 }
 
 .heading{
     text-decoration-color: black;
+    padding-top: 10px;
+    // padding-left: 30px;
 }
 
 .card{
@@ -16,6 +21,16 @@
 }
 
 .sessionTopic{
-    min-width: 500px;
+    min-width: 15px;
     font-size: 16px;
+    text-decoration-color: black;
 }
+
+.button-reject{
+    margin-left: 20px;
+}
+
+.button-accept{
+    background-color: limegreen;
+}
+

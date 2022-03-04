@@ -7,6 +7,7 @@ import { UpdateSessionRequestComponent } from './update-session-request/update-s
 import {RouterModule} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { ListAcceptedRequestsComponent } from './list-accepted-requests/list-accepted-requests.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
@@ -21,7 +22,8 @@ import { ListAcceptedRequestsComponent } from './list-accepted-requests/list-acc
   imports: [
     CommonModule,
     RouterModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ]
 })
 export class CompanySessionsModule { }
