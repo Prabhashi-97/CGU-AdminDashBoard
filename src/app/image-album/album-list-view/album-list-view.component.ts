@@ -7,7 +7,7 @@ import { AlbumService } from 'src/app/services/album.service';
 @Component({
   selector: 'app-album-list-view',
   templateUrl: './album-list-view.component.html',
-  styleUrls: ['./album-list-view.component.css'],
+  styleUrls: ['./album-list-view.component.scss'],
 })
 export class AlbumListViewComponent implements OnInit {
   listOfAlbums: any;
