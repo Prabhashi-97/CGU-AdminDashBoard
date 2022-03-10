@@ -12,7 +12,7 @@ import { AlbumService } from 'src/app/services/album.service';
 @Component({
   selector: 'app-album-add',
   templateUrl: './album-add.component.html',
-  styleUrls: ['./album-add.component.css'],
+  styleUrls: ['./album-add.component.scss'],
 })
 export class AlbumAddComponent implements OnInit {
   selectedFile: any;
@@ -46,7 +46,7 @@ export class AlbumAddComponent implements OnInit {
         console.log(err);
       }
     );
-    this.router.navigate(['/list']);
+    this.router.navigate(['./image-album/list']);
   }
 
   onFileSelected(event: any) {

@@ -19,69 +19,76 @@ import { ListProgramsComponent } from './programs/list-programs/list-programs.co
 import { UpdateProgramsComponent } from './programs/update-programs/update-programs.component';
 import { ViewProgramComponent } from './programs/view-program/view-program.component';
 import { ListAcceptedRequestsComponent } from './company-sessions/list-accepted-requests/list-accepted-requests.component';
-
-
-
-
-  
-
-  
-
-
-
-
- 
-
+import { AlbumListViewComponent } from './image-album/album-list-view/album-list-view.component';
+import { AlbumAddComponent } from './image-album/album-add/album-add.component';
+import { AlbumViewComponent } from './image-album/album-view/album-view.component';
+import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
+import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
 
 const routes: Routes = [
-  {path: 'programs',
-    children:[
-      {path: '', component: ListProgramsComponent},
-      {path: 'list', component: ListProgramsComponent},
-      {path: 'delete/:programId', component: DeleteProgramComponent},
-      {path: 'edit/:programId', component:UpdateProgramsComponent},
-      {path: 'view/:programId', component: ViewProgramComponent},
-      {path: 'create', component: AddProgramComponent},
-    ]
-},
-
-{path: 'company-sessions',
-    children:[
-      {path: '', component: ListSessionRequestsComponent},
-      {path: 'list', component: ListSessionRequestsComponent},
-      {path: 'delete/:sessionId', component: DeleteSessionRequestComponent},
-      {path: 'edit/:sessionId', component:UpdateSessionRequestComponent},
-      {path: 'view/:sessionId', component: ViewSessionRequestComponent},
-      {path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
-    ]
-}, 
-
- 
-{path: 'vacancies',
-children: [
-  {path: '', component: ListVacanciesComponent},
-  {path: 'list', component: ListVacanciesComponent},
-  {path: 'delete/:vacancyId', component: DeleteVacanciesComponent},
-  {path: 'view/:vacancyId', component: ViewVacancyComponent},
-  {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
-]
-},
-{path:'consultants',
-    children:[
-      // {path: '', component:ListConsultantsComponent},
-      {path: 'list', component:ListConsultantsComponent},
-      {path: 'view/:consultantId', component:ViewConsultantComponent},
-      {path: 'delete/:consultantId', component:DeleteConsultantComponent},
-      {path: 'update/:id', component:UpdateConsultantComponent},
-      {path: 'add', component: AddConsultantComponent},
-    ]
+  {
+    path: 'programs',
+    children: [
+      { path: '', component: ListProgramsComponent },
+      { path: 'list', component: ListProgramsComponent },
+      { path: 'delete/:programId', component: DeleteProgramComponent },
+      { path: 'edit/:programId', component: UpdateProgramsComponent },
+      { path: 'view/:programId', component: ViewProgramComponent },
+      { path: 'create', component: AddProgramComponent },
+    ],
   },
 
-  
+  {
+    path: 'company-sessions',
+    children: [
+      { path: '', component: ListSessionRequestsComponent },
+      { path: 'list', component: ListSessionRequestsComponent },
+      { path: 'delete/:sessionId', component: DeleteSessionRequestComponent },
+      { path: 'edit/:sessionId', component: UpdateSessionRequestComponent },
+      { path: 'view/:sessionId', component: ViewSessionRequestComponent },
+      {
+        path: 'view/accepted/:sessionId',
+        component: ListAcceptedRequestsComponent,
+      },
+    ],
+  },
+
+  {
+    path: 'vacancies',
+    children: [
+      { path: '', component: ListVacanciesComponent },
+      { path: 'list', component: ListVacanciesComponent },
+      { path: 'delete/:vacancyId', component: DeleteVacanciesComponent },
+      { path: 'view/:vacancyId', component: ViewVacancyComponent },
+      { path: 'accept/:vacancyId', component: AcceptVacanciesComponent },
+    ],
+  },
+  {
+    path: 'consultants',
+    children: [
+      // {path: '', component:ListConsultantsComponent},
+      { path: 'list', component: ListConsultantsComponent },
+      { path: 'view/:consultantId', component: ViewConsultantComponent },
+      { path: 'delete/:consultantId', component: DeleteConsultantComponent },
+      { path: 'update/:id', component: UpdateConsultantComponent },
+      { path: 'add', component: AddConsultantComponent },
+    ],
+  },
+  {
+    path: 'image-album',
+    children: [
+      { path: '', component: AlbumListViewComponent },
+      { path: 'list', component: AlbumListViewComponent },
+      { path: 'create', component: AlbumAddComponent },
+      { path: 'delete/:albumId', component: AlbumDeleteComponent },
+      { path: 'edit/:albumId', component: AlbumEditComponent },
+      { path: 'view/:albumId', component: AlbumViewComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
