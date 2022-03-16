@@ -1,0 +1,55 @@
+<div class="margin">
+    <br><br>
+    <h1 class="heading"><b> Consultation Requests</b></h1>
+<mat-card class="card" role="list">
+<table  class="table table-borderless">
+    <thead>
+      <tr>
+        
+        <th scope="col">Session Topic</th>
+        <th scope="col">Session Date</th>
+        <th scope="col">Target Group</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of listConsultationRequests">
+        
+        <!-- <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view',request.sessionId]">{{request.sessionTopic}}</a></span></td> -->
+        <td width="250px" ><span>{{request.sessionDate}}</span></td>
+        <td><span >{{request.TargetGroup}}</span></td>
+        <!-- <td><button class="btn btn-success"  [routerLink]="['/company-sessions/view',request.sessionId]">View Details</button></td> -->
+      
+      </tr>
+      
+    </tbody>
+  </table >
+</mat-card>
+  <br><br>
+
+
+  <!-- <h1 class="heading"><b>Accepted Requests</b></h1>
+  <mat-card class="card" role="list">
+  <table  class="table table-borderless">
+    <thead>
+      <tr>
+     
+        <th scope="col">Session Topic</th>
+        <th scope="col">Session Date</th>
+        <th scope="col">Target Group</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let request of listSessionAcceptedRequests">
+        
+        <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view',request.sessionId]">{{request.sessionTopic}}</a></span></td>
+        <td width="250px" ><span>{{request.sessionDate}}</span></td>
+        <td><span >{{request.TargetGroup}}</span></td>
+        <td><button class="btn btn-success"  [routerLink]="['/company-sessions/view/accepted',request.sessionId]">View Details</button></td>
+      </tr>
+      
+    </tbody>
+  </table>
+  </mat-card> -->
+</div>

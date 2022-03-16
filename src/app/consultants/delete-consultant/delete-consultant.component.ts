@@ -28,7 +28,9 @@ export class DeleteConsultantComponent implements OnInit {
         confirmButton: 'btn btn-success',
         cancelButton: 'btn btn-danger'
       },
-      buttonsStyling: false
+      buttonsStyling: true,
+        confirmButtonColor: '#40A53C',
+        cancelButtonColor: '#C7083F '
     })
     
     swalWithBootstrapButtons.fire({
@@ -43,16 +45,31 @@ export class DeleteConsultantComponent implements OnInit {
       if (result.isConfirmed) {
         if(this.consultantId){
           this.consultantService.deleteConsultant(this.consultantId).subscribe(data =>{ 
-            swalWithBootstrapButtons.fire(
-              'Deleted!',
-              'Consultant has been deleted.',
-              'success'
+            swalWithBootstrapButtons.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Deleted!',
+              text:'Consultant Deleted Successfully!',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 2500
+            }
+              // 'Deleted!',
+              // 'Consultant has been deleted.',
+              // 'success'
             )
         }, err =>{
-          swalWithBootstrapButtons.fire(
-            'Unable to Delete!',
-            'Consultant cannot be deleted.',
-            'error'
+          swalWithBootstrapButtons.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Unable to Delete Consultant!',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 2500
+          }
+            // 'Unable to Delete!',
+            // 'Consultant cannot be deleted.',
+            // 'error'
           )
         })
           

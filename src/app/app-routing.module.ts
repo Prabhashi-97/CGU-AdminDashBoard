@@ -24,6 +24,7 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
+import { ListConsultationRequestsComponent } from './consultation-sessions/list-consultation-requests/list-consultation-requests.component';
 
 const routes: Routes = [
   {
@@ -70,8 +71,16 @@ const routes: Routes = [
       { path: 'list', component: ListConsultantsComponent },
       { path: 'view/:consultantId', component: ViewConsultantComponent },
       { path: 'delete/:consultantId', component: DeleteConsultantComponent },
-      { path: 'update/:id', component: UpdateConsultantComponent },
+      { path: 'update/:consultantId', component: UpdateConsultantComponent },
       { path: 'add', component: AddConsultantComponent },
+    ],
+  },
+  {
+    path: 'consultation-session',
+    children: [
+      // {path: '', component:ListConsultantsComponent},
+      { path: 'list', component: ListConsultationRequestsComponent },
+      
     ],
   },
   {

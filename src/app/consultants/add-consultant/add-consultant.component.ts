@@ -35,18 +35,21 @@ export class AddConsultantComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Consultant Created Successfully',
+        title: 'Added!',
+        text:'Consultant Added Successfully!',
         showConfirmButton: false,
-        timer: 1500
+        timerProgressBar: true,
+        timer: 2500
       });
       
     },err =>{
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'Unable to Create Consultant',
+        title: 'Unable to Add Consultant!',
         showConfirmButton: false,
-        timer: 1500
+        timerProgressBar: true,
+        timer: 2500
       });
     })
     this.router.navigate(["/consultants/list"]);

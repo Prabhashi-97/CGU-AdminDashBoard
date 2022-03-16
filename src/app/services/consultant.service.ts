@@ -25,7 +25,8 @@ export class ConsultantService {
   deleteConsultant(consultantId: any){
     return this.http.delete(this.baseUrl+'consultants/delete/'+ consultantId);
   }
-  updateConsultant(id: any, consultantObj: any){
-    return this.http.put(this.baseUrl +'consultants/update/'+id, consultantObj);
+  updateConsultant(consultantId: any, consultantObj: any){
+    console.log(consultantId);
+    return this.http.put(this.baseUrl +'consultants/update/'+consultantId, consultantObj);
   }
 }

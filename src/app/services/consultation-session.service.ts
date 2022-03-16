@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ConsultationRequestsService {
+export class ConsultationSessionService {
   baseUrl: string = 'http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
-  listPendingConsultationRequests(){
-    return this.http.get(this.baseUrl+ 'consultationRequests/list');
+  listConsultationRequests(){
+    return this.http.get(this.baseUrl+ 'consultation-session/list');
       
   }
   // viewConsultant(consultantId: string){
