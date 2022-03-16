@@ -27,6 +27,7 @@ export class ListVacanciesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.VacancyService.listPendingVacancies().subscribe(data =>{
       this.listVacancies = data as String[];
       console.log(this.listVacancies);
@@ -40,6 +41,7 @@ export class ListVacanciesComponent implements OnInit {
     });
       
     }
+    
      
   }
   

@@ -18,16 +18,18 @@ export class VacancyService {
     return this.http.get(this.baseurl +'vacancies/' + vacancyId);
   }
 
-  addVacancies(vacancyObj: any){
-     return this.http.post(this.baseurl + 'vacancies/' ,vacancyObj );
-  }
+  // addVacancies(vacancyObj: any){
+  //    return this.http.post(this.baseurl + 'vacancies/' ,vacancyObj );
+  // }
 
   deleteVacancies(vacancyId: any){
     return this.http.delete(this.baseurl + 'vacancies/' + vacancyId);
   }
 
-  acceptVacancies(vacancyId: any){
-    return this.http.put(this.baseurl + 'vacancies/'  , vacancyId);
+  acceptVacancies(vacancyId: any,vacancyObj: any){
+    console.log(vacancyId);
+    console.log(vacancyObj);
+    return this.http.put(this.baseurl + 'vacancies/'+vacancyId, vacancyObj);
   }
 
   listPendingVacancies(){

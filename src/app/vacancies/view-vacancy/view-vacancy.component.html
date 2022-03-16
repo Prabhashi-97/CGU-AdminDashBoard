@@ -1,15 +1,20 @@
-<mat-card class = "user-details" *ngFor = "let vacancy of VacancyDetails.data"    > 
+<mat-card class = "card" *ngFor = "let vacancy of VacancyDetails.data"    > 
     <p></p>
-    <mat-card-title class="title">Company Name</mat-card-title> 
-    <mat-card-content class="content">{{vacancy.companyName}}</mat-card-content>
-    <mat-card-title class="title">Company Email</mat-card-title>
-    <mat-card-content class="content">{{vacancy.companyEmail}}</mat-card-content>
-    <mat-card-title class="title">Vacancy Title</mat-card-title>
-    <mat-card-content class="content">{{vacancy.vacancyTitle}}</mat-card-content>
-    <mat-card-title class="title">Vacancy Description</mat-card-title>
+    <!-- <mat-card-title class="title">Vacancy Title</mat-card-title> -->
+    <mat-card-title-group>
+       <mat-card-title >{{vacancy.vacancyTitle}}</mat-card-title>
+    <!-- <mat-card-title class="title">Company Name:</mat-card-title>  -->
+       <mat-card-subtitle >{{vacancy.companyName}}</mat-card-subtitle>
+    </mat-card-title-group>
+
+    <mat-card-title class="title"></mat-card-title>
+    <mat-card-content class="content"><b>Deadline : </b>  {{vacancy.closingDate| date:'MM/dd/yyyy'}}</mat-card-content>
+    <mat-card-title class="title"></mat-card-title>
+    <mat-card-content class="content"><b>Company Email  :</b>  {{vacancy.companyEmail}}</mat-card-content>
+    
+    <mat-card-content class="title"><b>Vacancy Description :  </b></mat-card-content>
     <mat-card-content class="content">{{vacancy.vacancyDesc}}</mat-card-content>
-    <mat-card-title class="title">Application Closing Date</mat-card-title>
-    <mat-card-content class="content">{{vacancy.closingDate}}</mat-card-content>
+    
     <!-- <button mat-raised-button color="primary" [routerLink] = "['/vacancies/accept',VacancyDetails[0].vacancyId]">Accept</button> -->
     <button mat-raised-button class="button1" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button> 
     <button mat-raised-button class = " button"color="warn" [routerLink] = "['/vacancies/delete',vacancy.vacancyId]">Reject</button>
