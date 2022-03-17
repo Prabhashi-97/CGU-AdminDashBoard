@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProgramService} from 'src/app/services/program.service';
+import Swal from 'sweetalert2'
 
 
 
@@ -34,10 +35,25 @@ export class AddProgramComponent implements OnInit {
 
   createProgram(){
     this.ProgramService.addProgram(this.addProgramForm.value).subscribe(data =>{
-      this._snackBar.open("Event Added Successfully");
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Added!',
+        text:'Event Added Successfully!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
       this.addProgramForm.reset(); 
     }, err =>{
-      this._snackBar.open("Unable to Add Event")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Unable to Add Event!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
     })
  
   }

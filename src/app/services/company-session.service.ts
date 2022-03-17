@@ -28,5 +28,13 @@ export class CompanySessionService {
   viewSession(id : String){
     return this.http.get(this.baseUrl + 'comSessions/'+ id );
   }
+
+  viewCompany(email : String){
+    return this.http.get(this.baseUrl + 'company/'+ email );
+  }
+
+  editSession(id:any, sessionObj :any){
+    return this.http.put(this.baseUrl+ 'comSessions/' + id, sessionObj );
+  }
 }
 

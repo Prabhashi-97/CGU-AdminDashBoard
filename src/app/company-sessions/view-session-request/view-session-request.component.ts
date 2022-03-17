@@ -12,6 +12,7 @@ export class ViewSessionRequestComponent implements OnInit {
 
   sessionId: String="";
   sessionDetails:any;
+  companyDetails:any;
   router: any;
   constructor(private CompanySessionService  : CompanySessionService, private activatedRoute: ActivatedRoute) { }
 
@@ -26,7 +27,20 @@ export class ViewSessionRequestComponent implements OnInit {
       
       this.sessionDetails=data;
       console.log(this.sessionDetails)
+      console.log(this.sessionDetails[0].companyEmail)
+
+      this.CompanySessionService.viewCompany(this.sessionDetails[0].companyEmail).subscribe(data => {
+      
+        this.companyDetails=data;
+        console.log(this.companyDetails)
+      })
     })
+
+    
+    
+    
+
+  
   }
 
 }

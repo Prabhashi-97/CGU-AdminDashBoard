@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProgramService } from 'src/app/services/program.service';
 import {FormBuilder,FormControl,FormGroup} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-update-programs',
@@ -71,11 +72,26 @@ export class UpdateProgramsComponent implements OnInit {
 
     };
     this.programService.editProgram(this.programId,obj).subscribe(data =>{
-      console.log(obj)
-      this._snackBar.open("Event Updated Successfully");
+      // console.log(obj)
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Updated!',
+        text:'Event Updated Successfully!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
       this.router.navigateByUrl('programs/list');
     }, err =>{
-      this._snackBar.open("Unable to Update Event")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Unable to Update Event!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
     })
   }
 

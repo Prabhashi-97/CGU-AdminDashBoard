@@ -1,6 +1,6 @@
 
     <mat-card class="form-card">
-        <mat-card-title>Update Event</mat-card-title><br>
+        <mat-card-title class="title">Update Event</mat-card-title><br>
         <mat-card-content>
             <div *ngIf="dataLoaded"> 
             <form [formGroup]="editProgramForm" (ngSubmit)="updateProgram()">
@@ -10,23 +10,30 @@
                     <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onSelectFile($event)"   formContrlName="event-image"><br><br> 
                 </mat-form-field> -->
         
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Event Name</mat-label>
                     <input type="text" matInput  formControlName="programName" >
-                </mat-form-field>
+                </mat-form-field><br><br>
 
-            <mat-form-field class="example-full-width" appearance="fill">
+            <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Event Date</mat-label>
                     <input type="date" matInput  formControlName="programDate"> 
-                </mat-form-field> 
+                </mat-form-field> <br><br>
                 
-                <mat-form-field class="example-full-width" appearance="fill">
+                <!-- <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Event Category-1</mat-label>
                     <input type="text" matInput formControlName="programCat" >
-                </mat-form-field>
+                </mat-form-field> -->
+            <!-- <input   type="text" matInput formControlName="programCat" > -->
+          <select class="custom-select" formControlName="programCat">
+            <option value="">Choose event category</option>
+            <option>CGU Event</option>
+            <option>Department Event</option>
+            <option>Workshop</option>
+          </select><br><br><br>
 
 
-                <mat-form-field class="example-full-width" appearance="fill">
+                <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Event Description</mat-label>
                     <textarea type="text" matInput formControlName="programDesc"></textarea>
                 </mat-form-field> 
@@ -38,4 +45,4 @@
         </mat-card-content>
     </mat-card>
 
-
+    

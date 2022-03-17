@@ -45,11 +45,9 @@ const routes: Routes = [
       { path: 'list', component: ListSessionRequestsComponent },
       { path: 'delete/:sessionId', component: DeleteSessionRequestComponent },
       { path: 'edit/:sessionId', component: UpdateSessionRequestComponent },
-      { path: 'view/:sessionId', component: ViewSessionRequestComponent },
-      {
-        path: 'view/accepted/:sessionId',
-        component: ListAcceptedRequestsComponent,
-      },
+      { path: 'view/pending/:sessionId', component: ViewSessionRequestComponent },
+      { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
+      
     ],
   },
 

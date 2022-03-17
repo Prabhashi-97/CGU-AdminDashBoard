@@ -20,14 +20,15 @@ export class DeleteProgramComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data=>{
       this.ProgramId=data.programId;
-    });
-    if(this.ProgramId){
+    })
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
         cancelButton: 'btn btn-danger'
       },
-      buttonsStyling: false
+      buttonsStyling: true,
+    confirmButtonColor: 'limegreen',
+    cancelButtonColor:'red'
     })
     
     swalWithBootstrapButtons.fire({
@@ -35,50 +36,53 @@ export class DeleteProgramComponent implements OnInit {
       text: "You won't be able to revert this!",
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, delete it!',
+      confirmButtonText: 'Yes, Delete!',
       cancelButtonText: 'No, cancel!',
       reverseButtons: true
     }).then((result) => {
-      if (result.isConfirmed) {
-
+      if (result.isConfirmed){
        
-      
+        if(this.ProgramId){
       
           this.ProgramService.deleteProgram(this.ProgramId).subscribe(data=>{
-            Swal.fire({
+            swalWithBootstrapButtons.fire({
               position: 'center',
               icon: 'success',
-              title: 'Event deleted successfully',
-              showConfirmButton: true,  
+              title: 'Deleted!',
+              text:'Event Deleted Successfully!',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 2500,
               buttonsStyling: true,
-              confirmButtonColor: 'limegreen',    
+              confirmButtonColor: 'limegreen', 
             })
           },err=>{
-            Swal.fire({
+            swalWithBootstrapButtons.fire({
               position: 'center',
               icon: 'error',
-              title: 'Unable to delete Event',
-              showConfirmButton: true,   
+              title: 'Unable to Delete Event!',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 2500
             })
-            })
-         
-       } else if (
-         result.dismiss === Swal.DismissReason.cancel
-       ) {
-         swalWithBootstrapButtons.fire(
-           'Cancelled',
-           '',
-           'error'
-         )
-       }
-     })
-  }
-     this.router.navigateByUrl('programs/list');    
-
-        
-
+          })
+            
+        }
+          
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            '',
+            'error'
+          )
+        }
+        this.router.navigateByUrl('/programs/list');
+      })
+      
+    }
     
-  }
-
-}
-
+    }
+    

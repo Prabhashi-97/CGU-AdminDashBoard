@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,8 @@ import { ImageAlbumModule } from './image-album/image-album.module';
     ProgramsModule,
     CompanySessionsModule,
     NgbModule,
+    ImageAlbumModule,
+    NgxPaginationModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
