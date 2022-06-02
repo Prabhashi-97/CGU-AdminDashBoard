@@ -39,7 +39,6 @@ export class AddProgramComponent implements OnInit {
     }, err =>{
       this._snackBar.open("Unable to Add Event")
     })
- 
   }
 
   onSelectFile(e: any){

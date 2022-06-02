@@ -19,21 +19,18 @@ import { ListProgramsComponent } from './programs/list-programs/list-programs.co
 import { UpdateProgramsComponent } from './programs/update-programs/update-programs.component';
 import { ViewProgramComponent } from './programs/view-program/view-program.component';
 import { ListAcceptedRequestsComponent } from './company-sessions/list-accepted-requests/list-accepted-requests.component';
-
-
-
-
-  
-
-  
-
-
-
-
- 
-
+import { AddAdministratorsComponent } from './administrators/add-administrators/add-administrators.component';
+import { ListAdministratorsComponent } from './administrators/list-administrators/list-administrators.component';
 
 const routes: Routes = [
+  
+  {path: 'admins',
+    children:[
+      {path: 'list', component: ListAdministratorsComponent},
+      {path: 'create', component: AddAdministratorsComponent },
+    ]
+},
+
   {path: 'programs',
     children:[
       {path: '', component: ListProgramsComponent},
