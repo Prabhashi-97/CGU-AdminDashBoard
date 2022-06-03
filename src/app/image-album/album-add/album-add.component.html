@@ -15,6 +15,14 @@
 
             </mat-form-field>
 
+            <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+
+            <div class="file-upload">
+                {{fileName || "No file uploaded yet."}}
+
+                <mat-icon color="primary">attach_file</mat-icon>
+            </div>
+
             <button mat-raised-button color="primary">
         Add Album
       </button>

@@ -32,6 +32,7 @@ import { ImageAlbumModule } from './image-album/image-album.module';
     ProgramsModule,
     CompanySessionsModule,
     NgbModule,
+    ImageAlbumModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

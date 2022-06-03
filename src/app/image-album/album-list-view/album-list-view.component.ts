@@ -12,7 +12,7 @@ export class AlbumListViewComponent implements OnInit {
   albumId: any;
   constructor(
     private albumService: AlbumService,
-    private router: Router,
+    // private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
 

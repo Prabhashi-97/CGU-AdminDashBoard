@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlbumService } from 'src/app/services/album.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-album-add',
@@ -15,6 +16,7 @@ import { AlbumService } from 'src/app/services/album.service';
   styleUrls: ['./album-add.component.scss'],
 })
 export class AlbumAddComponent implements OnInit {
+  fileName = '';
   selectedFile: any;
 
   addAlbumForm: FormGroup = new FormGroup({});
@@ -39,10 +41,22 @@ export class AlbumAddComponent implements OnInit {
   createNewAlbum() {
     this.albumService.createAlbum(this.addAlbumForm.value).subscribe(
       (data: any) => {
-        console.log(this.addAlbumForm.value);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Album Created Successfully',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       },
       (err: any) => {
-        console.log(err);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'Unable to Create Album',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       }
     );
     this.router.navigate(['./image-album/list']);

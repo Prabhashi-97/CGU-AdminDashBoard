@@ -10,6 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 @NgModule({
@@ -27,6 +28,7 @@ import { RouterModule } from '@angular/router';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     ReactiveFormsModule,
     RouterModule,
   ],
