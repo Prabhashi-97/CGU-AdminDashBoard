@@ -30,19 +30,16 @@ export class ListVacanciesComponent implements OnInit {
 
     this.VacancyService.listPendingVacancies().subscribe(data =>{
       this.listVacancies = data as String[];
-      console.log(this.listVacancies);
-      console.log(this.listVacancies.data.length);
+      // console.log(this.listVacancies);
+      // console.log(this.listVacancies.data.length);
     });
 
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{
       this.acceptedvacancies = data as String[];
       console.log(this.acceptedvacancies);
       console.log(this.acceptedvacancies.data.length);
-    });
-      
-    }
-    
-     
+    });    
+    }   
   }
   
 

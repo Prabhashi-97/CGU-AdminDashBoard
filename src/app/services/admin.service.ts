@@ -10,16 +10,12 @@ export class AdminService {
   baseUrl :string='http://localhost:3000/';
   constructor(private http: HttpClient) { }
 
-  // listAdmin(){
-  //   return this.http.get(this.baseUrl + 'programs/');
-  // }
-
-  // viewAdmin(id : String){
-  //   return this.http.get(this.baseUrl + 'programs/'+ id );
-  // }
+  listAdmin(){
+    return this.http.get(this.baseUrl + 'admins/');
+  }
 
   addAdmin(adminObj : any){
-    return this.http.post(this.baseUrl +'admin/', adminObj );
+    return this.http.post(this.baseUrl +'admins/', adminObj );
   }
 
   // deleteAdmin(id : any){

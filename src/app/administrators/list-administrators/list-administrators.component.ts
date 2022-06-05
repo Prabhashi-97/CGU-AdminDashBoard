@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
+
 
 @Component({
   selector: 'app-list-administrators',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-administrators.component.scss']
 })
 export class ListAdministratorsComponent implements OnInit {
-
-  constructor() { }
+  listadmins : any = [];
+  constructor(private AdminService : AdminService) { }
 
   ngOnInit(): void {
+    this.AdminService.listAdmin().subscribe(data =>{
+      this.listadmins = data as String[];
+    });
   }
 
 }

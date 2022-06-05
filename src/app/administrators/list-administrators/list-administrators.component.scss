@@ -1,19 +1,24 @@
 .heading{
     text-decoration-color: black;
     padding-top: 10px;
-    // padding-left: 30px;
+    padding-left: 30px;
 }
-.button-reject{
-    margin-left: 20px;
-}
-
-.button-accept{
-    background-color: limegreen;
+.btn{
+   margin-left: 10px;
 }
 
 .card{
-    margin-top: 30px;
+    margin-top: 30px ;
     margin-right: 30px;
     margin-left: 30px;
     background-color: white;
 }
+
+.name{
+    min-width: 15px;
+    font-size: 16px;
+}
+.email{
+    font-size: 16px;
+}
+

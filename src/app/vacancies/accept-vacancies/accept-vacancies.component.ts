@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { VacancyService } from 'src/app/services/vacancy.service';
 import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2'
 
 @Component({
@@ -16,7 +15,7 @@ export class AcceptVacanciesComponent implements OnInit {
   obj:any;
 
   constructor(private activatedRoute: ActivatedRoute, private VacancyService : VacancyService,
-  private _snackBar: MatSnackBar, private router: Router) { }
+  private router: Router) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
@@ -40,8 +39,7 @@ export class AcceptVacanciesComponent implements OnInit {
               title: 'Unable accept',
               showConfirmButton: false,
               timer: 1000
-           })
-         
+           }) 
            });
            this.router.navigateByUrl('/vacancies/list');
       }

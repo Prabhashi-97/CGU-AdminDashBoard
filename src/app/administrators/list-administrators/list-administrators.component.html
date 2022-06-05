@@ -1,28 +1,30 @@
 
 <h1 class="heading"><b>Administrators</b></h1><br>
 
-<button class="btn btn-info"  [routerLink]="['/admins/create']">Add New Administrator</button>
+<span class = "btn"> <button class="btn btn-info"[routerLink]="['/admins/create']">Add New Administrator</button></span> 
 
 <mat-card class="card"  role="list">
-    <!-- <h1 *ngIf ="listVacancies" >Pending vacancies ({{listVacancies.data.length}})</h1>
+  <h1>All Administrators</h1>
     <table  class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Vacancy Title</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Company Name</th>
-            <th scope="col">Action</th>
+            <th scope="col">Phone Number</th>
           </tr>
         </thead>
+
         <tbody>
-          <tr *ngFor= "let vacancy of listVacancies.data">
-            <td width="500px" ><span class="companyname"> <a class="action-link" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{ vacancy.vacancyTitle}}</a></span></td>
-            <td width="200px" ><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
-            <td><span>{{vacancy.companyName}}</span></td>
-            <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete',vacancy.vacancyId]" >Reject</button></td>       
+          <tr *ngFor= "let admin of listadmins.data">
+            <td width="250px" ><span class="name">{{admin.adminFName}}</span></td>
+            <td width="250px" ><span class="name">{{admin.adminLName}}</span></td>
+            <td width="200px" ><span class = "email">{{admin.email }}</span></td>
+            <td width="200px" ><span class = "email">{{admin.phone_number}}</span></td>
+            <!-- <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete',vacancy.vacancyId]" >Reject</button></td>-->
           </tr>     
         </tbody>
-        </table> -->
+        </table>
         <!-- <mat-paginator [length]="200" [pageSizeOptions]="[2,3,4]" aria-label="Select page">
         </mat-paginator> -->
       </mat-card>
