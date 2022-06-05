@@ -20,7 +20,7 @@ export class AlbumService {
   uploadImage(image: FormData) {
     return this.http.post(this.baseUrl, image);
   }
-  viewAlbum(id: string) {
+  viewAlbum(id: String) {
     // console.log(id);
     return this.http.get(this.baseUrl + '/' + id);
   }

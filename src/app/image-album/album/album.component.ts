@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Album } from '../album.model';
 import { ActivatedRoute } from '@angular/router';
+// import { count } from 'console';
 
 @Component({
   selector: 'app-album',
@@ -9,24 +10,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AlbumComponent implements OnInit {
   @Input() album?: Album;
-  @Input() albumId: any;
+  albumDetails: any;
+  albumId: any;
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.albumId = this.activatedRoute.snapshot.params.id;
+    this.activatedRoute.params.subscribe((data) => {
+      if (data !== undefined) {
+        this.albumDetails = data;
+        this.albumId = this.album?.album_id;
+        console.log(this.albumId);
+      }
+    });
   }
 
   onDelete() {
     console.log(this.album);
+    this.albumId = this.album?.album_id;
     console.log(this.albumId);
     console.log(`Delete called`);
   }
-
-  // onEdit() {
-  //   this.router.navigate(['/edit/:id', this.index]);
-  // }
-
-  // albumViewCall() {
-  //   this.router.navigate(['/view/:id', this.index]);
-  // }
 }

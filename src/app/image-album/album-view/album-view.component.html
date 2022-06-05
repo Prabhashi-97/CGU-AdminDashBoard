@@ -1,17 +1,17 @@
-<mat-card class="user-details" *ngIf="AlbumDetails">
-    <mat-card-title class="header">{{AlbumDetails[0].name}}</mat-card-title>
+<mat-card class="user-details" *ngIf="albumDetails">
+    <mat-card-title class="header">{{albumDetails[0].name}}</mat-card-title>
     <br><br>
     <div class="content">
         <mat-card-content>
-            <b>Description:</b>{{ AlbumDetails[0].description }}<br><br>
+            <b>Description:</b>{{ albumDetails[0].description }}<br><br>
 
         </mat-card-content>
         <mat-card-actions class="text-right action-link">
             <button mat-raised-button class="button-update" color="primary">
-        <a class="action-link" [routerLink]="['/image-album/edit', AlbumDetails[0].albumId]">Update</a>
+        <a class="action-link" [routerLink]="['/image-album/edit',albumId]">Update</a>
       </button>
             <button mat-raised-button class="button-delete" color="warn">
-        <a class="action-link" [routerLink]="['/image-album/delete', AlbumDetails[0].albumId]">Delete</a>
+        <a class="action-link" [routerLink]="['/image-album/delete', albumId]">Delete</a>
       </button>
         </mat-card-actions>
     </div>

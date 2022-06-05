@@ -19,12 +19,10 @@ export class AlbumDeleteComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((data) => {
-      this.albumId = data.id;
+      this.albumId = data.albumId;
     });
-    // this.albumService.deleteAlbum(this.albumId).subscribe((data) => {
-    //   this.AlbumDetails = data;
-    // });
 
+    console.log(this.albumId);
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -54,6 +52,7 @@ export class AlbumDeleteComponent implements OnInit {
                   'Album has been deleted.',
                   'success'
                 );
+                this.router.navigateByUrl('/image-album/list');
               },
               (err) => {
                 swalWithBootstrapButtons.fire(
@@ -70,7 +69,6 @@ export class AlbumDeleteComponent implements OnInit {
         ) {
           swalWithBootstrapButtons.fire('Cancelled', '', 'error');
         }
-        this.router.navigate(['/image-album/list']);
       });
   }
 }

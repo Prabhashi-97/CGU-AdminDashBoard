@@ -48,6 +48,7 @@ export class AlbumAddComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500,
         });
+        this.router.navigateByUrl('/image-album/list');
       },
       (err: any) => {
         Swal.fire({
@@ -59,7 +60,6 @@ export class AlbumAddComponent implements OnInit {
         });
       }
     );
-    this.router.navigate(['./image-album/list']);
   }
 
   onFileSelected(event: any) {
