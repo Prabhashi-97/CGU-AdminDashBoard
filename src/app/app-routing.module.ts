@@ -21,9 +21,19 @@ import { ViewProgramComponent } from './programs/view-program/view-program.compo
 import { ListAcceptedRequestsComponent } from './company-sessions/list-accepted-requests/list-accepted-requests.component';
 import { AddAdministratorsComponent } from './administrators/add-administrators/add-administrators.component';
 import { ListAdministratorsComponent } from './administrators/list-administrators/list-administrators.component';
+import { OverviewComponent } from './overview/overview/overview.component';
+import { ListCvComponent } from './vacancies/list-cv/list-cv.component';
+
+
 
 const routes: Routes = [
-  
+  {
+    path: 'overview',
+    children:[
+      {path: 'list', component: OverviewComponent},
+    ]
+  },
+
   {path: 'admins',
     children:[
       {path: 'list', component: ListAdministratorsComponent},
@@ -61,6 +71,7 @@ children: [
   {path: 'delete/:vacancyId', component: DeleteVacanciesComponent},
   {path: 'view/:vacancyId', component: ViewVacancyComponent},
   {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
+  {path: 'list/cv', component: ListCvComponent},
 ]
 },
 {path:'consultants',

@@ -18,6 +18,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ListCvComponent } from './list-cv/list-cv.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ViewVacancyComponent,
     ListVacanciesComponent,
     DeleteVacanciesComponent,
-    AcceptVacanciesComponent
+    AcceptVacanciesComponent,
+    ListCvComponent
   ],
   imports: [
     CommonModule,

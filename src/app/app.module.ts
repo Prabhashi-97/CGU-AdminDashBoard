@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
 import { AdministratorsModule } from './administrators/administrators.module';
+import { OverviewModule } from './overview/overview.module';
+
+
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { AdministratorsModule } from './administrators/administrators.module';
     MatTableModule,
     ProgramsModule,  
     CompanySessionsModule, NgbModule,
-    AdministratorsModule
+    AdministratorsModule,
+    OverviewModule
   ],
   providers: [],
   bootstrap: [AppComponent],
