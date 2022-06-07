@@ -30,6 +30,6 @@ export class AlbumService {
   }
 
   updateAlbum(id: any, albumObj: any) {
-    return this.http.put(this.baseUrl + id, albumObj);
+    return this.http.put(this.baseUrl + '/' + id, albumObj);
   }
 }

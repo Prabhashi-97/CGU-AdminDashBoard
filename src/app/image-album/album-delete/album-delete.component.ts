@@ -68,6 +68,7 @@ export class AlbumDeleteComponent implements OnInit {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire('Cancelled', '', 'error');
+          this.router.navigateByUrl('/image-album/list');
         }
       });
   }

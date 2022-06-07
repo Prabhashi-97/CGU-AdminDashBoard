@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AlbumService } from './../../services/album.service';
 import { ActivatedRoute } from '@angular/router';
-// import { Album } from '../album.model';
 
 @Component({
   selector: 'app-album-view',
@@ -10,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AlbumViewComponent implements OnInit {
   albumDetails: any;
-  // @Input() albumDetails: any;
+
   albumId: any;
   constructor(
     private albumService: AlbumService,
@@ -21,7 +20,6 @@ export class AlbumViewComponent implements OnInit {
     this.activatedRoute.params.subscribe((data) => {
       if (data !== undefined) {
         this.albumId = data.albumId;
-        // console.log(this.albumId);
       }
     });
     console.log(this.albumId);
