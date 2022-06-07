@@ -1,33 +1,91 @@
+<h1 class="heading margin"><b> Consultation Requests</b></h1>
 <div class="margin">
-    <br><br>
-    <h1 class="heading"><b> Consultation Requests</b></h1>
-<mat-card class="card" role="list">
-<table  class="table table-borderless">
-    <thead>
-      <tr>
-        
-        <th scope="col">Session Topic</th>
-        <th scope="col">Session Date</th>
-        <th scope="col">Target Group</th>
-        <th scope="col">Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let request of listConsultationRequests">
-        
-        <!-- <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view',request.sessionId]">{{request.sessionTopic}}</a></span></td> -->
-        <td width="250px" ><span>{{request.sessionDate}}</span></td>
-        <td><span >{{request.TargetGroup}}</span></td>
-        <!-- <td><button class="btn btn-success"  [routerLink]="['/company-sessions/view',request.sessionId]">View Details</button></td> -->
-      
-      </tr>
-      
-    </tbody>
-  </table >
-</mat-card>
-  <br><br>
+  <mat-card class="card" role="list">
+    <h1 *ngIf="listConsultationRequests">
+      Pending Consultation Requests ({{ listConsultationRequests.data.length }})
+    </h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Student Name</th>
+          <th scope="col">Faculty</th>
+          <th scope="col">Batch</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of listConsultationRequests?.data">
+          <td width="220px">
+            <span class="undergradname">{{
+              request.undergradFName + " " + request.undergradLName
+            }}</span>
+          </td>
+          <td width="200px">
+            <span>{{ request.faculty }}</span>
+          </td>
+          <td width="250px">
+            <span>{{ request.batch }}</span>
+          </td>
+          <td>
+            <span>{{ request.undergraduate_email }}</span>
+          </td>
+          <td>
+            <button mat-raised-button class="button-update" color="primary">
+              Send Email
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
 
-
+  <mat-card class="card2" role="list">
+    <h1 *ngIf="listScheduledSessions">
+      Scheduled Consultation Sessions ({{ listScheduledSessions.data.length }})
+    </h1>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Student Name</th>
+          <th scope="col">Faculty</th>
+          <th scope="col">Batch</th>
+          <th scope="col">Email Address</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Consultant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let session of listScheduledSessions?.data">
+          <td width="220px">
+            <span class="undergradname">{{
+              session.undergradFName + " " + session.undergradLName
+            }}</span>
+          </td>
+          <td >
+            <span>{{ session.faculty }}</span>
+          </td>
+          <td >
+            <span>{{ session.batch }}</span>
+          </td>
+          <td>
+            <span >{{ session.email }}</span>
+          </td>
+          <td>
+            <span>{{ session.sessionDate }}</span>
+          </td>
+          <td>
+            <span>{{ session.sessionTime }}</span>
+          </td>
+          <td>
+            <span>{{ session.consultantFName + " " + session.consultantLName }}</span>
+          </td>
+         
+        </tr>
+      </tbody>
+    </table>
+  </mat-card>
   <!-- <h1 class="heading"><b>Accepted Requests</b></h1>
   <mat-card class="card" role="list">
   <table  class="table table-borderless">

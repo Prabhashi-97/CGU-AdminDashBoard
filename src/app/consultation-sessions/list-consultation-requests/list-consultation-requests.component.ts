@@ -8,6 +8,7 @@ import { ConsultationSessionService } from 'src/app/services/consultation-sessio
 })
 export class ListConsultationRequestsComponent implements OnInit {
   listConsultationRequests: any;
+  listScheduledSessions: any;
   constructor(private consultationRequestService:ConsultationSessionService) { }
 
 
@@ -15,7 +16,13 @@ export class ListConsultationRequestsComponent implements OnInit {
     this.consultationRequestService.listConsultationRequests().subscribe(data=>{
       this.listConsultationRequests=data;
 
-    })
+    });
+
+    this.consultationRequestService.listScheduledSessions().subscribe(data=>{
+      this.listScheduledSessions=data;
+      console.log(this.listScheduledSessions);
+
+    });
   }
 
 }

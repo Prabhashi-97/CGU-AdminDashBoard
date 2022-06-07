@@ -9,8 +9,11 @@ export class ConsultationSessionService {
   constructor(private http: HttpClient) { }
 
   listConsultationRequests(){
-    return this.http.get(this.baseUrl+ 'consultation-session/list');
+    return this.http.get(this.baseUrl+ 'consultation-Requests/list');
       
+  }
+  listScheduledSessions(){
+    return this.http.get(this.baseUrl + 'scheduled-sessions/list');
   }
   // viewConsultant(consultantId: string){
   //   return this.http.get(this.baseUrl +'consultants/view/' + consultantId);

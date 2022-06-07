@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { ListConsultationRequestsComponent } from './list-consultation-requests/list-consultation-requests.component';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -13,6 +14,7 @@ import { ListConsultationRequestsComponent } from './list-consultation-requests/
   imports: [
     CommonModule,
     MatCardModule,
+    MatButtonModule,
  
   ]
 })
