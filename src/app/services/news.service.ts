@@ -1,16 +1,5 @@
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class NewsService {
-
-//   constructor() { }
-// }
-
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
 
 @Injectable({
   providedIn: 'root'
@@ -25,20 +14,23 @@ export class NewsService {
     return this.http.get(this.baseUrl + 'news/');
   }
 
-//   viewProgram(id : String){
-//     return this.http.get(this.baseUrl + 'programs/'+ id );
-//   }
-
-  addNews(programObj : any){
-    return this.http.post(this.baseUrl +'news/', programObj );
+  viewNews(id : String){
+    return this.http.get(this.baseUrl + 'news/'+ id );
   }
 
-//   deleteProgram(id : any){
-//     return this.http.delete(this.baseUrl+ 'programs/'+ id );
-//   }
+  addNews(newsObj : any){
+    return this.http.post(this.baseUrl +'news/', newsObj );
+  }
 
-//   editProgram(id:any, programObj :any){
-//     return this.http.put(this.baseUrl+ 'programs/' + id, programObj );
-//   }
- }
+  deleteNews(id : any){
+    return this.http.delete(this.baseUrl+ 'news/'+ id );
+  }
 
+  UpdateNews(id:any, newsObj :any){
+    return this.http.put(this.baseUrl+ 'news/' + id, newsObj );
+  }
+
+  // getUndergrads(id:any){
+  //   return this.http.get(this.baseUrl + 'registerEvent/'+ id );
+  // }
+}
