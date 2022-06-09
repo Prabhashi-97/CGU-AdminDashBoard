@@ -36,5 +36,9 @@ export class CompanySessionService {
   editSession(id:any, sessionObj :any){
     return this.http.put(this.baseUrl+ 'comSessions/' + id, sessionObj );
   }
+
+  getUndergrads(id:any){
+    return this.http.get(this.baseUrl + 'registerSession/'+ id );
+  }
 }
 

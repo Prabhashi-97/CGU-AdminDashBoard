@@ -24,6 +24,8 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
+import { AddNewsComponent } from './news/add-news/add-news.component';
+import { ListNewsComponent} from './news/list-news/list-news.component';
 
 const routes: Routes = [
   {
@@ -83,7 +85,18 @@ const routes: Routes = [
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
   },
-];
+
+  {path: 'news',
+    children:[
+      {path: '', component: ListNewsComponent},
+      {path: 'list', component: ListNewsComponent},
+      // {path: 'delete/:newsId', component:DeleteNewsComponent},
+      // {path: 'edit/:newsId', component: EditNewsComponent},
+      // {path: 'view/:newsId', component: ViewNewsComponent},
+      {path: 'create', component: AddNewsComponent},
+    
+],
+  }]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

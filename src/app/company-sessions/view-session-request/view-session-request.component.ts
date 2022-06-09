@@ -36,11 +36,6 @@ export class ViewSessionRequestComponent implements OnInit {
       })
     })
 
-    
-    
-    
-
-  
   }
 
 }

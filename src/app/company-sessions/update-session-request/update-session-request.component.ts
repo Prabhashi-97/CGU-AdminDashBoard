@@ -14,7 +14,6 @@ export class UpdateSessionRequestComponent implements OnInit {
   sessionId: any;
   sessionDetails: any;
   obj:any
-  private _snackBar: any;
   constructor(private CompanySessionService: CompanySessionService,private router: Router,private activatedRoute: ActivatedRoute,private MatSnackBar : MatSnackBar ) { }
 
   ngOnInit(): void {
@@ -42,11 +41,10 @@ export class UpdateSessionRequestComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed){
 
-    // updateSession() {
+    
     if(this.sessionId){
       this.CompanySessionService.editSession(this.sessionId,this.obj).subscribe(data =>{
-    //     console.log(obj)
-    swalWithBootstrapButtons.fire({
+      swalWithBootstrapButtons.fire({
       position: 'center',
       icon: 'success',
       title: 'Accepted!',
@@ -71,7 +69,7 @@ export class UpdateSessionRequestComponent implements OnInit {
     }
       
     } else if (
-      /* Read more about handling dismissals below */
+      //handling dismissals
       result.dismiss === Swal.DismissReason.cancel
     ) {
       swalWithBootstrapButtons.fire(

@@ -67,7 +67,7 @@ export class DeleteSessionRequestComponent implements OnInit {
     }
       
     } else if (
-      /* Read more about handling dismissals below */
+      //handling dismissals
       result.dismiss === Swal.DismissReason.cancel
     ) {
       swalWithBootstrapButtons.fire(

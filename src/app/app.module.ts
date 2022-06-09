@@ -15,6 +15,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {RouterModule} from '@angular/router';
+import {NewsModule} from './news/news.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,7 +36,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CompanySessionsModule,
     NgbModule,
     ImageAlbumModule,
-    NgxPaginationModule 
+    NgxPaginationModule,
+    RouterModule,
+    NewsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

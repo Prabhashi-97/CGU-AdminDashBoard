@@ -8,7 +8,6 @@ import { CompanySessionService } from 'src/app/services/company-session.service'
 })
 export class ListSessionRequestsComponent implements OnInit {
 
-  // p: number = 1;
   listSessionPendingRequests: any;
   listSessionAcceptedRequests: any;
   constructor(private companySessionService : CompanySessionService) { }
