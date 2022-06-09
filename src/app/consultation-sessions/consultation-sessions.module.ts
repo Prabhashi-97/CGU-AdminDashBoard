@@ -4,9 +4,6 @@ import { MatCardModule } from '@angular/material/card';
 import { ListConsultationRequestsComponent } from './list-consultation-requests/list-consultation-requests.component';
 import { MatButtonModule } from '@angular/material/button';
 
-
-
-
 @NgModule({
   declarations: [
     ListConsultationRequestsComponent

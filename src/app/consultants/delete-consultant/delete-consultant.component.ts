@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsultantService } from 'src/app/services/consultant.service';
 import Swal from 'sweetalert2';
@@ -15,7 +14,6 @@ export class DeleteConsultantComponent implements OnInit {
   consultantId: string='';
   constructor(private activatedRoute: ActivatedRoute, 
     private consultantService:ConsultantService,
-    private _snackBar: MatSnackBar, 
     private router: Router) { }
 
   ngOnInit(): void {
@@ -76,7 +74,6 @@ export class DeleteConsultantComponent implements OnInit {
       }
         
       } else if (
-        /* Read more about handling dismissals below */
         result.dismiss === Swal.DismissReason.cancel
       ) {
         swalWithBootstrapButtons.fire(

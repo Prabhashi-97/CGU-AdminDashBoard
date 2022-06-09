@@ -15,7 +15,6 @@ export class AddConsultantComponent implements OnInit {
 
   addConsultantForm: FormGroup =new FormGroup({});
 
-
   constructor(private formBuilder: FormBuilder, private consultantService:ConsultantService, private router: Router,private  _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -27,7 +26,7 @@ export class AddConsultantComponent implements OnInit {
       'email': new FormControl('',[Validators.required, Validators.email])
     })
   }
-
+  
   createConsultant(){
     
     this.consultantService.addConsultant(this.addConsultantForm.value).subscribe(data =>{
@@ -53,6 +52,7 @@ export class AddConsultantComponent implements OnInit {
       });
     })
     this.router.navigate(["/consultants/list"]);
+   
   }
 
 }

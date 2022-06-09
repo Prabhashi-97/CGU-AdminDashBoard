@@ -11,9 +11,6 @@ export class ViewConsultantComponent implements OnInit {
 
   consultantId: string='';
   consultantDetails:any;
-  
-  
-  
   constructor(private consultantService: ConsultantService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

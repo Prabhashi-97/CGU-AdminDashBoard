@@ -12,15 +12,12 @@ export class ConsultantService {
 
   listConsultants(){
     return this.http.get(this.baseUrl+ 'consultants/list');
-      //this users should be chnaged according to our requirments 
   }
   viewConsultant(consultantId: string){
     return this.http.get(this.baseUrl +'consultants/view/' + consultantId);
-      //this users should be chnaged according to our requirments 
   }
   addConsultant(consultantObj: any){
     return this.http.post(this.baseUrl+ 'consultants/add/' , consultantObj);
-      //this users should be chnaged according to our requirments
   }
   deleteConsultant(consultantId: any){
     return this.http.delete(this.baseUrl+'consultants/delete/'+ consultantId);

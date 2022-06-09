@@ -11,7 +11,6 @@ export class ListConsultationRequestsComponent implements OnInit {
   listScheduledSessions: any;
   constructor(private consultationRequestService:ConsultationSessionService) { }
 
-
   ngOnInit(): void {
     this.consultationRequestService.listConsultationRequests().subscribe(data=>{
       this.listConsultationRequests=data;

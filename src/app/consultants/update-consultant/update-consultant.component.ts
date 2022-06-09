@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConsultantService } from 'src/app/services/consultant.service';
 import Swal from 'sweetalert2';
@@ -19,7 +18,6 @@ export class UpdateConsultantComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute,
     private consultantService: ConsultantService,
     private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar,
     private router:Router) { }
 
   ngOnInit(): void {
@@ -36,9 +34,7 @@ export class UpdateConsultantComponent implements OnInit {
         this.consultantDetails=data;
         // Object.assign(this.consultantDetails, data);
         console.log(this.consultantDetails);
-
-        //build edit form
-        
+        //build edit form     
         this.updateConsultantForm=this.formBuilder.group({
           'consultantFName': new FormControl(this.consultantDetails.data[0].consultantFName,[Validators.required]),
         
