@@ -14,13 +14,10 @@ export class VacancyService {
   listVacancies(){
     return this.http.get(this.baseurl + 'vacancies/');
   }
+
   ViewVacancies(vacancyId:String){
     return this.http.get(this.baseurl +'vacancies/' + vacancyId);
   }
-
-  // addVacancies(vacancyObj: any){
-  //    return this.http.post(this.baseurl + 'vacancies/' ,vacancyObj );
-  // }
 
   deleteVacancies(vacancyId: any){
     return this.http.delete(this.baseurl + 'vacancies/' + vacancyId);
@@ -38,6 +35,10 @@ export class VacancyService {
 
   listAcceptedVacancies(){
     return this.http.get(this.baseurl + 'vacancies/acceptedvacancy');
+  }
+
+  listLinks(){
+    return this.http.get(this.baseurl + 'vacancies/apply');
   }
 }
 

@@ -20,7 +20,6 @@ export class AcceptVacanciesComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
       this.vacancyId = data.vacancyId;
-      // console.log(this.vacancyId);
       if(this.vacancyId){
            this.VacancyService.acceptVacancies(this.vacancyId, this.obj).subscribe(data => {
              console.log(this.vacancyId);
@@ -36,7 +35,7 @@ export class AcceptVacanciesComponent implements OnInit {
             Swal.fire({
               position: 'center',
               icon: 'error',
-              title: 'Unable accept',
+              title: 'Unable to accept',
               showConfirmButton: false,
               timer: 1000
            }) 
@@ -47,34 +46,4 @@ export class AcceptVacanciesComponent implements OnInit {
   }
 }
 
-  //  if(this.vacancyId){
-  //    this.VacancyService.acceptVacancies(this.vacancyId).subscribe(data => {
-  //          this._snackBar.open("Vacancy accepted successfully");
-  //    },err => {
-  //      this._snackBar.open("Unable to accept");
-
-  //    })
-  //  }
-    // this.activatedRoute.params.subscribe(data => {
-    //   this.vacancyId = data.vacancyId
-    
-     //If the vacancyId is available
-    //   if(this.vacancyId ! = ''){
-    //   //View vacancy details
-    //     this.vacancyService.ViewVacancies(this.vacancyId)
-    //     .toPromise()
-    //     .then(data=> {
-    //       this.VacancyDetails = data;
-    //       Object.assign(this.VacancyDetails, data);
-    //       console.log(this.VacancyDetails);
-      
-    // //build the edit form
-
-
-    //     })
-
-    //   }
-
-    // })
-  //  }
-
+  

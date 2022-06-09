@@ -27,21 +27,4 @@ export class ViewVacancyComponent implements OnInit {
   }
 
 }
-// export class ViewVacancyComponent implements OnInit {
-//   vacancyId : String = '';
-//   VacancyDetails : any;
-//   router : any;
-//   constructor(private VacancyService : VacancyService, private activatedRoute : ActivatedRoute) { }
-
-//   ngOnInit(): void {
-//     this.activatedRoute.params.subscribe(data => {
-//        this.vacancyId  = data.id;
-//        console.log(this.vacancyId);
-//     });
-//     this.VacancyService.ViewVacancies(this.vacancyId ).subscribe(data => {
-//        this.VacancyDetails = data;
-//     });
-//   }
-
-// }
 

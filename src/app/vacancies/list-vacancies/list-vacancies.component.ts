@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { observable } from 'rxjs';
 import { VacancyService } from 'src/app/services/vacancy.service';
-import { CommonModule } from "@angular/common";
-import { ActivatedRoute } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
 import {AfterViewInit, ViewChild} from '@angular/core';
-import Swal from 'sweetalert2'
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-list-vacancies',
@@ -20,7 +14,7 @@ export class ListVacanciesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
-  constructor(private activatedRoute: ActivatedRoute,private VacancyService : VacancyService, private router: Router) { }
+  constructor(private VacancyService : VacancyService) { }
 
   ngAfterViewInit() {
     this.listVacancies.paginator = this.paginator;
@@ -30,8 +24,6 @@ export class ListVacanciesComponent implements OnInit {
 
     this.VacancyService.listPendingVacancies().subscribe(data =>{
       this.listVacancies = data as String[];
-      // console.log(this.listVacancies);
-      // console.log(this.listVacancies.data.length);
     });
 
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{

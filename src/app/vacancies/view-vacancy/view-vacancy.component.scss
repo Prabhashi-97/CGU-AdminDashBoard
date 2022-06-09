@@ -3,25 +3,33 @@
    }
 
 .card{
-    margin-top: 75px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 75px;
-    width: 75%;
+    // margin-top: 75px;
+    // margin-left: auto;
+    // margin-right: auto;
+    // margin-bottom: 75px;
+    // width: 75%;
+    margin: 150px 250px 250px;
+    width: 50%;
   }
   
-   .button{
-       margin-left: 20px;
-   }
+.button{
+    margin-top: 10px;
+    margin-left: 10px;
+}
    
-   .button1{
-       margin-left: 20px;
-       background-color: limegreen;
-   }
-   .title{
-       margin-bottom: 15px;
-   }
+.button1{
+    margin-top: 10px;
+    margin-left: 200px;
+    background-color: limegreen;
+}
+
+.title{
+     margin-bottom: 15px;
+     margin-left: 180px;
+     text-align: center;
+}
    
-   .content{
-       margin-bottom: 25px;
-   }
+.content{
+    margin-bottom: 25px;
+    margin-left: 70px;
+}

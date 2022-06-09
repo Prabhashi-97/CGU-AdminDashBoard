@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VacancyService } from 'src/app/services/vacancy.service';
 
 @Component({
   selector: 'app-list-cv',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCvComponent implements OnInit {
 
-  constructor() { }
+  listCVs : any = [];
+  constructor(private VacancyService : VacancyService) { }
 
   ngOnInit(): void {
+    this.VacancyService. listLinks().subscribe(data =>{
+      this.listCVs = data as String[];
+      console.log(this.listCVs);
+    });
   }
 
-}
+ }
