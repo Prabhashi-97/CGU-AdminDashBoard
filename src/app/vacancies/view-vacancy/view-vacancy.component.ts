@@ -25,6 +25,5 @@ export class ViewVacancyComponent implements OnInit {
        console.log(this.VacancyDetails.data.companyName);
     });
   }
-
 }
 

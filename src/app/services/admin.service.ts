@@ -18,12 +18,4 @@ export class AdminService {
     return this.http.post(this.baseUrl +'admins/', adminObj );
   }
 
-  // deleteAdmin(id : any){
-  //   return this.http.delete(this.baseUrl+ 'programs/'+ id );
-  // }
-
-  // editAdmin(id:any, programObj :any){
-  //   return this.http.put(this.baseUrl+ 'programs/' + id, programObj );
-  // }
-
 }

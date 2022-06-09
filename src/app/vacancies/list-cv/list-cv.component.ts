@@ -17,5 +17,4 @@ export class ListCvComponent implements OnInit {
       console.log(this.listCVs);
     });
   }
-
  }

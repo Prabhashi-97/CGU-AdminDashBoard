@@ -40,10 +40,14 @@ export class AcceptVacanciesComponent implements OnInit {
               timer: 1000
            }) 
            });
-           this.router.navigateByUrl('/vacancies/list');
+           this.router.navigateByUrl('/vacancies/list');      
       }
    })
   }
+
+
+  
+
 }
 
   
