@@ -18,19 +18,19 @@ export class AddNewsComponent implements OnInit {
     this.addNewsForm= this.formBuilder.group({
       // 'programImage': new FormControl(''),
       'title' : new FormControl(''),
-      'add_date': new FormControl(''),
-      'descriptipn': new FormControl('')
-  
+      'newsDate': new FormControl(''),
+      'newsDescription': new FormControl(''),
+      'newsCate': new FormControl('')
     })
-
   }
-  createProgram(){
+
+    createNews(){
     this.NewsService.addNews(this.addNewsForm.value).subscribe(data =>{
       Swal.fire({
         position: 'center',
         icon: 'success',
         title: 'Added!',
-        text:'Event Added Successfully!',
+        text:'News Added Successfully!',
         showConfirmButton: false,
         timerProgressBar: true,
         timer: 2500
@@ -40,7 +40,7 @@ export class AddNewsComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'Unable to Add Event!',
+        title: 'Unable to Add News!',
         showConfirmButton: false,
         timerProgressBar: true,
         timer: 2500

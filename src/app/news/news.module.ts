@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ViewNewsComponent } from './view-news/view-news.component';
 import { UpdateNewsComponent } from './update-news/update-news.component';
 import { DeleteNewsComponent } from './delete-news/delete-news.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -29,6 +30,7 @@ import { DeleteNewsComponent } from './delete-news/delete-news.component';
   imports: [
     CommonModule,
     MatCardModule,
+    MatSelectModule,
     AppRoutingModule,
     RouterModule,
     MatListModule,

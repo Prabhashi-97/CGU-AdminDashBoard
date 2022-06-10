@@ -1,7 +1,7 @@
 <mat-card class="form-card">
     <mat-card-title class="title">Add News</mat-card-title><br>
     <mat-card-content>
-      <form [formGroup]="addNewsForm" (ngSubmit)="createProgram()">
+      <form [formGroup]="addNewsForm" (ngSubmit)="createNews()">
       
          <!-- <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Upload Image</mat-label>
@@ -34,9 +34,24 @@
         <!-- </p> -->
         <!-- </mat-form-field> -->
   <!-- <p> -->
-        <mat-form-field class="example-full-width" appearance="outline">
+        <!-- <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Category</mat-label>
+          <textarea  matInput formControlName="Category"></textarea>
+        </mat-form-field>  -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Cars</mat-label>
+          <select matNativeControl required>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
           <mat-label>Description</mat-label>
-          <textarea  matInput formControlName="descriptipn"></textarea>
+          <textarea  matInput formControlName="description"></textarea>
         </mat-form-field>  
       <!-- </p>        -->
         <button mat-raised-button color="primary" >Add News</button>
