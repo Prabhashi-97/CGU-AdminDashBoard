@@ -27,8 +27,8 @@ export class DeleteConsultantComponent implements OnInit {
         cancelButton: 'btn btn-danger'
       },
       buttonsStyling: true,
-        confirmButtonColor: '#40A53C',
-        cancelButtonColor: '#C7083F '
+        confirmButtonColor: '#C7083F',
+        cancelButtonColor: '#40A53C '
     })
     
     swalWithBootstrapButtons.fire({
