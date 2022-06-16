@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { VacancyService } from 'src/app/services/vacancy.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
@@ -12,7 +12,8 @@ export class ListVacanciesComponent implements OnInit {
   listVacancies : any = [];
   acceptedvacancies: any = [];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild(MatPaginator) MatPaginator: MatPaginator | undefined;
+  
 
   constructor(private VacancyService : VacancyService) { }
  
@@ -24,7 +25,13 @@ export class ListVacanciesComponent implements OnInit {
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{
       this.acceptedvacancies = data as String[];
     }); 
-    } 
+    }
+  
+  
+  ngAfterViewInit() {
+      this.listVacancies.MatPaginator = this.MatPaginator;
+    }
+    
   }
   
 
