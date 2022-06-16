@@ -22,8 +22,6 @@ export class AcceptVacanciesComponent implements OnInit {
       this.vacancyId = data.vacancyId;
       if(this.vacancyId){
            this.VacancyService.acceptVacancies(this.vacancyId, this.obj).subscribe(data => {
-             console.log(this.vacancyId);
-             console.log(this.obj)
              Swal.fire({
               position: 'center',
               icon: 'success',
@@ -40,7 +38,10 @@ export class AcceptVacanciesComponent implements OnInit {
               timer: 1000
            }) 
            });
-           this.router.navigateByUrl('/vacancies/list');      
+           this.router.navigateByUrl('/vacancies/list')
+            .then(() => {
+                 window.location.reload();
+           });     
       }
    })
   }

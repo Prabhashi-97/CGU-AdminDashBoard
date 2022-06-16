@@ -8,8 +8,7 @@
     <table  class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
+            <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone Number</th>
           </tr>
@@ -17,8 +16,7 @@
 
         <tbody>
           <tr *ngFor= "let admin of listadmins.data">
-            <td width="250px" ><span class="name">{{admin.adminFName}}</span></td>
-            <td width="250px" ><span class="name">{{admin.adminLName}}</span></td>
+            <td width="250px" ><span class="name">{{admin.fullname}}</span></td>
             <td width="200px" ><span class = "email">{{admin.email }}</span></td>
             <td width="200px" ><span class = "email">{{admin.phone_number}}</span></td>
           </tr>     

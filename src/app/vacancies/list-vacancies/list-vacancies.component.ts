@@ -23,8 +23,6 @@ export class ListVacanciesComponent implements OnInit {
 
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{
       this.acceptedvacancies = data as String[];
-      console.log(this.acceptedvacancies);
-      console.log(this.acceptedvacancies.data.length);
     }); 
     } 
   }

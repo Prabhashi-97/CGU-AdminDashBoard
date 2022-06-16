@@ -16,13 +16,10 @@ export class ViewVacancyComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
        this.vacancyId  = data.vacancyId;
-       console.log(data.vacancyId);
-       console.log(this.vacancyId);
     });
+
     this.VacancyService.ViewVacancies(this.vacancyId ).subscribe(data => {
        this.VacancyDetails = data;
-       console.log(this.VacancyDetails);
-       console.log(this.VacancyDetails.data.companyName);
     });
   }
 }
