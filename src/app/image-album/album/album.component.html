@@ -9,8 +9,10 @@
         <p>{{album?.description}}</p>
     </mat-card-content>
 
+
     &nbsp;&nbsp;
     <button mat-raised-button class="button-update" color="primary" [routerLink]="['/image-album/edit',albumId]">Update
     Album</button>&nbsp;&nbsp;
-    <button mat-raised-button class="button-delete" color="warn" [routerLink]="['/image-album/delete',albumId]" (click)="onDelete()">Delete Album</button>
+    <button mat-raised-button class="button-delete" color="warn" [routerLink]="['/image-album/delete',albumId]">Delete
+    Album</button>
 </mat-card>

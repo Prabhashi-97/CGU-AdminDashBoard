@@ -48,6 +48,9 @@ export class AlbumEditComponent implements OnInit {
             description: new FormControl(this.albumDetails[0].description, [
               Validators.required,
             ]),
+            createdDate: new FormControl(this.albumDetails[0].createdDate, [
+              Validators.required,
+            ]),
           });
           this.dataLoaded = true;
         })

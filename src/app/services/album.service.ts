@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlbumService {
   readonly baseUrl: string = 'http://localhost:3000/image-album';
+  // private fileList: string[] = new Array<string>();
+  // private fileList$: Subject<string[]> = new Subject<string[]>();
   constructor(private http: HttpClient) {}
 
   listOfAlbums() {
@@ -13,16 +16,23 @@ export class AlbumService {
   }
 
   createAlbum(albumObj: any) {
-    // console.log(albumObj);
     return this.http.post(this.baseUrl, albumObj);
   }
 
-  uploadImage(image: FormData) {
-    return this.http.post(this.baseUrl, image);
+  upload(file: File) {
+    return this.http.post(this.baseUrl + '/upload', file, {
+      reportProgress: true,
+      responseType: 'json',
+    });
+    // return this.http.request(req);
   }
+
   viewAlbum(id: String) {
-    // console.log(id);
     return this.http.get(this.baseUrl + '/' + id);
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(this.baseUrl + '/upload');
   }
 
   deleteAlbum(id: any) {

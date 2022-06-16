@@ -13,6 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+// import { AngularImageViewerModule } from "@hreimer/angular-image-viewer";
+
 @NgModule({
   declarations: [
     AlbumAddComponent,
@@ -31,6 +36,10 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     ReactiveFormsModule,
     RouterModule,
+    MatToolbarModule,
+    MatProgressBarModule,
+    MatListModule,
+    // AngularImageViewerModule,
   ],
 })
 export class ImageAlbumModule {}
