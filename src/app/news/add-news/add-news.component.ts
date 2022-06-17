@@ -3,6 +3,7 @@ import { NewsService} from 'src/app/services/news.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
 
+
 @Component({
   selector: 'app-add-news',
   templateUrl: './add-news.component.html',
