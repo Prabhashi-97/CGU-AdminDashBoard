@@ -10,6 +10,8 @@ import { CompanySessionService } from 'src/app/services/company-session.service'
 export class ListAcceptedRequestsComponent implements OnInit {
   sessionId: String="";
   sessionDetails:any;
+  undergradDetails:any;
+  companyDetails:any;
   router: any;
   constructor(private CompanySessionService  : CompanySessionService, private activatedRoute: ActivatedRoute) { }
 
@@ -24,6 +26,19 @@ export class ListAcceptedRequestsComponent implements OnInit {
       
       this.sessionDetails=data;
       console.log(this.sessionDetails)
+
+      this.CompanySessionService.viewCompany(this.sessionDetails[0].companyEmail).subscribe(data => {
+      
+        this.companyDetails=data;
+        console.log(this.companyDetails)
+      })
+
+      this.CompanySessionService.getUndergrads(this.sessionId).subscribe(data => {
+      
+        this.undergradDetails=data;
+        console.log(this.undergradDetails)
+      })
+  
     })
   }
 

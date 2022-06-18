@@ -1,8 +1,9 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProgramService} from 'src/app/services/program.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 
@@ -14,19 +15,19 @@ import { ProgramService} from 'src/app/services/program.service';
 export class AddProgramComponent implements OnInit {
 
   addProgramForm : FormGroup= new FormGroup ({});
-  url="assets/careerfair.jpg";
 
   constructor(private formBuilder: FormBuilder,
-    private ProgramService:ProgramService,
-    private _snackBar: MatSnackBar) { }
+    private ProgramService:ProgramService,private router: Router
+    ) { }
 
   ngOnInit(): void {
+    this.getDate();
     this.addProgramForm= this.formBuilder.group({
       // 'programImage': new FormControl(''),
-      'programName' : new FormControl(''),
-      'programDate': new FormControl(''),
-      'programCat': new FormControl(''),
-      'programDesc': new FormControl('')
+      'programName' : new FormControl('',[Validators.required]),
+      'programDate': new FormControl('',[Validators.required]),
+      'programCat': new FormControl('',[Validators.required]),
+      'programDesc': new FormControl('',[Validators.required])
     })
 
   }
@@ -34,27 +35,96 @@ export class AddProgramComponent implements OnInit {
 
   createProgram(){
     this.ProgramService.addProgram(this.addProgramForm.value).subscribe(data =>{
-      this._snackBar.open("Event Added Successfully");
-      this.addProgramForm.reset(); 
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Added!',
+        text:'Event Added Successfully!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
+      this.refreshPage();
     }, err =>{
-      this._snackBar.open("Unable to Add Event")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Unable to Add Event!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
+     
     })
- 
+
+    this.refreshPage();
+
   }
 
-  onSelectFile(e: any){
-    if(e.target.files){
-      var reader= new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.url=event.target.result;
-      }
+  minDate:any="";
+  getDate(){
+    var date:any= new Date();
+    var toDate:any=date.getDate();
+    if(toDate<10){
+      toDate= '0'+toDate;
     }
+    var month = date.getMonth()+1;
+    if(month<10){
+      month='0'+month;
+    }
+    var year=date.getFullYear();
+    this.minDate=year+"-"+month+"-"+toDate;
+    console.log(this.minDate)
   }
 
- 
+  refreshPage(){
+    window.location.reload();
+  }
+ }
 
- 
- 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // onSelectFile(e: any){
+  //   if(e.target.files){
+  //     var reader= new FileReader();
+  //     reader.readAsDataURL(e.target.files[0]);
+  //     reader.onload=(event:any)=>{
+  //       this.url=event.target.result;
+  //     }
+  //   }
+  // }
 

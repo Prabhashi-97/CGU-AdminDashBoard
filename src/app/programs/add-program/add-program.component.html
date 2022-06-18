@@ -14,11 +14,11 @@
           <mat-label >Event Name</mat-label>
           <input type="text" matInput  formControlName="programName" >
         </mat-form-field><br><br>
-      <!-- </p> -->
+      <!-- </p> --> 
     
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Event Date</mat-label>
-          <input type="date" matInput  formControlName="programDate">
+          <input type="date" min="{{minDate}}" matInput  formControlName="programDate">
         </mat-form-field> 
      
         <!-- <mat-form-field > -->
@@ -39,7 +39,7 @@
           <textarea  matInput formControlName="programDesc"></textarea>
         </mat-form-field>  
       <!-- </p>        -->
-        <button mat-raised-button color="primary" >Add Event</button>
+        <button mat-raised-button color="primary" [disabled]="!addProgramForm.valid" >Add Event</button>
       </form>
     </mat-card-content>
   </mat-card>

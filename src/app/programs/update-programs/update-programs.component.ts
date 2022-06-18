@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProgramService } from 'src/app/services/program.service';
-import {FormBuilder,FormControl,FormGroup} from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {FormBuilder,FormControl,FormGroup,Validators} from '@angular/forms';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-update-programs',
@@ -15,15 +15,14 @@ export class UpdateProgramsComponent implements OnInit {
   programDetails: any;
   editProgramForm: FormGroup = new FormGroup({});
   dataLoaded: boolean =false;
-  // url="assets/careerfair.jpg";
 
   constructor(private activatedRoute: ActivatedRoute,
     private programService: ProgramService,
     private formBuilder : FormBuilder,
-    private _snackBar: MatSnackBar,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.getDate();
     this.dataLoaded=false;
     this.activatedRoute.params.subscribe(data=>{
       this.programId=data.programId;
@@ -36,21 +35,15 @@ export class UpdateProgramsComponent implements OnInit {
       .then(data=>{
         this.programDetails=data;
         console.log(this.programDetails);
-        // Object.assign(this.programDetails, data);
-        // console.log(this.programDetails.value);
         
-        
-
-      this.editProgramForm= this.formBuilder.group({
+        this.editProgramForm= this.formBuilder.group({
           // 'event-image': new FormControl('this.programDetails.'),
-          'programName': new FormControl(this.programDetails[0].programName),
-          
-          'programDate': new FormControl(this.programDetails[0].programDate),
-          'programCat': new FormControl(this.programDetails[0].programCat),
-          'programDesc': new FormControl(this.programDetails[0].programDesc)
+          'programName': new FormControl(this.programDetails[0].programName,[Validators.required]),
+          'programDate': new FormControl(this.programDetails[0].programDate,[Validators.required]),
+          'programCat': new FormControl(this.programDetails[0].programCat,[Validators.required]),
+          'programDesc': new FormControl(this.programDetails[0].programDesc,[Validators.required])
         })
 
-        
       this.dataLoaded=true;
       })
 
@@ -62,6 +55,7 @@ export class UpdateProgramsComponent implements OnInit {
   }
 
   updateProgram(){
+    
     var obj = {
       programName : this.editProgramForm.value.programName,
       programId : this.programId,
@@ -71,17 +65,107 @@ export class UpdateProgramsComponent implements OnInit {
 
     };
     this.programService.editProgram(this.programId,obj).subscribe(data =>{
-      console.log(obj)
-      this._snackBar.open("Event Updated Successfully");
-      this.router.navigateByUrl('programs/list');
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Updated!',
+        text:'Event Updated Successfully!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
+      
     }, err =>{
-      this._snackBar.open("Unable to Update Event")
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'Unable to Update Event!',
+        showConfirmButton: false,
+        timerProgressBar: true,
+        timer: 2500
+      });
     })
+    this.router.navigateByUrl('programs/list');
   }
 
+  minDate:any="";
+  getDate(){
+    var date:any= new Date();
+    var toDate:any=date.getDate();
+    if(toDate<10){
+      toDate= '0'+toDate;
+    }
+    var month = date.getMonth()+1;
+    if(month<10){
+      month='0'+month;
+    }
+    var year=date.getFullYear();
+    this.minDate=year+"-"+month+"-"+toDate;
+    console.log(this.minDate)
+  }
+
+}
 
 
-  // onSelectFile(e: any){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// onSelectFile(e: any){
   //   if(e.target.files){
   //     var reader= new FileReader();
   //     reader.readAsDataURL(e.target.files[0]);
@@ -90,6 +174,3 @@ export class UpdateProgramsComponent implements OnInit {
   //     }
   //   }
   // }
-
-}
-

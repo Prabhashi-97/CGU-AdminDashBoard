@@ -12,19 +12,16 @@ export class AlbumListViewComponent implements OnInit {
   albumId: any;
   constructor(
     private albumService: AlbumService,
-    private router: Router,
+    // private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((data) => {
-      this.albumId = data['id'];
-    });
-
     this.albumService.listOfAlbums().subscribe((data: any) => {
       if (data !== undefined) {
-        console.log(this.listOfAlbums);
         this.listOfAlbums = data;
+        console.log(this.listOfAlbums);
+        console.log(data[0].album_id);
       }
     });
   }
