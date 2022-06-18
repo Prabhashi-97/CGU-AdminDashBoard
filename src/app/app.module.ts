@@ -16,6 +16,8 @@ import { ProgramsModule } from './programs/programs.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
+import { AdministratorsModule } from './administrators/administrators.module';
+import { OverviewModule } from './overview/overview.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -24,6 +26,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 // import { AngularImageViewerModule } from '@hreimer/angular-image-viewer';
+//import {NgxPaginationModule} from 'ngx-pagination';
+import {RouterModule} from '@angular/router';
+import {NewsModule} from './news/news.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,7 +45,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     NgbModule,
     VacanciesModule,
     MatTableModule,
-    ProgramsModule,
+    ProgramsModule,  
+    AdministratorsModule,
+    OverviewModule,
     CompanySessionsModule,
     NgbModule,
     ImageAlbumModule,
@@ -51,6 +59,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     NoopAnimationsModule,
     // AngularImageViewerModule,
+    ImageAlbumModule,
+    //NgxPaginationModule,
+    RouterModule,
+    NewsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

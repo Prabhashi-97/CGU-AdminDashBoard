@@ -13,6 +13,7 @@ export class ListProgramsComponent implements OnInit {
   constructor(private ProgramService : ProgramService) { }
 
   ngOnInit(): void {
+    // this.refreshPage();
     this.ProgramService.listPrograms().subscribe(data => {
       this.listPrograms=data;
     });
@@ -20,4 +21,5 @@ export class ListProgramsComponent implements OnInit {
     
   }
 
+ 
 }

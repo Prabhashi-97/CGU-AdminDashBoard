@@ -19,13 +19,12 @@ export class DeleteVacanciesComponent implements OnInit {
  ngOnInit(): void {
    this.activatedRoute.params.subscribe(data => {
       this.vacancyId = data.vacancyId;
-      console.log(this.vacancyId);
    });
 
    const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success',
-      cancelButton: 'btn btn-danger',   
+      confirmButton: 'btn btn-danger',
+      cancelButton: 'btn btn-success',   
     },
     buttonsStyling: true,
     confirmButtonColor: 'limegreen',
@@ -58,7 +57,7 @@ export class DeleteVacanciesComponent implements OnInit {
          Swal.fire({
            position: 'center',
            icon: 'error',
-           title: 'Unable to Create Vacancy',
+           title: 'Unable to delete Vacancy',
            showConfirmButton: true,   
          })
          })
@@ -73,6 +72,10 @@ export class DeleteVacanciesComponent implements OnInit {
       )
     }
   })
+  // this.router.navigateByUrl('/vacancies/list')
+  //           .then(() => {
+  //                window.location.reload();
+  //          }); 
      this.router.navigateByUrl('/vacancies/list');
   }
  }

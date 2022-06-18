@@ -11,6 +11,7 @@ export class ViewProgramComponent implements OnInit {
 
   programId: String="";
   programDetails:any;
+  undergradDetails:any;
   router: any;
   constructor(private ProgramService: ProgramService, private activatedRoute: ActivatedRoute) { }
 
@@ -26,6 +27,12 @@ export class ViewProgramComponent implements OnInit {
       
       this.programDetails=data;
       console.log(this.programDetails)
+    })
+
+    this.ProgramService.getUndergrads(this.programId).subscribe(data => {
+      
+      this.undergradDetails=data;
+      console.log(this.undergradDetails)
     })
 
      

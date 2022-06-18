@@ -13,8 +13,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import {ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
-import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+
 
 
 
@@ -36,11 +36,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatSnackBarModule,
     MatDatepickerModule
   ],
-  providers:[
-    {provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500,verticalPosition: 'top',panelClass: ['red-snackbar']}}
-  ]
+  providers:[]
 })
 export class ProgramsModule { }
