@@ -13,6 +13,8 @@ import { ProgramsModule } from './programs/programs.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
+import { AdministratorsModule } from './administrators/administrators.module';
+import { OverviewModule } from './overview/overview.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
 
 @NgModule({
@@ -29,9 +31,12 @@ import { ImageAlbumModule } from './image-album/image-album.module';
     NgbModule,
     VacanciesModule,
     MatTableModule,
-    ProgramsModule,
+    ProgramsModule,  
+    AdministratorsModule,
+    OverviewModule,
     CompanySessionsModule,
     NgbModule,
+    ImageAlbumModule
   ],
   providers: [],
   bootstrap: [AppComponent],
