@@ -21,11 +21,12 @@ export class AddNewsComponent implements OnInit {
       'title' : new FormControl(''),
       'newsDate': new FormControl(''),
       'newsDescription': new FormControl(''),
-      'newsCate': new FormControl('')
+      'newsCate': new FormControl(''),
     })
+
   }
 
-    createNews(){
+  createNews(){
     this.NewsService.addNews(this.addNewsForm.value).subscribe(data =>{
       Swal.fire({
         position: 'center',

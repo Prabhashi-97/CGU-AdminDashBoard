@@ -18,15 +18,11 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
 import {NewsModule} from './news/news.module';
 import { CommonModule } from '@angular/common';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { AddAboutUsComponent } from './about-us/add-about-us/add-about-us.component';
-import { ListAboutUsComponent } from './about-us/list-about-us/list-about-us.component';
-import { UpdateAboutUsComponent } from './about-us/update-about-us/update-about-us.component';
-import { DeleteAboutUsComponent } from './about-us/delete-about-us/delete-about-us.component';
+
 
 
 @NgModule({
-  declarations: [AppComponent, AboutUsComponent, AddAboutUsComponent, ListAboutUsComponent, UpdateAboutUsComponent, DeleteAboutUsComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

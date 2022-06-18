@@ -26,6 +26,9 @@ import { AlbumEditComponent } from './image-album/album-edit/album-edit.componen
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
 import { AddNewsComponent } from './news/add-news/add-news.component';
 import { ListNewsComponent} from './news/list-news/list-news.component';
+import { DeleteNewsComponent } from './news/delete-news/delete-news.component';
+import { UpdateNewsComponent } from './news/update-news/update-news.component';
+import { ViewNewsComponent } from './news/view-news/view-news.component';
 
 const routes: Routes = [
   {
@@ -90,9 +93,9 @@ const routes: Routes = [
     children:[
       {path: '', component: ListNewsComponent},
       {path: 'list', component: ListNewsComponent},
-      // {path: 'delete/:newsId', component:DeleteNewsComponent},
-      // {path: 'edit/:newsId', component: EditNewsComponent},
-      // {path: 'view/:newsId', component: ViewNewsComponent},
+      {path: 'delete/:newsId', component:DeleteNewsComponent},
+      {path: 'edit/:newsId', component: UpdateNewsComponent},
+      {path: 'view/:newsId', component: ViewNewsComponent},
       {path: 'create', component: AddNewsComponent},
     
 ],

@@ -25,11 +25,11 @@
        </thead>
        <tbody>
          <tr *ngFor="let News of listNews">
-           <td width="500px" ><span class="news"> <a class="action-link" [routerLink]="['/news/view',News.news_Id]">{{News.title}}</a></span></td>
+           <td width="500px" ><span class="news"> <a class="action-link" [routerLink]="['/news/view',News.newsID]">{{News.title}}</a></span></td>
            <td width="200px" ><span>{{News.newsDescription}}</span></td>
            <td><span >{{News.newsDate | date:'longDate'}}</span></td>
            <!-- <td><button mat-raised-button class="button-accept" [routerLink]="['/programs/edit',program.programId]">Update</button>&nbsp;&nbsp;<button class="btn btn-danger" [routerLink]="['/programs/delete',program.programId]">Delete</button></td> -->
-           <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/news/edit',News.news_Id]">Update</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/news/delete',News.news_Id]">Delete</button></td>
+           <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/news/edit',News.newsID]">Update</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/news/delete',News.newsID]">Delete</button></td>
          </tr>
          
        </tbody>

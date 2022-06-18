@@ -23,6 +23,7 @@ export class NewsService {
   }
 
   deleteNews(id : any){
+    console.log(id)
     return this.http.delete(this.baseUrl+ 'news/'+ id );
   }
 
