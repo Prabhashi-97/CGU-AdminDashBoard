@@ -17,6 +17,7 @@ import { ImageAlbumModule } from './image-album/image-album.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
 import {NewsModule} from './news/news.module';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +39,8 @@ import {NewsModule} from './news/news.module';
     ImageAlbumModule,
     NgxPaginationModule,
     RouterModule,
-    NewsModule
+    NewsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
