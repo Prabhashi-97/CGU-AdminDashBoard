@@ -22,8 +22,7 @@ export class AlbumAddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private albumService: AlbumService,
-    private router: Router,
-    private http: HttpClient
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +30,7 @@ export class AlbumAddComponent implements OnInit {
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(100),
+        // Validators.maxLength(100),
       ]),
       description: new FormControl('', [Validators.required]),
     });

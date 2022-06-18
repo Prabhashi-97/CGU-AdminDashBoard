@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AlbumService {
-  readonly baseUrl: string = 'http://localhost:3000/';
+  readonly baseUrl: string = 'http://localhost:3000/image-album/';
   constructor(private http: HttpClient) {}
 
   listOfAlbums() {

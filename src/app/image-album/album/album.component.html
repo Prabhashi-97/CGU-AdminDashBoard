@@ -4,9 +4,9 @@
     <mat-card-content>
         <p>{{album?.description}}</p>
     </mat-card-content>
-    <button mat-raised-button class="button-view" color="primary" routerLink="['/image-album/view',album.album_Id]">View
+    <button mat-raised-button class="button-view" color="basic" routerLink="['/image-album/view',album.album_Id]">View
     Album</button> &nbsp;&nbsp;
-    <button mat-raised-button class="button-update" color="Update" routerLink="['/image-album/edit',album.album_Id]">Update
+    <button mat-raised-button class="button-accept" color="primary" routerLink="['/image-album/edit',album.album_Id]">Update
     Album</button>&nbsp;&nbsp;
     <button mat-raised-button class="button-delete" color="warn" routerLink="['/image-album/delete',album.album_Id]" (click)="onDelete()">Delete Album</button>
 </mat-card><br>

@@ -56,9 +56,9 @@ export class AddProgramComponent implements OnInit {
       });
      
     })
+
     this.refreshPage();
-   
- 
+
   }
 
   minDate:any="";

@@ -1,12 +1,9 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
-
-
+@import "~bootstrap/dist/css/bootstrap.css";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
 
 
 .red-snackbar{
@@ -14,15 +11,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color:lightgoldenrodyellow;
   }
 
-
-
-
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
