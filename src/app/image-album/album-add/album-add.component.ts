@@ -46,8 +46,6 @@ export class AlbumAddComponent implements OnInit {
     // this.imageInfos = this.albumService.getFiles();
   }
 
-
-
   selectFiles(event: any): void {
     this.message = [];
     this.progressInfos = [];
@@ -66,28 +64,37 @@ export class AlbumAddComponent implements OnInit {
         console.log(i);
         console.log(this.selectedFiles[i]);
         this.selectedFileNames.push(this.selectedFiles[i].name);
+        // console.log(this.selectedFileNames);
       }
     }
   }
   upload(idx: number, file: File): void {
     this.progressInfos[idx] = { value: 0, fileName: file.name };
-    if (file) {
-      this.albumService.upload(file).subscribe(
+    console.log(idx);
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+    console.log(formData);
+    if (formData) {
+      this.albumService.upload(formData).subscribe(
         (event: any) => {
           if (event.type === HttpEventType.UploadProgress) {
             this.progressInfos[idx].value = Math.round(
               (100 * event.loaded) / event.total
             );
+            console.log('if');
           } else if (event instanceof HttpResponse) {
             const msg = 'Uploaded the file successfully: ' + file.name;
             this.message.push(msg);
             this.imageInfos = this.albumService.getFiles();
+            console.log('else if');
           }
         },
         (err: any) => {
           this.progressInfos[idx].value = 0;
           const msg = 'Could not upload the file: ' + file.name;
           this.message.push(msg);
+          console.log('err');
         }
       );
     }
@@ -97,12 +104,12 @@ export class AlbumAddComponent implements OnInit {
     this.message = [];
     if (this.selectedFiles) {
       for (let i = 0; i < this.selectedFiles.length; i++) {
+        console.log(i);
         this.upload(i, this.selectedFiles[i]);
         console.log(this.selectedFileNames);
       }
     }
   }
-
 
   createNewAlbum() {
     this.albumService.createAlbum(this.addAlbumForm.value).subscribe(
@@ -127,6 +134,4 @@ export class AlbumAddComponent implements OnInit {
       }
     );
   }
-
-
 }

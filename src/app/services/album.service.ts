@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -7,8 +7,8 @@ import { Observable, Subject } from 'rxjs';
 })
 export class AlbumService {
   readonly baseUrl: string = 'http://localhost:3000/image-album';
-  // private fileList: string[] = new Array<string>();
-  // private fileList$: Subject<string[]> = new Subject<string[]>();
+  private fileList: string[] = new Array<string>();
+  private fileList$: Subject<string[]> = new Subject<string[]>();
   constructor(private http: HttpClient) {}
 
   listOfAlbums() {
@@ -19,12 +19,16 @@ export class AlbumService {
     return this.http.post(this.baseUrl, albumObj);
   }
 
-  upload(file: File) {
-    return this.http.post(this.baseUrl + '/upload', file, {
+  upload(file: any): Observable<HttpEvent<any>> {
+    // const formData: FormData = new FormData();
+    // console.log(formData);
+    // formData.append('file', file);
+    // console.log(formData.append('file', file));
+    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, file, {
       reportProgress: true,
       responseType: 'json',
     });
-    // return this.http.request(req);
+    return this.http.request(req);
   }
 
   viewAlbum(id: String) {
