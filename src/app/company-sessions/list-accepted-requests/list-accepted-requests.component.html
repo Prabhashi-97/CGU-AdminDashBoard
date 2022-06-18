@@ -1,13 +1,33 @@
-<mat-card class="user-details" *ngIf="sessionDetails">
-    <mat-card-title>{{sessionDetails[0].sessionTopic}}</mat-card-title><br><br>
-    <mat-card-content>
-        <!-- {{programDetails[0].programImage}}<br> -->
-        <b>Session Date:</b>{{sessionDetails[0].sessionDate}}<br><br>
-        <b>Target Group:</b>{{sessionDetails[0].TargetGroup}}<br><br>
-        <b>Session Description:</b>{{sessionDetails[0].sessionDesc}}
+<mat-card class="user-details" *ngIf="companyDetails" > 
+    <h1>Session Request</h1><br>
+    <mat-card-content *ngIf="sessionDetails">
+        <b>Company Name</b><br><div>{{companyDetails[0].companyName}}</div><br><br>
+        <b>Company Email</b><br><div>{{companyDetails[0].companyEmail}}</div><br><br>
+        <b>Session Topic</b><br><div>{{sessionDetails[0].sessionTopic}}</div><br><br>
+        <b>Session Date</b><br><div>{{sessionDetails[0].sessionDate | date:'longDate'}}</div><br><br>
+        <b>Target Group</b><br><div>{{sessionDetails[0].TargetGroup}}</div><br><br>
+        <b>Session Description</b><br><div class="desc">{{sessionDetails[0].sessionDesc}}</div><br><br>
+        <b>Registered Students for Session</b><br><br>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Email</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Faculty</th>
+                <th scope="col">Batch</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let undergraduate of undergradDetails">
+                <td>{{undergraduate.email}}</td>
+                <td>{{undergraduate.undergradFName}}</td>
+                <td>{{undergraduate.undergradLName}}</td>
+                <td>{{undergraduate.batch}}</td>
+                <td>{{undergraduate.faculty}}</td>
+              </tr>
+            </tbody>
+          </table>
     </mat-card-content>
-    <!-- <button class="btn btn-success"  [routerLink]="['/company-sessions/edit',sessionDetails[0].sessionId]">Accept</button>&nbsp;&nbsp; -->
-    <!-- <button class="btn btn-danger" [routerLink]="['/company-sessions/delete',sessionDetails[0].sessionId]">Reject</button> -->
-        
-</mat-card>
+    </mat-card><br><br>
 

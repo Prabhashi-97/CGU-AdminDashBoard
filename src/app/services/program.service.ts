@@ -29,4 +29,8 @@ export class ProgramService {
   editProgram(id:any, programObj :any){
     return this.http.put(this.baseUrl+ 'programs/' + id, programObj );
   }
+
+  getUndergrads(id:any){
+    return this.http.get(this.baseUrl + 'registerEvent/'+ id );
+  }
 }

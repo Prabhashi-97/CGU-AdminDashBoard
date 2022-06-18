@@ -16,6 +16,9 @@ import { CompanySessionsModule } from './company-sessions/company-sessions.modul
 import { AdministratorsModule } from './administrators/administrators.module';
 import { OverviewModule } from './overview/overview.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {RouterModule} from '@angular/router';
+import {NewsModule} from './news/news.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -36,7 +39,11 @@ import { ImageAlbumModule } from './image-album/image-album.module';
     OverviewModule,
     CompanySessionsModule,
     NgbModule,
-    ImageAlbumModule
+
+    ImageAlbumModule,
+    NgxPaginationModule,
+    RouterModule,
+    NewsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

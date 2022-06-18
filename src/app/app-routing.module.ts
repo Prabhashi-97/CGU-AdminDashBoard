@@ -28,6 +28,8 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
+import { AddNewsComponent } from './news/add-news/add-news.component';
+import { ListNewsComponent} from './news/list-news/list-news.component';
 
 
 const routes: Routes = [
@@ -38,12 +40,27 @@ const routes: Routes = [
     ]
   },
 
+
+  {
+    path: 'company-sessions',
+    children: [
+      { path: '', component: ListSessionRequestsComponent },
+      { path: 'list', component: ListSessionRequestsComponent },
+      { path: 'delete/:sessionId', component: DeleteSessionRequestComponent },
+      { path: 'edit/:sessionId', component: UpdateSessionRequestComponent },
+      { path: 'view/pending/:sessionId', component: ViewSessionRequestComponent },
+      { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
+      
+    ],
+  },
+
   {path: 'admins',
     children:[
       {path: 'list', component: ListAdministratorsComponent},
       {path: 'create', component: AddAdministratorsComponent },
     ]
 },
+
 
   {path: 'programs',
     children:[
@@ -56,16 +73,7 @@ const routes: Routes = [
     ]
 },
 
-{path: 'company-sessions',
-    children:[
-      {path: '', component: ListSessionRequestsComponent},
-      {path: 'list', component: ListSessionRequestsComponent},
-      {path: 'delete/:sessionId', component: DeleteSessionRequestComponent},
-      {path: 'edit/:sessionId', component:UpdateSessionRequestComponent},
-      {path: 'view/:sessionId', component: ViewSessionRequestComponent},
-      {path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
-    ]
-}, 
+ 
 
  
 {path: 'vacancies',
@@ -98,9 +106,25 @@ children: [
       { path: 'edit/:albumId', component: AlbumEditComponent },
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
-  }
 
-];
+  },
+
+  {path: 'news',
+    children:[
+      {path: '', component: ListNewsComponent},
+      {path: 'list', component: ListNewsComponent},
+      // {path: 'delete/:newsId', component:DeleteNewsComponent},
+      // {path: 'edit/:newsId', component: EditNewsComponent},
+      // {path: 'view/:newsId', component: ViewNewsComponent},
+      {path: 'create', component: AddNewsComponent},
+    
+],
+  }];
+
+//  }
+
+//];
+
 
 
 
