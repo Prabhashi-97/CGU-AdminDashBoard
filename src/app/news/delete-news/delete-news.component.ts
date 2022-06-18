@@ -20,9 +20,9 @@ export class DeleteNewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data=>{
-      this.NewsId=data.newsId;
+      this.NewsId=data.newsID;
       console.log(this.NewsId)
-    });
+    })
 
     if(this.NewsId){
       

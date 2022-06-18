@@ -11,7 +11,7 @@
     
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>News Title</mat-label>
-                <input type="text" matInput  formControlName="NewsName" >
+                <input type="text" matInput  formControlName="title" >
             </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -19,15 +19,25 @@
                 <input type="date" matInput  formControlName="newsDate"> 
             </mat-form-field> 
             
-            <mat-form-field class="example-full-width" appearance="fill">
+            <!-- <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>News Category-1</mat-label>
-                <input type="text" matInput formControlName="newsCat" >
-            </mat-form-field>
+                <input type="text" matInput formControlName="newsCate" >
+            </mat-form-field> -->
+
+            <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select matNativeControl required formControlName="newsCate">
+                  <mat-option value="CGU">CGU</mat-option>
+                  <mat-option value="Company">Company</mat-option>
+                  <!-- <mat-option value="mercedes"></mat-option>
+                  <mat-option value="audi"></mat-option> -->
+                </mat-select>
+              </mat-form-field>
 
 
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>News Description</mat-label>
-                <textarea type="text" matInput formControlName="newsDesc"></textarea>
+                <textarea type="text" matInput formControlName="newsDescription"></textarea>
             </mat-form-field> 
             
             <button mat-raised-button color="primary">Update News</button>

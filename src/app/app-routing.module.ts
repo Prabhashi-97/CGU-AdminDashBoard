@@ -93,9 +93,9 @@ const routes: Routes = [
     children:[
       {path: '', component: ListNewsComponent},
       {path: 'list', component: ListNewsComponent},
-      {path: 'delete/:newsId', component:DeleteNewsComponent},
-      {path: 'edit/:newsId', component: UpdateNewsComponent},
-      {path: 'view/:newsId', component: ViewNewsComponent},
+      {path: 'delete/:newsID', component:DeleteNewsComponent},
+      {path: 'edit/:newsID', component: UpdateNewsComponent},
+      {path: 'view/:newsID', component: ViewNewsComponent},
       {path: 'create', component: AddNewsComponent},
     
 ],

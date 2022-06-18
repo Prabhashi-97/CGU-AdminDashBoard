@@ -22,7 +22,7 @@ export class ViewNewsComponent implements OnInit {
       console.log( this.newsId)
     })
 
-    this.NewsService.viewNews(this.newsId).subscribe(data => {
+    this.NewsService.listNews().subscribe(data => {
       
       this.newsDetails=data;
       console.log(this.newsDetails)

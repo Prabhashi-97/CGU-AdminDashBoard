@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class UpdateNewsComponent implements OnInit {
 
-  newsId: any;
+  newsID: any;
   newsDetails: any;
   updateNewsForm: FormGroup = new FormGroup({});
   dataLoaded: boolean =false;
@@ -26,12 +26,12 @@ export class UpdateNewsComponent implements OnInit {
   ngOnInit(): void {
     this.dataLoaded=false;
     this.activatedRoute.params.subscribe(data=>{
-      this.newsId=data.newsId;
+      this.newsID=data.newsID;
     });
 
-    if(this.newsId !==''){
+    if(this.newsID !==''){
       //view user details
-      this.newsService.viewNews(this.newsId)
+      this.newsService.viewNews(this.newsID)
       .toPromise()
       .then(data=>{
         this.newsDetails=data;
@@ -43,11 +43,10 @@ export class UpdateNewsComponent implements OnInit {
 
       this.updateNewsForm= this.formBuilder.group({
           // 'event-image': new FormControl('this.programDetails.'),
-          'newsName': new FormControl(this.newsDetails[0].newsName),
-          
+          'title': new FormControl(this.newsDetails[0].title),
           'newsDate': new FormControl(this.newsDetails[0].newsDate),
-          'newsCat': new FormControl(this.newsDetails[0].newsCat),
-          'newsDesc': new FormControl(this.newsDetails[0].newsDesc)
+          'newsCate': new FormControl(this.newsDetails[0].newsCate),
+          'newsDescription': new FormControl(this.newsDetails[0].newsDescription)
         })
 
         
@@ -63,14 +62,14 @@ export class UpdateNewsComponent implements OnInit {
 
   updateNews(){
     var obj = {
-      programName : this.updateNewsForm.value.programName,
-      programId : this.newsId,
-      programDesc: this.updateNewsForm.value.programDesc,
-      programCat :this.updateNewsForm.value.programCat,
-      programDate: this.updateNewsForm.value.programDate
+      title : this.updateNewsForm.value.title,
+      newsId : this.newsID,
+      newsDescription: this.updateNewsForm.value.newsDescription,
+      newsCate :this.updateNewsForm.value.newsCate,
+      newsDate: this.updateNewsForm.value.newsDate
 
     };
-    this.newsService.UpdateNews(this.newsId,obj).subscribe(data =>{
+    this.newsService.UpdateNews(this.newsID,obj).subscribe(data =>{
       console.log(obj)
       this._snackBar.open("News Updated Successfully");
       this.router.navigateByUrl('news/list');
