@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class VacancyService {
 
-  // baseurl: string='https://jsonplaceholder.cypress.io/';
   baseurl: string='http://localhost:3000/';
   
   constructor(private http:HttpClient) { }
@@ -14,20 +13,17 @@ export class VacancyService {
   listVacancies(){
     return this.http.get(this.baseurl + 'vacancies/');
   }
+
   ViewVacancies(vacancyId:String){
     return this.http.get(this.baseurl +'vacancies/' + vacancyId);
-  }
-
-  addVacancies(vacancyObj: any){
-     return this.http.post(this.baseurl + 'vacancies/' ,vacancyObj );
   }
 
   deleteVacancies(vacancyId: any){
     return this.http.delete(this.baseurl + 'vacancies/' + vacancyId);
   }
 
-  acceptVacancies(vacancyId: any){
-    return this.http.put(this.baseurl + 'vacancies/'  , vacancyId);
+  acceptVacancies(vacancyId: any,vacancyObj: any){
+    return this.http.put(this.baseurl + 'vacancies/'+vacancyId, vacancyObj);
   }
 
   listPendingVacancies(){
@@ -36,6 +32,10 @@ export class VacancyService {
 
   listAcceptedVacancies(){
     return this.http.get(this.baseurl + 'vacancies/acceptedvacancy');
+  }
+
+  listLinks(){
+    return this.http.get(this.baseurl + 'vacancies/apply');
   }
 }
 

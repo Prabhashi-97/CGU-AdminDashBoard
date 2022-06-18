@@ -13,6 +13,8 @@ import { ProgramsModule } from './programs/programs.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
+import { AdministratorsModule } from './administrators/administrators.module';
+import { OverviewModule } from './overview/overview.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
@@ -33,9 +35,12 @@ import {MatDialogModule} from '@angular/material/dialog';
     NgbModule,
     VacanciesModule,
     MatTableModule,
-    ProgramsModule,
+    ProgramsModule,  
+    AdministratorsModule,
+    OverviewModule,
     CompanySessionsModule,
     NgbModule,
+
     ImageAlbumModule,
     NgxPaginationModule,
     RouterModule,
