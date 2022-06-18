@@ -3,7 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { LayoutModule } from './layout/layout.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 import { ConsultantsModule } from './consultants/consultants.module';
 import { VacanciesModule } from './vacancies/vacancies.module';
 import { MatListModule } from '@angular/material/list';
@@ -16,9 +19,17 @@ import { CompanySessionsModule } from './company-sessions/company-sessions.modul
 import { AdministratorsModule } from './administrators/administrators.module';
 import { OverviewModule } from './overview/overview.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+// import { AngularImageViewerModule } from '@hreimer/angular-image-viewer';
+//import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
 import {NewsModule} from './news/news.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -39,11 +50,20 @@ import {NewsModule} from './news/news.module';
     OverviewModule,
     CompanySessionsModule,
     NgbModule,
-
     ImageAlbumModule,
-    NgxPaginationModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
+    MatFormFieldModule,
+    NoopAnimationsModule,
+    // AngularImageViewerModule,
+    ImageAlbumModule,
+    //NgxPaginationModule,
     RouterModule,
     NewsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],
