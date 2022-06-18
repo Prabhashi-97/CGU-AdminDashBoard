@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs';
-
 import { Router, ActivatedRoute } from '@angular/router';
 import { AlbumService } from 'src/app/services/album.service';
 
 @Component({
   selector: 'app-album-list-view',
   templateUrl: './album-list-view.component.html',
-  styleUrls: ['./album-list-view.component.css'],
+  styleUrls: ['./album-list-view.component.scss'],
 })
 export class AlbumListViewComponent implements OnInit {
   listOfAlbums: any;
@@ -29,8 +27,5 @@ export class AlbumListViewComponent implements OnInit {
         this.listOfAlbums = data;
       }
     });
-  }
-  addAlbumCall() {
-    this.router.navigate(['create']);
   }
 }

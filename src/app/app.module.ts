@@ -15,9 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
 import { AdministratorsModule } from './administrators/administrators.module';
 import { OverviewModule } from './overview/overview.module';
-
-
-
+import { ImageAlbumModule } from './image-album/image-album.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,9 +32,11 @@ import { OverviewModule } from './overview/overview.module';
     VacanciesModule,
     MatTableModule,
     ProgramsModule,  
-    CompanySessionsModule, NgbModule,
     AdministratorsModule,
-    OverviewModule
+    OverviewModule,
+    CompanySessionsModule,
+    NgbModule,
+    ImageAlbumModule
   ],
   providers: [],
   bootstrap: [AppComponent],

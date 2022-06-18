@@ -1,17 +1,25 @@
-<h2>Create a New Album</h2>
-<form (ngSubmit)="createNewAlbum()">
-    <!-- <form [formGroup]="addAlbumForm" (ngSubmit)="createNewAlbum()"></form> -->
-    <label>Album Name : </label>
-    <input type="text" formControlName="name" placeholder="Enter the album Name here "><br>
+<mat-card class="form-card">
+    <mat-card-title>Create a New Album</mat-card-title><br>
+    <mat-card-content>
+        <form [formGroup]="addAlbumForm" (submit)="createNewAlbum()">
 
-    <label>Description : </label>
-    <input type="text" formControlName="description" placeholder="Description "><br><br>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Album Name</mat-label>
+                <input type="text" matInput formControlName="name" />
+            </mat-form-field>
 
-    <div>
-        <input type="file" (change)="onFileSelected($event)">
-        <!-- <button (click)="onUpload()">Upload </button> -->
-        <br><br>
-    </div>
 
-    <button>Create Album</button>
-</form>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">
+        Add Album
+      </button>
+
+
+        </form>
+    </mat-card-content>
+</mat-card>

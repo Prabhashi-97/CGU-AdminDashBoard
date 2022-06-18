@@ -12,7 +12,7 @@ import { AlbumService } from 'src/app/services/album.service';
 @Component({
   selector: 'app-album-add',
   templateUrl: './album-add.component.html',
-  styleUrls: ['./album-add.component.css'],
+  styleUrls: ['./album-add.component.scss'],
 })
 export class AlbumAddComponent implements OnInit {
   selectedFile: any;
@@ -22,8 +22,7 @@ export class AlbumAddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private albumService: AlbumService,
-    private router: Router,
-    private http: HttpClient
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +30,7 @@ export class AlbumAddComponent implements OnInit {
       name: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(100),
+        // Validators.maxLength(100),
       ]),
       description: new FormControl('', [Validators.required]),
     });
@@ -46,7 +45,7 @@ export class AlbumAddComponent implements OnInit {
         console.log(err);
       }
     );
-    this.router.navigate(['/list']);
+    this.router.navigate(['./image-album/list']);
   }
 
   onFileSelected(event: any) {

@@ -6,9 +6,12 @@ import { AlbumDeleteComponent } from './album-delete/album-delete.component';
 import { AlbumEditComponent } from './album-edit/album-edit.component';
 import { AlbumListViewComponent } from './album-list-view/album-list-view.component';
 import { AlbumComponent } from './album/album.component';
-
-
-
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AlbumAddComponent,
@@ -16,10 +19,16 @@ import { AlbumComponent } from './album/album.component';
     AlbumDeleteComponent,
     AlbumEditComponent,
     AlbumListViewComponent,
-    AlbumComponent
+    AlbumComponent,
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    RouterModule,
+  ],
 })
-export class ImageAlbumModule { }
+export class ImageAlbumModule {}

@@ -23,7 +23,11 @@ import { AddAdministratorsComponent } from './administrators/add-administrators/
 import { ListAdministratorsComponent } from './administrators/list-administrators/list-administrators.component';
 import { OverviewComponent } from './overview/overview/overview.component';
 import { ListCvComponent } from './vacancies/list-cv/list-cv.component';
-
+import { AlbumListViewComponent } from './image-album/album-list-view/album-list-view.component';
+import { AlbumAddComponent } from './image-album/album-add/album-add.component';
+import { AlbumViewComponent } from './image-album/album-view/album-view.component';
+import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
+import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
 
 
 const routes: Routes = [
@@ -84,12 +88,24 @@ children: [
       {path: 'add', component: AddConsultantComponent},
     ]
   },
+  {
+    path: 'image-album',
+    children: [
+      { path: '', component: AlbumListViewComponent },
+      { path: 'list', component: AlbumListViewComponent },
+      { path: 'create', component: AlbumAddComponent },
+      { path: 'delete/:albumId', component: AlbumDeleteComponent },
+      { path: 'edit/:albumId', component: AlbumEditComponent },
+      { path: 'view/:albumId', component: AlbumViewComponent },
+    ],
+  }
 
-  
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
