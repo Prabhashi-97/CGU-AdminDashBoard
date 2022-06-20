@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 })
 export class SendEmailsComponent implements OnInit {
 
-  linkedin: string = '';
+  linkedin: any;
   obj:any;
 
   constructor(private activatedRoute: ActivatedRoute, private VacancyService : VacancyService,
@@ -22,7 +22,7 @@ export class SendEmailsComponent implements OnInit {
       this.linkedin = data.linkedin;
       console.log(this.linkedin);
       if(this.linkedin){
-           this.VacancyService.sendEmail(this.linkedin, this.obj).subscribe(data => {
+           this.VacancyService.sendEmail(this.linkedin).subscribe(data => {
              Swal.fire({
               position: 'center',
               icon: 'success',

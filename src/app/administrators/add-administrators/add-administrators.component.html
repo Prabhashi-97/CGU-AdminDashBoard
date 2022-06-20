@@ -25,9 +25,10 @@
 
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label >Password</mat-label>
-          <input type="text" matInput  formControlName="adminPassword" >
+          <input type="password" matInput  formControlName="adminPassword" >
         </mat-form-field><br><br>
         
+
         <button mat-raised-button color="primary" [disabled]="!addAdminForm.valid">Add Administrator</button>
       </form>
     </mat-card-content>

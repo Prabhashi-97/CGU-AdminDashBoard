@@ -9,7 +9,6 @@
             <th scope="col">Job Role</th>
             <th scope="col">Company Name</th>
             <th scope="col">Linkedin Profile Link</th>
-            <th scope="col">Send email</th>
           </tr>
         </thead>
         <tbody>
@@ -18,10 +17,9 @@
             <td ><span class = "vacancy">{{ cv.vacancyTitle }}</span></td>
             <td>{{ cv.companyName }}</td>
             <td>{{ cv.linkedin }}</td>
-            <td><button  mat-raised-button class="button-send" color="primary"  [routerLink] = "['/vacancies/send', cv.linkedin]">Send Email</button></td>      
-          </tr> 
-          <pagination-controls  (pageChange) ="p = $event"></pagination-controls>    
-        </tbody>
+          </tr>  
+        </tbody>     
     </table>
+    <pagination-controls  class="my-pagination" (pageChange) ="p = $event"></pagination-controls>
   </mat-card>
 </div>

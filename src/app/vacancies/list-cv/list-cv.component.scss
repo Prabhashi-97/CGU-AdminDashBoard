@@ -22,3 +22,6 @@
 .button-send{
     background-color: limegreen;
 }
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(38, 124, 146);
+  }

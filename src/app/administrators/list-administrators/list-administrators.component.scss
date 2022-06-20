@@ -21,4 +21,6 @@
 .email{
     font-size: 16px;
 }
-
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(38, 124, 146);
+  }

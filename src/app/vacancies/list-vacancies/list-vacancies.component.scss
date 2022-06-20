@@ -2,6 +2,7 @@
     text-decoration-color: black;
     padding-top: 10px;
     padding-left: 10px;
+    margin-left: 30px;
 }
 
 .action-link{
@@ -23,7 +24,8 @@
     // margin-right: 3%;
     // margin-left: 3%;
     margin-top: 20px;
-    margin-right: 60px;
+    margin-left: 30px;
+    margin-right: 40px;
     background-color: white;
 }
 
@@ -32,7 +34,8 @@
 }
 .card{
     margin-top: 10px;
-    margin-right: 60px;
+    margin-left: 30px;
+    margin-right: 40px;
     background-color: white;
 }
 .companyname{
@@ -40,11 +43,16 @@
     font-size: 16px;
     text-decoration: none;
 }
-
+.title{
+    font-size: 16px;
+}
 .vacancy{
     font-size: 16px;
 }
 
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(38, 124, 146);
+  }
 // .pag-align{
 //   margin: 0;
 //   position: absolute;

@@ -14,12 +14,12 @@
         </thead>
         <tbody>
           <tr *ngFor= "let vacancy of listVacancies.data | paginate: { id: 'pagination1', itemsPerPage: 5, currentPage: p}">
-            <td width="25%"><span class="title"> <a class="action-link" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{ vacancy.vacancyTitle}}</a></span></td>
-            <td width="25%" ><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
-            <td width="25%" ><span class = "vacancy">{{vacancy.companyName}}</span></td>
-            <td width="25%" ><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete',vacancy.vacancyId]" >Reject</button></td>       
+            <td width="300px"><span class="title"> <a class="action-link" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{ vacancy.vacancyTitle}}</a></span></td>
+            <td width="300px" ><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
+            <td ><span class = "vacancy">{{vacancy.companyName}}</span></td>
+            <td ><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete',vacancy.vacancyId]" >Reject</button></td>       
           </tr>  
-          <span ><pagination-controls id="pagination1" (pageChange) ="p = $event"></pagination-controls> </span>  
+          <span ><pagination-controls id="pagination1" class="my-pagination" (pageChange) ="p = $event"></pagination-controls> </span>  
         </tbody>
     </table>
   </mat-card>
@@ -38,11 +38,11 @@
         </thead>
         <tbody>
           <tr *ngFor= "let vacancy of acceptedvacancies.data | paginate: { id: 'pagination2', itemsPerPage: 5, currentPage: a}">
-            <td width="25%"><span class="title">{{ vacancy.vacancyTitle}}</span></td>
-            <td width="25%"><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
-            <td width="25%"><span>{{vacancy.companyName}}</span></td>     
+            <td width="300px"><span class="title">{{ vacancy.vacancyTitle}}</span></td>
+            <td width="300px"><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
+            <td ><span class = "vacancy">{{vacancy.companyName}}</span></td>     
           </tr> 
-        <pagination-controls id="pagination2" (pageChange) ="a = $event"></pagination-controls>       
+        <pagination-controls id="pagination2" class="my-pagination" (pageChange) ="a = $event"></pagination-controls>       
         </tbody>
     </table>
   </mat-card>
