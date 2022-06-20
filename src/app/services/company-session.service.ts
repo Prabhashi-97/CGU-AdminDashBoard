@@ -21,8 +21,9 @@ export class CompanySessionService {
     return this.http.put(this.baseUrl + 'comSessions/' + id,programObj);
   }
 
-  deleteSession(id : any){
-    return this.http.delete(this.baseUrl+ 'comSessions/'+ id );
+  
+  deleteSession(id : any, sessionObj :any){
+    return this.http.delete(this.baseUrl+ 'comSessions/'+ id, {body  : sessionObj} );
   }
 
   viewSession(id : String){

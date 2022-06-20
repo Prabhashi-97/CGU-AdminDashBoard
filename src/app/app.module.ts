@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import {  MatSidenavModule } from '@angular/material/sidenav';
 import { LayoutModule } from './layout/layout.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,7 +18,7 @@ import { OverviewModule } from './overview/overview.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
-import {NewsModule} from './news/news.module';
+// import {NewsModule} from './news/news.module';
 import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
@@ -44,8 +44,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     ImageAlbumModule,
     NgxPaginationModule,
     RouterModule,
-    NewsModule,
-    MatDialogModule
+    // NewsModule,
+    MatDialogModule,
+    // MatDrawer
   ],
   providers: [],
   bootstrap: [AppComponent],

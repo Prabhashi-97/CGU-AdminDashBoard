@@ -15,6 +15,7 @@ export class UpdateProgramsComponent implements OnInit {
   programDetails: any;
   editProgramForm: FormGroup = new FormGroup({});
   dataLoaded: boolean =false;
+  time:string="";
 
   constructor(private activatedRoute: ActivatedRoute,
     private programService: ProgramService,
@@ -29,20 +30,26 @@ export class UpdateProgramsComponent implements OnInit {
     });
 
     if(this.programId !==''){
-      //view user details
+      //view  details
       this.programService.viewProgram(this.programId)
       .toPromise()
       .then(data=>{
         this.programDetails=data;
-        console.log(this.programDetails);
-        
+        console.log(this.programDetails)
+        var dateArr = this.programDetails[0].programDate.toString().split("T");
         this.editProgramForm= this.formBuilder.group({
           // 'event-image': new FormControl('this.programDetails.'),
           'programName': new FormControl(this.programDetails[0].programName,[Validators.required]),
-          'programDate': new FormControl(this.programDetails[0].programDate,[Validators.required]),
+          'programDate': new FormControl(dateArr[0],[Validators.required]),
           'programCat': new FormControl(this.programDetails[0].programCat,[Validators.required]),
-          'programDesc': new FormControl(this.programDetails[0].programDesc,[Validators.required])
+          'programDesc': new FormControl(this.programDetails[0].programDesc,[Validators.required]),
+          'programTime': new FormControl(this.programDetails[0].programTime,[Validators.required])
         })
+
+       this.time=this.programDetails[0].programTime;
+       
+       console.log(this.time)
+
 
       this.dataLoaded=true;
       })
@@ -55,13 +62,15 @@ export class UpdateProgramsComponent implements OnInit {
   }
 
   updateProgram(){
+    console.log(this.editProgramForm.value.programDate);
     
     var obj = {
       programName : this.editProgramForm.value.programName,
       programId : this.programId,
       programDesc: this.editProgramForm.value.programDesc,
       programCat :this.editProgramForm.value.programCat,
-      programDate: this.editProgramForm.value.programDate
+      programDate: this.editProgramForm.value.programDate,
+      programTime: this.editProgramForm.value.programTime
 
     };
     this.programService.editProgram(this.programId,obj).subscribe(data =>{
@@ -101,7 +110,7 @@ export class UpdateProgramsComponent implements OnInit {
     }
     var year=date.getFullYear();
     this.minDate=year+"-"+month+"-"+toDate;
-    console.log(this.minDate)
+    // console.log(this.minDate)
   }
 
 }

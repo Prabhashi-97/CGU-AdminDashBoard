@@ -12,14 +12,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let request of listSessionPendingRequests">
+      <tr *ngFor="let request of listSessionPendingRequests  | paginate: { id: pending,itemsPerPage: 3, currentPage: page} ">
         <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view/pending',request.sessionId]">{{request.sessionTopic}}</a></span></td>
         <td width="250px" ><span>{{request.sessionDate | date:'longDate'}}</span></td>
         <td><span >{{request.TargetGroup}}</span></td>
-        <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/company-sessions/edit',request.sessionId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/company-sessions/delete',request.sessionId]">Reject</button></td>       
+        <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/company-sessions/edit',request.sessionId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" (click)="onOpenDialogClick(request.sessionId)">Reject</button></td>       
       </tr>
+      <pagination-controls id="pending" (pageChange) ="page = $event"></pagination-controls>
     </tbody>
   </table >
+
 </mat-card>
 </div>
  
@@ -36,11 +38,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let request of listSessionAcceptedRequests">
+      <tr *ngFor="let request of listSessionAcceptedRequests  | paginate: { id: accepted, itemsPerPage: 3, currentPage: p} ">
         <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view/accepted',request.sessionId]">{{request.sessionTopic}}</a></span></td>
         <td width="250px" ><span>{{request.sessionDate | date:'longDate'}}</span></td>
         <td><span >{{request.TargetGroup}}</span></td>
         </tr>
+        <pagination-controls id="accepted"  (pageChange) ="p = $event"></pagination-controls>
     </tbody>
   </table>
   </mat-card>

@@ -2,14 +2,6 @@
     <mat-card-title class="title">Add New Event</mat-card-title><br>
     <mat-card-content>
       <form [formGroup]="addProgramForm" (ngSubmit)="createProgram()">
-      
-         <!-- <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Upload Image</mat-label>
-          <label for="exampleFormControlFile1">Upload Image</label><br>
-          <img [src]="url" height="200px" width="300px"><br><br>
-          <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onSelectFile($event)"   formControlName="programImage"><br><br>
-        </mat-form-field> -->
-  <!-- <p> -->
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label >Event Name</mat-label>
           <input type="text" matInput  formControlName="programName" >
@@ -19,27 +11,26 @@
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Event Date</mat-label>
           <input type="date" min="{{minDate}}" matInput  formControlName="programDate">
+        </mat-form-field><br><br>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Event Time</mat-label>
+          <input type="time"  matInput value="{{time}}" formControlName="programTime">
+          <!-- <button (click)="setNow()">set now</button> -->
         </mat-form-field> 
-     
-        <!-- <mat-form-field > -->
-          <!-- <mat-label>Event Category</mat-label> -->
-          <!-- <p> -->
-          <input   type="text" matInput formControlName="programCat" >
+        <input   type="text" matInput formControlName="programCat" >
           <select class="custom-select" formControlName="programCat">
             <option value="">Choose event category</option>
             <option>CGU Event</option>
             <option>Department Event</option>
             <option>Workshop</option>
           </select><br><br><br>
-        <!-- </p> -->
-        <!-- </mat-form-field> -->
-  <!-- <p> -->
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Event Description</mat-label>
           <textarea  matInput formControlName="programDesc"></textarea>
-        </mat-form-field>  
-      <!-- </p>        -->
+        </mat-form-field> 
+        
         <button mat-raised-button color="primary" [disabled]="!addProgramForm.valid" >Add Event</button>
       </form>
+
     </mat-card-content>
   </mat-card>

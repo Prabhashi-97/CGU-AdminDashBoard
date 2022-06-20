@@ -19,20 +19,20 @@ export class ViewProgramComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(data => {
       this.programId=data.programId;
-      console.log( data.programId)
-      console.log( this.programId)
+      // console.log( data.programId)
+      // console.log( this.programId)
     })
 
     this.ProgramService.viewProgram(this.programId).subscribe(data => {
       
       this.programDetails=data;
-      console.log(this.programDetails)
+      // console.log(this.programDetails)
     })
 
     this.ProgramService.getUndergrads(this.programId).subscribe(data => {
       
       this.undergradDetails=data;
-      console.log(this.undergradDetails)
+      // console.log(this.undergradDetails)
     })
 
      
