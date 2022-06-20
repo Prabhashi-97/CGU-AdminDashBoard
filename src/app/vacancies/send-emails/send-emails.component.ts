@@ -5,13 +5,13 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 
 @Component({
-  selector: 'app-accept-vacancies',
-  templateUrl: './accept-vacancies.component.html',
-  styleUrls: ['./accept-vacancies.component.scss']
+  selector: 'app-send-emails',
+  templateUrl: './send-emails.component.html',
+  styleUrls: ['./send-emails.component.scss']
 })
-export class AcceptVacanciesComponent implements OnInit {
-  vacancyId: string = '';
-  VacancyDetails: any;
+export class SendEmailsComponent implements OnInit {
+
+  linkedin: string = '';
   obj:any;
 
   constructor(private activatedRoute: ActivatedRoute, private VacancyService : VacancyService,
@@ -19,26 +19,27 @@ export class AcceptVacanciesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
-      this.vacancyId = data.vacancyId;
-      if(this.vacancyId){
-           this.VacancyService.acceptVacancies(this.vacancyId, this.obj).subscribe(data => {
+      this.linkedin = data.linkedin;
+      console.log(this.linkedin);
+      if(this.linkedin){
+           this.VacancyService.sendEmail(this.linkedin, this.obj).subscribe(data => {
              Swal.fire({
               position: 'center',
               icon: 'success',
-              title: 'Vacancy accepted',
+              title: 'Email sent successfully',
               showConfirmButton: false,
               timer: 1000
             })
-           },err => {
+           },error => {
             Swal.fire({
               position: 'center',
               icon: 'error',
-              title: 'Unable to accept',
+              title: 'Unable to send email',
               showConfirmButton: false,
               timer: 1000
            }) 
            });
-           this.router.navigateByUrl('/vacancies/list');            
+           this.router.navigateByUrl('vacancies/list/cv');            
       }
    })
   }

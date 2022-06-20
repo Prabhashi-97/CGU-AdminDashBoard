@@ -37,6 +37,11 @@ export class VacancyService {
   listLinks(){
     return this.http.get(this.baseurl + 'vacancies/apply');
   }
+
+  sendEmail(linkedin: any, linkobj:any){
+    console.log(linkedin);
+    return this.http.put(this.baseurl +'vacancies/applyVacancies/' + linkedin, linkobj);
+  }
 }
 
 

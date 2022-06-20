@@ -9,6 +9,7 @@ import { VacancyService } from 'src/app/services/vacancy.service';
 export class ListCvComponent implements OnInit {
 
   listCVs : any = [];
+  p: number=1;
   constructor(private VacancyService : VacancyService) { }
 
   ngOnInit(): void {

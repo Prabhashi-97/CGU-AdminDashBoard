@@ -19,6 +19,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { ListCvComponent } from './list-cv/list-cv.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SendEmailsComponent } from './send-emails/send-emails.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { ListCvComponent } from './list-cv/list-cv.component';
     ListVacanciesComponent,
     DeleteVacanciesComponent,
     AcceptVacanciesComponent,
-    ListCvComponent
+    ListCvComponent,
+    SendEmailsComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +46,8 @@ import { ListCvComponent } from './list-cv/list-cv.component';
     MatTableModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}

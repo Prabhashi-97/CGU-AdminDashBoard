@@ -9,18 +9,19 @@
             <th scope="col">Job Role</th>
             <th scope="col">Company Name</th>
             <th scope="col">Linkedin Profile Link</th>
+            <th scope="col">Send email</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor= "let cv of listCVs.data">
+          <tr *ngFor= "let cv of listCVs.data | paginate: { itemsPerPage: 10, currentPage: p}">
             <td ><span class="companyname">{{ cv.fullname }}</span></td>
             <td ><span class = "vacancy">{{ cv.vacancyTitle }}</span></td>
             <td>{{ cv.companyName }}</td>
             <td>{{ cv.linkedin }}</td>
-          </tr>     
+            <td><button  mat-raised-button class="button-send" color="primary"  [routerLink] = "['/vacancies/send/email', cv.linkedin]">Send Email</button></td>      
+          </tr> 
+          <pagination-controls  (pageChange) ="p = $event"></pagination-controls>    
         </tbody>
     </table>
-        <!-- <mat-paginator [length]="200" [pageSizeOptions]="[2,3,4]" aria-label="Select page">
-        </mat-paginator> -->
   </mat-card>
 </div>

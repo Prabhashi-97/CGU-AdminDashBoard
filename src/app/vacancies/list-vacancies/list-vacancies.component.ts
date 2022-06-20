@@ -11,9 +11,9 @@ import { ViewChild } from '@angular/core';
 export class ListVacanciesComponent implements OnInit {
   listVacancies : any = [];
   acceptedvacancies: any = [];
+  p:number=1;
+  a:number=1;
 
-  @ViewChild(MatPaginator) MatPaginator: MatPaginator | undefined;
-  
 
   constructor(private VacancyService : VacancyService) { }
  
@@ -25,13 +25,7 @@ export class ListVacanciesComponent implements OnInit {
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{
       this.acceptedvacancies = data as String[];
     }); 
-    }
-  
-  
-  ngAfterViewInit() {
-      this.listVacancies.MatPaginator = this.MatPaginator;
-    }
-    
+    }  
   }
   
 

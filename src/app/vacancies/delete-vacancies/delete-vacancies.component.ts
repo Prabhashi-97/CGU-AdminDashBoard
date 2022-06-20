@@ -37,7 +37,7 @@ export class DeleteVacanciesComponent implements OnInit {
     text: "You won't be able to revert this!",
     icon: 'warning',
     showCancelButton: true,
-    confirmButtonText: 'Yes, delete it!',
+    confirmButtonText: 'Yes, reject it!',
     cancelButtonText: 'No, cancel!',
     reverseButtons: true
   }).then((result) => {

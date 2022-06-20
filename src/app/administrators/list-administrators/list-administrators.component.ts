@@ -9,6 +9,7 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class ListAdministratorsComponent implements OnInit {
   listadmins : any = [];
+  p:number=1;
   constructor(private AdminService : AdminService) { }
 
   ngOnInit(): void {
