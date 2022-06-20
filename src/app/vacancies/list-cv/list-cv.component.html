@@ -18,7 +18,7 @@
             <td ><span class = "vacancy">{{ cv.vacancyTitle }}</span></td>
             <td>{{ cv.companyName }}</td>
             <td>{{ cv.linkedin }}</td>
-            <td><button  mat-raised-button class="button-send" color="primary"  [routerLink] = "['/vacancies/send/email', cv.linkedin]">Send Email</button></td>      
+            <td><button  mat-raised-button class="button-send" color="primary"  [routerLink] = "['/vacancies/send', cv.linkedin]">Send Email</button></td>      
           </tr> 
           <pagination-controls  (pageChange) ="p = $event"></pagination-controls>    
         </tbody>
