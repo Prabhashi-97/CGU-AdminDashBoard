@@ -16,7 +16,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let consultant of listConsultants?.data">
+                    <tr *ngFor="let consultant of listConsultants?.data | paginate: { itemsPerPage: 5, currentPage: p}">
                         <td width="220px"><span class="consultantname"><a class="action-link" [routerLink]="['/consultants/view',consultant.consultantId]">{{consultant.consultantFName +" "+consultant.consultantLName}}</a></span></td>
                         <td width="200px" ><span>{{consultant.universityName}}</span></td>
                         <td width="250px" ><span>{{consultant.post}}</span></td>
@@ -28,6 +28,7 @@
                     </tr>
                 </tbody>    
             </table>
+            <pagination-controls  class="my-pagination" (pageChange) ="p = $event"></pagination-controls>
     </mat-card>
 
 

@@ -32,6 +32,8 @@ import { ListConsultationRequestsComponent } from './consultation-sessions/list-
 // import { AddNewsComponent } from './news/add-news/add-news.component';
 // import { ListNewsComponent} from './news/list-news/list-news.component';
 
+import { EmailComponent } from './consultation-sessions/email/email.component';
+import { DeleteSessionComponent } from './consultation-sessions/delete-session/delete-session.component';
 
 const routes: Routes = [
   {
@@ -102,7 +104,8 @@ children: [
     children: [
       // {path: '', component:ListConsultantsComponent},
       { path: 'list', component: ListConsultationRequestsComponent },
-      
+      { path: 'email/:undergradEmail', component: EmailComponent },
+      { path: 'delete/:consultation_id', component: DeleteSessionComponent},
     ],
   },
   {

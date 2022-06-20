@@ -45,7 +45,7 @@ export class AddConsultantComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'Unable to Add Consultant!',
+        title: 'Consultant Email Already Exists!',
         showConfirmButton: false,
         timerProgressBar: true,
         timer: 2500

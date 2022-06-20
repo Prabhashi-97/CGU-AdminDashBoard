@@ -29,6 +29,9 @@
 .button-delete{
     margin-left: 20px;
 }
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(38, 124, 146);
+  }
 // .margin{
 //     margin-left: 30px;
     

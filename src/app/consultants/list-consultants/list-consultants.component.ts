@@ -10,6 +10,8 @@ import { ConsultantService } from 'src/app/services/consultant.service';
 export class ListConsultantsComponent implements OnInit {
 
   listConsultants: any;
+  p:number=1;
+ 
   constructor(private consultantService: ConsultantService) { }
  
   ngOnInit(): void {
@@ -17,5 +19,7 @@ export class ListConsultantsComponent implements OnInit {
       this.listConsultants=data;
       console.log(this.listConsultants);
     });
-  }  
+  }
+  
+
 }
