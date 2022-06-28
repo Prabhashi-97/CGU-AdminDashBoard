@@ -6,16 +6,16 @@
           <mat-label >Event Name</mat-label>
           <input type="text" matInput  formControlName="programName" >
         </mat-form-field><br><br>
-      <!-- </p> --> 
     
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Event Date</mat-label>
           <input type="date" min="{{minDate}}" matInput  formControlName="programDate">
         </mat-form-field><br><br>
+
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Event Time</mat-label>
           <input type="time"  matInput value="{{time}}" formControlName="programTime">
-          <!-- <button (click)="setNow()">set now</button> -->
+
         </mat-form-field> 
         <input   type="text" matInput formControlName="programCat" >
           <select class="custom-select" formControlName="programCat">
@@ -24,6 +24,7 @@
             <option>Department Event</option>
             <option>Workshop</option>
           </select><br><br><br>
+          
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Event Description</mat-label>
           <textarea  matInput formControlName="programDesc"></textarea>

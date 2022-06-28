@@ -110,7 +110,6 @@ export class UpdateProgramsComponent implements OnInit {
     }
     var year=date.getFullYear();
     this.minDate=year+"-"+month+"-"+toDate;
-    // console.log(this.minDate)
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProgramService } from 'src/app/services/program.service';
 import { FormBuilder, FormControl} from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -21,11 +22,14 @@ export class ListProgramsComponent implements OnInit {
     })
   
       if(this.programCat == "false"){
-        // console.log(this.programCat);
         this.ProgramService.listProgramsbyCat(this.programCat).subscribe(data =>{
         this.listPrograms=data;
-        // console.log(this.programs);
-        
+      }, err =>{
+        if(err instanceof HttpErrorResponse){
+          if(err.status ===401){
+            console.log(" You are not an admin")
+          }
+        }
      });
   
     }
@@ -34,22 +38,11 @@ export class ListProgramsComponent implements OnInit {
   }
 
   filterProgram(){
-    // this.refreshPage();
-    // console.log("hi");
-    // console.log(this.filterProgramForm.value);
     this.programCat = this.filterProgramForm.value['programCat']; 
-    // console.log(this.programCat);
    
       this.ProgramService.listProgramsbyCat(this.programCat).subscribe(data =>{
         this.listPrograms=data;
-        // console.log(this.programs);
+
       });
-     
-    
-    
-}
-
-  
-
- 
+    }
 }

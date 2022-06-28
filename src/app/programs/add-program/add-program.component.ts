@@ -18,7 +18,7 @@ export class AddProgramComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private ProgramService:ProgramService,private router: Router
-    ) { this.setNow(); }
+    ) { }
 
   ngOnInit(): void {
     this.getDate();
@@ -30,6 +30,7 @@ export class AddProgramComponent implements OnInit {
       'programDesc': new FormControl('',[Validators.required]),
       'programTime': new FormControl('',[Validators.required])
     })
+    this.setNow();
 
   }
 
@@ -59,12 +60,8 @@ export class AddProgramComponent implements OnInit {
      
     })
 
-    this.refreshPage();
-
    
-   
- 
-  }
+   }
 
   setNow(){
     let now = new Date();
@@ -72,6 +69,9 @@ export class AddProgramComponent implements OnInit {
     let minutes = ("0" + now.getMinutes()).slice(-2);
     let str = hours + ':' + minutes;
     this.time = str;
+    this.addProgramForm.patchValue({
+      programTime : str
+    })
   }
 
   minDate:any="";

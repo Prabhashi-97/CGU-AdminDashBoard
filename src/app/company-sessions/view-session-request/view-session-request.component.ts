@@ -21,20 +21,16 @@ export class ViewSessionRequestComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
       this.sessionId=data.sessionId;
-      // console.log( data.sessionId)
-      // console.log( this.sessionId)
     })
 
     this.CompanySessionService.viewSession(this.sessionId).subscribe(data => {
       
       this.sessionDetails=data;
-      // console.log(this.sessionDetails)
-      // console.log(this.sessionDetails[0].companyEmail)
 
       this.CompanySessionService.viewCompany(this.sessionDetails[0].companyEmail).subscribe(data => {
       
         this.companyDetails=data;
-        // console.log(this.companyDetails)
+        
       })
     })
 

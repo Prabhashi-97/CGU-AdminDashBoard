@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from 'src/app/services/admin.service';
 
 
 @Component({
@@ -8,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OverviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adminService : AdminService) { }
 
   ngOnInit(): void {
+    this.generateToken();
+  }
+
+  generateToken(){
+    this.adminService.generateToken().subscribe(data =>{
+      console.log(data);
+      var token = JSON.parse(JSON.stringify(data));
+      window.localStorage.setItem("token", token.token);
+    }, error=>{
+      console.log(error);
+    })
   }
 
 }

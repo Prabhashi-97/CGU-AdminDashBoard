@@ -15,7 +15,7 @@ import {ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { NgxPaginationModule } from 'ngx-pagination';
-// import { JwPaginationComponent } from 'jw-angular-pagination';
+
 
 
 
@@ -40,7 +40,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatButtonModule,
     MatDatepickerModule,
     NgxPaginationModule,
-    // JwPaginationComponent
   ],
   providers:[]
 })
