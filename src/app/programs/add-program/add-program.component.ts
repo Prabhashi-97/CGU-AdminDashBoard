@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
 import { ProgramService} from 'src/app/services/program.service';
@@ -15,6 +14,7 @@ import { Router } from '@angular/router';
 export class AddProgramComponent implements OnInit {
 
   addProgramForm : FormGroup= new FormGroup ({});
+  time: string="";
 
   constructor(private formBuilder: FormBuilder,
     private ProgramService:ProgramService,private router: Router
@@ -27,8 +27,10 @@ export class AddProgramComponent implements OnInit {
       'programName' : new FormControl('',[Validators.required]),
       'programDate': new FormControl('',[Validators.required]),
       'programCat': new FormControl('',[Validators.required]),
-      'programDesc': new FormControl('',[Validators.required])
+      'programDesc': new FormControl('',[Validators.required]),
+      'programTime': new FormControl('',[Validators.required])
     })
+    this.setNow();
 
   }
 
@@ -44,7 +46,7 @@ export class AddProgramComponent implements OnInit {
         timerProgressBar: true,
         timer: 2500
       });
-      this.refreshPage();
+      this.router.navigateByUrl('/programs/list');
     }, err =>{
       Swal.fire({
         position: 'center',
@@ -54,11 +56,22 @@ export class AddProgramComponent implements OnInit {
         timerProgressBar: true,
         timer: 2500
       });
+      this.refreshPage();
      
     })
 
-    this.refreshPage();
+   
+   }
 
+  setNow(){
+    let now = new Date();
+    let hours = ("0" + now.getHours()).slice(-2);
+    let minutes = ("0" + now.getMinutes()).slice(-2);
+    let str = hours + ':' + minutes;
+    this.time = str;
+    this.addProgramForm.patchValue({
+      programTime : str
+    })
   }
 
   minDate:any="";

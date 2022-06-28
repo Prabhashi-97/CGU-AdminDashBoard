@@ -14,6 +14,6 @@ import { MatCardModule } from '@angular/material/card';
     CommonModule,
     MatButtonModule,
     MatCardModule
-  ]
+  ],
 })
 export class OverviewModule { }

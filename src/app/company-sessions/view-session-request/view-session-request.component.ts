@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CompanySessionService } from 'src/app/services/company-session.service';
+import { DeleteSessionRequestComponent } from '../delete-session-request/delete-session-request.component';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
 
 @Component({
@@ -14,28 +16,32 @@ export class ViewSessionRequestComponent implements OnInit {
   sessionDetails:any;
   companyDetails:any;
   router: any;
-  constructor(private CompanySessionService  : CompanySessionService, private activatedRoute: ActivatedRoute) { }
+  constructor(private CompanySessionService  : CompanySessionService, private activatedRoute: ActivatedRoute, private MatDialog : MatDialog) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
       this.sessionId=data.sessionId;
-      console.log( data.sessionId)
-      console.log( this.sessionId)
     })
 
     this.CompanySessionService.viewSession(this.sessionId).subscribe(data => {
       
       this.sessionDetails=data;
-      console.log(this.sessionDetails)
-      console.log(this.sessionDetails[0].companyEmail)
 
       this.CompanySessionService.viewCompany(this.sessionDetails[0].companyEmail).subscribe(data => {
       
         this.companyDetails=data;
-        console.log(this.companyDetails)
+        
       })
     })
 
+  }
+
+  
+  onOpenDialogClick(){
+    this.MatDialog.open(DeleteSessionRequestComponent,{
+      width: '500px',
+      data:this.sessionId
+    });
   }
 
 }

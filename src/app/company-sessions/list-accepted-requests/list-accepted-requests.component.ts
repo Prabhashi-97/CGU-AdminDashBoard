@@ -18,25 +18,23 @@ export class ListAcceptedRequestsComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(data => {
       this.sessionId=data.sessionId;
-      console.log( data.sessionId)
-      console.log( this.sessionId)
     })
 
     this.CompanySessionService.viewSession(this.sessionId).subscribe(data => {
       
       this.sessionDetails=data;
-      console.log(this.sessionDetails)
+      
 
       this.CompanySessionService.viewCompany(this.sessionDetails[0].companyEmail).subscribe(data => {
       
         this.companyDetails=data;
-        console.log(this.companyDetails)
+       
       })
 
       this.CompanySessionService.getUndergrads(this.sessionId).subscribe(data => {
       
         this.undergradDetails=data;
-        console.log(this.undergradDetails)
+       
       })
   
     })
