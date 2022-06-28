@@ -24,7 +24,7 @@ export class AddAdministratorsComponent implements OnInit {
       'adminFName' : new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
       'adminLName': new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
       'email': new FormControl('', [Validators.required, Validators.email]),
-      'adminPassword': new FormControl('', [Validators.required, Validators.minLength(8)]),
+      'Password': new FormControl('', [Validators.required, Validators.minLength(8)]),
       'phone_number': new FormControl('', [Validators.required, Validators.pattern(this.phoneNumPattern)])
     })
   }

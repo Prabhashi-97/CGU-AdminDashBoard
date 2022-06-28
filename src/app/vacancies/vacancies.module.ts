@@ -4,7 +4,6 @@ import { ViewVacancyComponent } from './view-vacancy/view-vacancy.component';
 import { DeleteVacanciesComponent } from './delete-vacancies/delete-vacancies.component';
 import { AcceptVacanciesComponent } from './accept-vacancies/accept-vacancies.component';
 import { ListVacanciesComponent } from './list-vacancies/list-vacancies.component';
-
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY} from '@angular/material/snack-bar';

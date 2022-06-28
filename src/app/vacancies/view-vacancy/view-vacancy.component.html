@@ -11,10 +11,16 @@
       <mat-card-content><b>Contract Type  :</b>  {{vacancy.contractType}}</mat-card-content>
       <mat-card-content class="desc"><b>Vacancy Description :  </b></mat-card-content>
       <mat-card-content >{{vacancy.vacancyDesc}}</mat-card-content>
-   </div>
+    </div>
 
-    <button mat-raised-button class="button1" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button> 
-    <button mat-raised-button class = "button" color="warn" [routerLink] = "['/vacancies/delete',vacancy.vacancyId]">Reject</button>
+    <div *ngIf="vacancy.VacancyStatus == 0; then thenBlock else elseBlock" class="contractType"></div>
+    <ng-template #thenBlock>
+      <button mat-raised-button class="button1" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button> 
+      <button mat-raised-button class = "button" color="warn" [routerLink] = "['/vacancies/delete',vacancy.vacancyId]">Reject</button>
+    </ng-template>
+    <ng-template #elseBlock>
+      <button mat-raised-button class = "button" color="warn" [routerLink] = "['/vacancies/delete',vacancy.vacancyId]">Delete</button>
+    </ng-template>
 </mat-card>
 
 

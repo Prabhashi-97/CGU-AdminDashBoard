@@ -1,5 +1,4 @@
 <h1 class="heading"><b>Vacancies</b></h1><br>
-
 <div>
   <mat-card class="card"  role="list">
     <h1 *ngIf ="listVacancies" >Pending vacancies ({{listVacancies.data.length }})</h1>
@@ -38,7 +37,7 @@
         </thead>
         <tbody>
           <tr *ngFor= "let vacancy of acceptedvacancies.data | paginate: { id: 'pagination2', itemsPerPage: 5, currentPage: a}">
-            <td width="300px"><span class="title">{{ vacancy.vacancyTitle}}</span></td>
+            <td width="300px"><span class="title"  [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{ vacancy.vacancyTitle}}</span></td>
             <td width="300px"><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
             <td ><span class = "vacancy">{{vacancy.companyName}}</span></td>     
           </tr> 
@@ -49,4 +48,3 @@
 </div>
 
 
-<!-- <a class="action-link" [routerLink] = "['/vacancies/view',vacancy.vacancyId]"> -->

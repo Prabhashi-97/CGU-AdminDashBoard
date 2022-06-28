@@ -19,9 +19,21 @@
 .vacancy{
     font-size: 16px;
 }
+
 .button-send{
     background-color: limegreen;
 }
+
 .my-pagination ::ng-deep .ngx-pagination .current {
     background: rgb(38, 124, 146);
-  }
+}
+
+.button-reject{
+    margin-left: 20px;
+    width: 110px;
+}
+
+.button-accept{
+    background-color: limegreen;
+    width: 110px;
+}

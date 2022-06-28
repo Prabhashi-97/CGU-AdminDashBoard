@@ -77,7 +77,7 @@ children: [
   {path: 'view/:vacancyId', component: ViewVacancyComponent},
   {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
   {path: 'list/cv', component: ListCvComponent},
-  {path: 'send/:linkedin', component: SendEmailsComponent},
+  {path: 'send/:id', component: SendEmailsComponent},
 ]
 },
 {path:'consultants',

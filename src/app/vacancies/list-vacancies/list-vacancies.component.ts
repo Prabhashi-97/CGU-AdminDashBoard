@@ -1,7 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
+import { IfStmt } from '@angular/compiler';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { VacancyService } from 'src/app/services/vacancy.service';
-import { MatPaginator } from '@angular/material/paginator';
-import { ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-vacancies',
@@ -14,14 +15,12 @@ export class ListVacanciesComponent implements OnInit {
   p:number=1;
   a:number=1;
 
-
-  constructor(private VacancyService : VacancyService) { }
+  constructor(private VacancyService : VacancyService, private router: Router) { }
  
   ngOnInit(): void {
     this.VacancyService.listPendingVacancies().subscribe(data =>{
       this.listVacancies = data as String[];
-    });
-
+    })
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{
       this.acceptedvacancies = data as String[];
     }); 

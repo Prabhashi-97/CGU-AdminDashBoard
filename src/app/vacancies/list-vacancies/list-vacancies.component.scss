@@ -21,8 +21,6 @@
 }
 
 .card-acceptedVacancies{
-    // margin-right: 3%;
-    // margin-left: 3%;
     margin-top: 20px;
     margin-left: 30px;
     margin-right: 40px;
@@ -32,20 +30,24 @@
 .table2{
     width: 95%;
 }
+
 .card{
     margin-top: 10px;
     margin-left: 30px;
     margin-right: 40px;
     background-color: white;
 }
+
 .companyname{
     min-width: 15px;
     font-size: 16px;
     text-decoration: none;
 }
+
 .title{
     font-size: 16px;
 }
+
 .vacancy{
     font-size: 16px;
 }
@@ -53,21 +55,3 @@
 .my-pagination ::ng-deep .ngx-pagination .current {
     background: rgb(38, 124, 146);
   }
-// .pag-align{
-//   margin: 0;
-//   position: absolute;
-//   top: 100%;
-//   left: 50%;
-//   -ms-transform: translate(-50%, -50%);
-//   transform: translate(-50%, -50%);
-// }
-// .companyname{
-
-//     // min-width: 10px;
-//     font-size: 16px;
-//     text-decoration: none;
-// }
-
-// .vacancy{
-//     font-size: 16px;
-// }

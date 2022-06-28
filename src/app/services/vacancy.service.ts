@@ -38,9 +38,8 @@ export class VacancyService {
     return this.http.get(this.baseurl + 'vacancies/apply');
   }
 
-  sendEmail(linkedin:String){
-    console.log(linkedin);
-    return this.http.get(this.baseurl + 'vacancies/applyVacancies/' +linkedin);
+  sendEmail(id:String){
+    return this.http.get(this.baseurl + 'vacancies/applyVacancies/' +id);
   }
 }
 
