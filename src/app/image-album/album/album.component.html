@@ -9,8 +9,17 @@
         <p>{{album?.description}}</p>
     </mat-card-content>
 
+    <!--
+    <br>
+
+
+    <a data-flickr-embed="true" href="https://www.flickr.com/photos/195887803@N07/52158892007/in/album-72177720299932741/" title="RDA_06"><img src="https://live.staticflickr.com/65535/52158892007_e8e228787f_n.jpg" width="290" height="174" alt="RDA_06"></a>
+    <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script> -->
+
+
 
     &nbsp;&nbsp;
+
     <button mat-raised-button class="button-update" color="primary" [routerLink]="['/image-album/edit',albumId]">Update
     Album</button>&nbsp;&nbsp;
     <button mat-raised-button class="button-delete" color="warn" [routerLink]="['/image-album/delete',albumId]">Delete

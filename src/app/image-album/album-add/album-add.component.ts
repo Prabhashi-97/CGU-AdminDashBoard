@@ -37,15 +37,22 @@ export class AlbumAddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getToday();
     this.imageInfos = this.albumService.getFiles();
     this.addAlbumForm = this.formBuilder.group({
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       description: new FormControl('', [Validators.required]),
       createdDate: new FormControl('', Validators.required),
+      albumLink: new FormControl('', Validators.required),
     });
     // this.imageInfos = this.albumService.getFiles();
   }
 
+  maxDate: any = '';
+  getToday() {
+    var date: any = new Date();
+    this.maxDate = date.getDate();
+  }
   selectFiles(event: any): void {
     this.message = [];
     this.progressInfos = [];

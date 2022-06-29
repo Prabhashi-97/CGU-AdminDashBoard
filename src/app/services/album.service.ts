@@ -19,16 +19,16 @@ export class AlbumService {
     return this.http.post(this.baseUrl, albumObj);
   }
 
-  upload(file: any): Observable<HttpEvent<any>> {
-    // const formData: FormData = new FormData();
-    // console.log(formData);
-    // formData.append('file', file);
-    // console.log(formData.append('file', file));
-    const req = new HttpRequest('POST', `${this.baseUrl}/upload`, file, {
+  upload(file: any) {
+    return this.http.post(this.baseUrl + '/upload', file, {
       reportProgress: true,
       responseType: 'json',
     });
-    return this.http.request(req);
+    // const req = new HttpRequest('POST', `${this.baseUrl}/upload`, file, {
+    //   reportProgress: true,
+    //   responseType: 'json',
+    // });
+    // return this.http.request(req);
   }
 
   viewAlbum(id: String) {
