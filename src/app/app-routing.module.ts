@@ -29,6 +29,7 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
+import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
 
 
 const routes: Routes = [
