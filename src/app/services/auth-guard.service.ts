@@ -7,10 +7,9 @@ import {
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthGuardService {
-
   constructor(private route: Router) {}
 
   canActivate(

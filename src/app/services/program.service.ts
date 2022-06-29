@@ -10,9 +10,9 @@ export class ProgramService {
   constructor(private http: HttpClient) { }
 
 
-  listPrograms(){
-    return this.http.get(this.baseUrl + 'programs/');
-  }
+  // listPrograms(){
+  //   return this.http.get(this.baseUrl + 'programs/');
+  // }
 
   viewProgram(id : String){
     return this.http.get(this.baseUrl + 'programs/'+ id );
@@ -28,5 +28,14 @@ export class ProgramService {
 
   editProgram(id:any, programObj :any){
     return this.http.put(this.baseUrl+ 'programs/' + id, programObj );
+  }
+
+  getUndergrads(id:any){
+    return this.http.get(this.baseUrl + 'registerEvent/'+ id );
+  }
+
+  listProgramsbyCat(programCat: any){
+    console.log("HIIIII")
+    return this.http.get(this.baseUrl +'programs/programType/' + programCat);
   }
 }

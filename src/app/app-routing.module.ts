@@ -32,12 +32,33 @@ import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.co
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
 
 
+
 const routes: Routes = [
+  {
+    path : "",
+    component : OverviewComponent
+  },
   {
     path: 'overview',
     children:[
       {path: 'list', component: OverviewComponent},
-    ]
+    ],
+  },
+
+
+  {
+    path: 'company-sessions',
+    children: [
+      { path: '', component: ListSessionRequestsComponent },
+      { path: 'list', component: ListSessionRequestsComponent },
+      { path: 'delete/:sessionId', component: DeleteSessionRequestComponent },
+      { path: 'edit/:sessionId', component: UpdateSessionRequestComponent },
+      { path: 'view/pending/:sessionId', component: ViewSessionRequestComponent },
+      { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
+      
+    ],
+    canActivate : [AuthGuard]
+
   },
 
   {path: 'admins',
@@ -45,7 +66,11 @@ const routes: Routes = [
       {path: 'list', component: ListAdministratorsComponent},
       {path: 'create', component: AddAdministratorsComponent },
     ]
+    ,
+    canActivate : [AuthGuard]
+
 },
+
 
   {path: 'programs',
     children:[
@@ -55,19 +80,12 @@ const routes: Routes = [
       {path: 'edit/:programId', component:UpdateProgramsComponent},
       {path: 'view/:programId', component: ViewProgramComponent},
       {path: 'create', component: AddProgramComponent},
-    ]
+    ],
+    canActivate : [AuthGuard]
+
 },
 
-{path: 'company-sessions',
-    children:[
-      {path: '', component: ListSessionRequestsComponent},
-      {path: 'list', component: ListSessionRequestsComponent},
-      {path: 'delete/:sessionId', component: DeleteSessionRequestComponent},
-      {path: 'edit/:sessionId', component:UpdateSessionRequestComponent},
-      {path: 'view/:sessionId', component: ViewSessionRequestComponent},
-      {path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
-    ]
-}, 
+ 
 
  
 {path: 'vacancies',
@@ -79,7 +97,9 @@ children: [
   {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
   {path: 'list/cv', component: ListCvComponent},
   {path: 'send/:id', component: SendEmailsComponent},
-]
+],
+canActivate : [AuthGuard]
+
 },
 {path:'consultants',
     children:[
@@ -89,7 +109,9 @@ children: [
       {path: 'delete/:consultantId', component:DeleteConsultantComponent},
       {path: 'update/:id', component:UpdateConsultantComponent},
       {path: 'add', component: AddConsultantComponent},
-    ]
+    ],
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'image-album',
@@ -101,11 +123,10 @@ children: [
       { path: 'edit/:albumId', component: AlbumEditComponent },
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
-  }
+    canActivate : [AuthGuard]
 
+  },
 ];
-
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
