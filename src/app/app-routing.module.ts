@@ -31,16 +31,22 @@ import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.co
 import { ListConsultationRequestsComponent } from './consultation-sessions/list-consultation-requests/list-consultation-requests.component';
 // import { AddNewsComponent } from './news/add-news/add-news.component';
 // import { ListNewsComponent} from './news/list-news/list-news.component';
+import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
+
 
 import { EmailComponent } from './consultation-sessions/email/email.component';
 import { DeleteSessionComponent } from './consultation-sessions/delete-session/delete-session.component';
 
 const routes: Routes = [
   {
+    path : "",
+    component : OverviewComponent
+  },
+  {
     path: 'overview',
     children:[
       {path: 'list', component: OverviewComponent},
-    ]
+    ],
   },
 
 
@@ -55,6 +61,8 @@ const routes: Routes = [
       { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
       
     ],
+    canActivate : [AuthGuard]
+
   },
 
   {path: 'admins',
@@ -62,6 +70,9 @@ const routes: Routes = [
       {path: 'list', component: ListAdministratorsComponent},
       {path: 'create', component: AddAdministratorsComponent },
     ]
+    ,
+    canActivate : [AuthGuard]
+
 },
 
 
@@ -73,7 +84,9 @@ const routes: Routes = [
       {path: 'edit/:programId', component:UpdateProgramsComponent},
       {path: 'view/:programId', component: ViewProgramComponent},
       {path: 'create', component: AddProgramComponent},
-    ]
+    ],
+    canActivate : [AuthGuard]
+
 },
 
  
@@ -87,7 +100,9 @@ children: [
   {path: 'view/:vacancyId', component: ViewVacancyComponent},
   {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
   {path: 'list/cv', component: ListCvComponent},
-]
+],
+canActivate : [AuthGuard]
+
 },
 {path:'consultants',
     children:[
@@ -98,6 +113,7 @@ children: [
       { path: 'update/:consultantId', component: UpdateConsultantComponent },
       { path: 'add', component: AddConsultantComponent },
     ],
+    canActivate : [AuthGuard]
   },
   {
     path: 'consultation-session',
@@ -107,6 +123,9 @@ children: [
       { path: 'email/:undergradEmail', component: EmailComponent },
       { path: 'delete/:consultation_id', component: DeleteSessionComponent},
     ],
+     
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'image-album',
@@ -118,6 +137,7 @@ children: [
       { path: 'edit/:albumId', component: AlbumEditComponent },
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
+    canActivate : [AuthGuard]
 
   },
 

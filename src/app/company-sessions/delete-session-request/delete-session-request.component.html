@@ -1,1 +1,10 @@
-
+<mat-card  class="card">
+    <mat-card-title class = "title">Enter Reason for Rejecting Session</mat-card-title>
+    <form [formGroup]="sendEmailForm">
+      <mat-form-field class="example-full-width" appearance="fill"  class = "inputfield" >
+        <mat-label>Email</mat-label>
+        <textarea matInput formControlName="reason"></textarea>
+      </mat-form-field><br>
+      <button mat-raised-button color="warn"  (click)="sendEmail()">Reject</button>
+    </form>
+</mat-card>

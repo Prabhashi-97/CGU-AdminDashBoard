@@ -14,6 +14,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 
 
@@ -36,7 +38,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    NgxPaginationModule,
   ],
   providers:[]
 })
