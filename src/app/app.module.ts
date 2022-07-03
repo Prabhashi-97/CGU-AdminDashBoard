@@ -65,14 +65,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     // AngularImageViewerModule,
     ImageAlbumModule,
     //NgxPaginationModule,
-
-
     RouterModule,
-    MatDialogModule,
-  //  NewsModule
-
-
-
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

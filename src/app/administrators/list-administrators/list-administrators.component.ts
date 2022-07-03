@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 
-
 @Component({
   selector: 'app-list-administrators',
   templateUrl: './list-administrators.component.html',
@@ -9,6 +8,9 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class ListAdministratorsComponent implements OnInit {
   listadmins : any = [];
+  p:number=1;
+  user: any;
+
   constructor(private AdminService : AdminService) { }
 
   ngOnInit(): void {
@@ -17,4 +19,8 @@ export class ListAdministratorsComponent implements OnInit {
     });
   }
 
+  token(){
+    var token = window.localStorage.getItem('token');
+  }
 }
+

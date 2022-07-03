@@ -6,7 +6,9 @@ import { ListConsultantsComponent } from './consultants/list-consultants/list-co
 import { UpdateConsultantComponent } from './consultants/update-consultant/update-consultant.component';
 import { ViewConsultantComponent } from './consultants/view-consultant/view-consultant.component';
 import { DeleteVacanciesComponent } from './vacancies/delete-vacancies/delete-vacancies.component';
+import { DeleteAcceptedvacanciesComponent } from './vacancies/delete-acceptedvacancies/delete-acceptedvacancies.component';
 import { ListVacanciesComponent } from './vacancies/list-vacancies/list-vacancies.component';
+import { SendEmailsComponent } from './vacancies/send-emails/send-emails.component';
 import { ViewVacancyComponent } from './vacancies/view-vacancy/view-vacancy.component';
 import { AcceptVacanciesComponent } from './vacancies/accept-vacancies/accept-vacancies.component';
 import { DeleteSessionRequestComponent } from './company-sessions/delete-session-request/delete-session-request.component';
@@ -76,7 +78,8 @@ const routes: Routes = [
       {path: 'create', component: AddAdministratorsComponent },
     ]
     ,
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['MainAdmin']}
 
 },
 
@@ -94,21 +97,22 @@ const routes: Routes = [
 
 },
 
- 
 
- 
 {path: 'vacancies',
 children: [
   {path: '', component: ListVacanciesComponent},
   {path: 'list', component: ListVacanciesComponent},
   {path: 'delete/:vacancyId', component: DeleteVacanciesComponent},
+  {path: 'delete/acceptedvacancies/:vacancyId', component: DeleteAcceptedvacanciesComponent},
   {path: 'view/:vacancyId', component: ViewVacancyComponent},
   {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
   {path: 'list/cv', component: ListCvComponent},
+  {path: 'send/:id', component: SendEmailsComponent},
 ],
-canActivate : [AuthGuard]
-
+canActivate : [AuthGuard],
+data:{permittedRoles:['Admin','MainAdmin']}
 },
+
 {path:'consultants',
     children:[
       // {path: '', component:ListConsultantsComponent},
@@ -119,7 +123,6 @@ canActivate : [AuthGuard]
       {path: 'add', component: AddConsultantComponent},
     ],
     canActivate : [AuthGuard]
-
   },
   {
     path: 'image-album',

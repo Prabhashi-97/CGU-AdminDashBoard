@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {RouterModule} from '@angular/router';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -25,7 +26,8 @@ import {RouterModule} from '@angular/router';
     MatIconModule,
     ReactiveFormsModule,
     MatButtonModule,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule
   ]
 })
 export class AdministratorsModule { }
