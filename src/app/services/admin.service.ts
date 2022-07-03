@@ -27,9 +27,7 @@ export class AdminService {
   }
 
   addAdmin(adminObj : any){
-    return this.http.post(this.baseUrl +'admins/', adminObj, { 
-      headers: this.generateHedaer(),
-    } );
+    return this.http.post(this.baseUrl +'admins/', adminObj );
   }
 
   generateADminToken(){
