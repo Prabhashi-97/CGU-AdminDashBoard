@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompanySessionService } from 'src/app/services/company-session.service';
+
+import { MAT_DIALOG_DATA,MatDialogRef} from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,40 +12,31 @@ import Swal from 'sweetalert2';
   styleUrls: ['./delete-session-request.component.scss']
 })
 export class DeleteSessionRequestComponent implements OnInit {
+  sendEmailForm : FormGroup= new FormGroup ({});
+  sessionId:any;
 
-  sessionId:String= '';
-  constructor(private activatedRoute: ActivatedRoute,
+ 
+  constructor(@Inject(MAT_DIALOG_DATA) public data: String,private formBuilder: FormBuilder,private activatedRoute: ActivatedRoute,
    private CompanySessionService  : CompanySessionService ,
-   private router: Router) { }
+   private router: Router,public dialogRef: MatDialogRef<DeleteSessionRequestComponent>) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(data=>{
-      this.sessionId=data.sessionId;
-    })
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: true,
-    confirmButtonColor: 'limegreen',
-    cancelButtonColor:'red'
-    })
-    
-    swalWithBootstrapButtons.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, reject!',
-      cancelButtonText: 'No, cancel!',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed){
-    if(this.sessionId){
-      
-      this.CompanySessionService.deleteSession(this.sessionId).subscribe(data=>{
-        swalWithBootstrapButtons.fire({
+    this.sendEmailForm= this.formBuilder.group({
+      'reason' : new FormControl(''),
+      })
+        
+    }
+
+    sendEmail(){
+      var obj = {
+        sessionId : this.data,
+        reason : this.sendEmailForm.get('reason')?.value
+      };
+  
+      console.log(obj);
+
+      this.CompanySessionService.deleteSession(this.sessionId,obj).subscribe(data =>{
+        Swal.fire({
           position: 'center',
           icon: 'success',
           title: 'Rejected!',
@@ -53,32 +47,65 @@ export class DeleteSessionRequestComponent implements OnInit {
           buttonsStyling: true,
           confirmButtonColor: 'limegreen', 
         })
-      },err=>{
-        swalWithBootstrapButtons.fire({
-          position: 'center',
-          icon: 'error',
-          title: 'Unable to Reject Session!',
-          showConfirmButton: false,
-          timerProgressBar: true,
-          timer: 2500
-        })
+        this.closeDialog();
+  
+        console.log(data);
+      }, err =>{
+        console.log(err.error.msg);
+        Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Unable to Reject Session!',
+              showConfirmButton: false,
+              timerProgressBar: true,
+              timer: 2500
+            })
+        this.sendEmailForm.reset(); 
       })
-        
+   
+    }
+  
+    closeDialog() {
+      this.dialogRef.close();
     }
       
-    } else if (
-      //handling dismissals
-      result.dismiss === Swal.DismissReason.cancel
-    ) {
-      swalWithBootstrapButtons.fire(
-        'Cancelled',
-        '',
-        'error'
-      )
-    }
-    this.router.navigateByUrl('/company-sessions/list');
-  })
+    
   
 }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

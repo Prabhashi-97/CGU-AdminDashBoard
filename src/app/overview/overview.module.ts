@@ -25,6 +25,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
   imports: [
     CommonModule,
     MatButtonModule,
+
     MatCardModule,
     MatInputModule,
     MatIconModule,
@@ -34,5 +35,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatProgressBarModule,
     MatListModule,
   ]
+
 })
 export class OverviewModule { }

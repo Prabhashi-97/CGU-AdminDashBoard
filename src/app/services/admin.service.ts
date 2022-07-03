@@ -18,4 +18,8 @@ export class AdminService {
     return this.http.post(this.baseUrl +'admins/', adminObj );
   }
 
+  generateToken(){
+    return this.http.post(this.baseUrl +'generateJWTToken/', {} );
+  }
+
 }

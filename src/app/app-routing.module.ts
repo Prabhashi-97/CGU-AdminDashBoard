@@ -29,17 +29,29 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
+
 // import { AddNewsComponent } from './news/add-news/add-news.component';
 // import { ListNewsComponent} from './news/list-news/list-news.component';
+import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
+
+
 
 
 const routes: Routes = [
   {
+    path : "",
+    component : OverviewComponent
+  },
+  {
     path: 'overview',
     children:[
       {path: 'list', component: OverviewComponent},
+
       {path: 'login', component: LoginComponent},
-    ]
+    
+
+    ],
+
   },
 
 
@@ -54,6 +66,8 @@ const routes: Routes = [
       { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
       
     ],
+    canActivate : [AuthGuard]
+
   },
 
   {path: 'admins',
@@ -61,6 +75,9 @@ const routes: Routes = [
       {path: 'list', component: ListAdministratorsComponent},
       {path: 'create', component: AddAdministratorsComponent },
     ]
+    ,
+    canActivate : [AuthGuard]
+
 },
 
 
@@ -72,7 +89,9 @@ const routes: Routes = [
       {path: 'edit/:programId', component:UpdateProgramsComponent},
       {path: 'view/:programId', component: ViewProgramComponent},
       {path: 'create', component: AddProgramComponent},
-    ]
+    ],
+    canActivate : [AuthGuard]
+
 },
 
  
@@ -86,7 +105,9 @@ children: [
   {path: 'view/:vacancyId', component: ViewVacancyComponent},
   {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
   {path: 'list/cv', component: ListCvComponent},
-]
+],
+canActivate : [AuthGuard]
+
 },
 {path:'consultants',
     children:[
@@ -96,7 +117,9 @@ children: [
       {path: 'delete/:consultantId', component:DeleteConsultantComponent},
       {path: 'update/:id', component:UpdateConsultantComponent},
       {path: 'add', component: AddConsultantComponent},
-    ]
+    ],
+    canActivate : [AuthGuard]
+
   },
   {
     path: 'image-album',
@@ -108,8 +131,10 @@ children: [
       { path: 'edit/:albumId', component: AlbumEditComponent },
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
+    canActivate : [AuthGuard]
 
   },
+
 
 //   {path: 'news',
 //     children:[
@@ -127,6 +152,8 @@ children: [
 //  }
 
 //];
+
+
 
 
 

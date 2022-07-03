@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import {  MatSidenavModule } from '@angular/material/sidenav';
 import { LayoutModule } from './layout/layout.module';
 import { AppComponent } from './app.component';
 import {
@@ -13,7 +13,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { AppRoutingModule } from './app-routing.module';
 import { ProgramsModule } from './programs/programs.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanySessionsModule } from './company-sessions/company-sessions.module';
 import { AdministratorsModule } from './administrators/administrators.module';
@@ -28,7 +28,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // import { AngularImageViewerModule } from '@hreimer/angular-image-viewer';
 //import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
+
 // import {NewsModule} from './news/news.module';
+
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -61,7 +65,13 @@ import {RouterModule} from '@angular/router';
     // AngularImageViewerModule,
     ImageAlbumModule,
     //NgxPaginationModule,
-    RouterModule
+
+
+    RouterModule,
+    MatDialogModule,
+  //  NewsModule
+
+
 
   ],
   providers: [],

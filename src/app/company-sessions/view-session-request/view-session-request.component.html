@@ -9,7 +9,7 @@
         <b>Session Description</b><br><div class="desc">{{sessionDetails[0].sessionDesc}}</div><br><br>
     </mat-card-content>
     <button mat-raised-button class="button-accept" color="primary" [routerLink]="['/company-sessions/edit',sessionDetails[0].sessionId]">Accept</button>&nbsp;&nbsp;
-    <button mat-raised-button class="button-reject" color="warn" [routerLink]="['/company-sessions/delete',sessionDetails[0].sessionId]">Reject</button>
+    <button mat-raised-button class="button-reject" color="warn" (click)="onOpenDialogClick()">Reject</button>
         
 </mat-card><br><br>
 
