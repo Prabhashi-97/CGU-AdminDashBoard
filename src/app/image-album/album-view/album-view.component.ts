@@ -25,7 +25,6 @@ export class AlbumViewComponent implements OnInit {
     console.log(this.albumId);
     this.albumService.viewAlbum(this.albumId).subscribe((data) => {
       this.albumDetails = data;
-      console.log(this.albumDetails);
     });
   }
 }
