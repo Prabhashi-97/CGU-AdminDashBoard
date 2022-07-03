@@ -86,9 +86,7 @@ const routes: Routes = [
 
 },
 
- 
 
- 
 {path: 'vacancies',
 children: [
   {path: '', component: ListVacanciesComponent},
