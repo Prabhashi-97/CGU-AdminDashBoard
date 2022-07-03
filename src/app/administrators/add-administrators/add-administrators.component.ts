@@ -17,7 +17,7 @@ export class AddAdministratorsComponent implements OnInit {
     private router: Router) { }
 
   namePattern ="[a-zA-Z]*"; 
-  phoneNumPattern = "^((\\+94-?)|0)?[0-9]{10}$";
+  phoneNumPattern = "^[0-9]{10}$";
 
   ngOnInit(): void {
     this.addAdminForm= this.formBuilder.group({

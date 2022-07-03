@@ -21,9 +21,7 @@ export class VacancyService {
   }
   
   listVacancies(){
-    return this.http.get(this.baseurl + 'vacancies/', { 
-      headers: this.generateHedaer(),
-    });   
+    return this.http.get(this.baseurl + 'vacancies/');   
   }
 
   ViewVacancies(vacancyId:String){
@@ -31,39 +29,27 @@ export class VacancyService {
   }
 
   deleteVacancies(vacancyId: any){
-    return this.http.delete(this.baseurl + 'vacancies/' + vacancyId, { 
-      headers: this.generateHedaer(),
-    });
+    return this.http.delete(this.baseurl + 'vacancies/' + vacancyId);
   }
 
   deleteAcceptedVacancies(vacancyId: any){
-    return this.http.delete(this.baseurl + 'vacancies/delete/' + vacancyId, { 
-      headers: this.generateHedaer(),
-    });
+    return this.http.delete(this.baseurl + 'vacancies/delete/' + vacancyId);
   }
 
   acceptVacancies(vacancyId: any,vacancyObj: any){
-    return this.http.put(this.baseurl + 'vacancies/'+vacancyId, vacancyObj, { 
-      headers: this.generateHedaer(),
-    });
+    return this.http.put(this.baseurl + 'vacancies/'+vacancyId, vacancyObj);
   }
 
   listPendingVacancies(){
-    return this.http.get(this.baseurl + 'vacancies/pendingVacancy/' , { 
-      headers: this.generateHedaer(),
-    });
+    return this.http.get(this.baseurl + 'vacancies/pendingVacancy/' );
   }
 
   listAcceptedVacancies(){
-    return this.http.get(this.baseurl + 'vacancies/acceptedvacancy', { 
-      headers: this.generateHedaer(),
-    });
+    return this.http.get(this.baseurl + 'vacancies/acceptedvacancy');
   }
 
   listLinks(){
-    return this.http.get(this.baseurl + 'vacancies/apply', { 
-      headers: this.generateHedaer(),
-    });
+    return this.http.get(this.baseurl + 'vacancies/apply');
   }
 
   sendEmail(id:String){

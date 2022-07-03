@@ -78,7 +78,8 @@ const routes: Routes = [
       {path: 'create', component: AddAdministratorsComponent },
     ]
     ,
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['MainAdmin']}
 
 },
 
@@ -108,9 +109,10 @@ children: [
   {path: 'list/cv', component: ListCvComponent},
   {path: 'send/:id', component: SendEmailsComponent},
 ],
-canActivate : [AuthGuard]
-
+canActivate : [AuthGuard],
+data:{permittedRoles:['Admin','MainAdmin']}
 },
+
 {path:'consultants',
     children:[
       // {path: '', component:ListConsultantsComponent},
@@ -121,7 +123,6 @@ canActivate : [AuthGuard]
       {path: 'add', component: AddConsultantComponent},
     ],
     canActivate : [AuthGuard]
-
   },
   {
     path: 'image-album',

@@ -21,9 +21,7 @@ export class AdminService {
   }
 
   listAdmin(){
-    return this.http.get(this.baseUrl + 'admins/', { 
-      headers: this.generateHedaer(),
-    });
+    return this.http.get(this.baseUrl + 'admins/');
   }
 
   addAdmin(adminObj : any){
