@@ -20,6 +20,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { ListCvComponent } from './list-cv/list-cv.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SendEmailsComponent } from './send-emails/send-emails.component';
+import { DeleteAcceptedvacanciesComponent } from './delete-acceptedvacancies/delete-acceptedvacancies.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { SendEmailsComponent } from './send-emails/send-emails.component';
     DeleteVacanciesComponent,
     AcceptVacanciesComponent,
     ListCvComponent,
-    SendEmailsComponent
+    SendEmailsComponent,
+    DeleteAcceptedvacanciesComponent
   ],
   imports: [
     CommonModule,

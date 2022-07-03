@@ -19,7 +19,7 @@
       <button mat-raised-button class = "button" color="warn" [routerLink] = "['/vacancies/delete',vacancy.vacancyId]">Reject</button>
     </ng-template>
     <ng-template #elseBlock>
-      <button mat-raised-button class = "button" color="warn" [routerLink] = "['/vacancies/delete',vacancy.vacancyId]">Delete</button>
+      <button mat-raised-button class = "button" color="warn" [routerLink] = "['/vacancies/delete/acceptedvacancies',vacancy.vacancyId]">Delete</button>
     </ng-template>
 </mat-card>
 

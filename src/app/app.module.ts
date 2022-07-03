@@ -63,8 +63,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ImageAlbumModule,
     //NgxPaginationModule,
     RouterModule,
-    MatDialogModule,
-    NewsModule
+    MatDialogModule
 
 
   ],
