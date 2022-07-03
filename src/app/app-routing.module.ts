@@ -24,13 +24,18 @@ import { ListAcceptedRequestsComponent } from './company-sessions/list-accepted-
 import { AddAdministratorsComponent } from './administrators/add-administrators/add-administrators.component';
 import { ListAdministratorsComponent } from './administrators/list-administrators/list-administrators.component';
 import { OverviewComponent } from './overview/overview/overview.component';
+import { LoginComponent } from './overview/login/login.component';
 import { ListCvComponent } from './vacancies/list-cv/list-cv.component';
 import { AlbumListViewComponent } from './image-album/album-list-view/album-list-view.component';
 import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
+
+// import { AddNewsComponent } from './news/add-news/add-news.component';
+// import { ListNewsComponent} from './news/list-news/list-news.component';
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
+
 
 
 
@@ -43,7 +48,12 @@ const routes: Routes = [
     path: 'overview',
     children:[
       {path: 'list', component: OverviewComponent},
+
+      {path: 'login', component: LoginComponent},
+    
+
     ],
+
   },
 
 
@@ -126,7 +136,29 @@ canActivate : [AuthGuard]
     canActivate : [AuthGuard]
 
   },
+
+
+//   {path: 'news',
+//     children:[
+//       {path: '', component: ListNewsComponent},
+//       {path: 'list', component: ListNewsComponent},
+//       // {path: 'delete/:newsId', component:DeleteNewsComponent},
+//       // {path: 'edit/:newsId', component: EditNewsComponent},
+//       // {path: 'view/:newsId', component: ViewNewsComponent},
+//       {path: 'create', component: AddNewsComponent},
+    
+// ],
+//   }
 ];
+
+//  }
+
+//];
+
+
+
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

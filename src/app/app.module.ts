@@ -28,6 +28,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // import { AngularImageViewerModule } from '@hreimer/angular-image-viewer';
 //import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
+
+// import {NewsModule} from './news/news.module';
+
 import {MatDialogModule} from '@angular/material/dialog';
 
 
@@ -64,8 +67,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     //NgxPaginationModule,
     RouterModule,
     MatDialogModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent],

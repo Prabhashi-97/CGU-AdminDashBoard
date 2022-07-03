@@ -30,7 +30,6 @@ export class AlbumEditComponent implements OnInit {
     this.dataLoaded = false;
     this.activatedRoute.params.subscribe((data) => {
       this.albumId = data.albumId;
-      console.log(this.albumId);
     });
     if (this.albumId !== '') {
       this.albumService
@@ -39,13 +38,15 @@ export class AlbumEditComponent implements OnInit {
         .then((data) => {
           this.albumDetails = data;
           Object.assign(this.albumDetails, data);
-          // console.log(this.albumDetails[0].name);
 
           this.editAlbumForm = this.formBuilder.group({
             name: new FormControl(this.albumDetails[0].name, [
               Validators.required,
             ]),
             description: new FormControl(this.albumDetails[0].description, [
+              Validators.required,
+            ]),
+            albumLink: new FormControl(this.albumDetails[0].albumLink, [
               Validators.required,
             ]),
             createdDate: new FormControl(this.albumDetails[0].createdDate, [
@@ -58,15 +59,12 @@ export class AlbumEditComponent implements OnInit {
           console.log(err);
         });
     }
-
-    // ---------------------------------------------------------------
   }
   updateAlbum() {
     this.albumService
       .updateAlbum(this.albumId, this.editAlbumForm.value)
       .subscribe(
         (data: any) => {
-          console.log(this.editAlbumForm.value);
           Swal.fire({
             position: 'center',
             icon: 'success',
