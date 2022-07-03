@@ -28,7 +28,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // import { AngularImageViewerModule } from '@hreimer/angular-image-viewer';
 //import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
-import {NewsModule} from './news/news.module';
+// import {NewsModule} from './news/news.module';
 
 
 @NgModule({
@@ -61,8 +61,7 @@ import {NewsModule} from './news/news.module';
     // AngularImageViewerModule,
     ImageAlbumModule,
     //NgxPaginationModule,
-    RouterModule,
-    NewsModule
+    RouterModule
 
   ],
   providers: [],
