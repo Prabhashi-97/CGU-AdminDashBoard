@@ -52,7 +52,6 @@ const routes: Routes = [
     ],
 
     data:{permittedRoles:['Admin','MainAdmin']}
-
   },
 
 
