@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
+import { AuthService } from 'src/app/services/auth.service';
+
 
 @Component({
   selector: 'app-list-administrators',
@@ -8,17 +10,20 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class ListAdministratorsComponent implements OnInit {
   listadmins : any = [];
+  userRole : any = [];
   p:number=1;
   user: any;
 
-  constructor(private AdminService : AdminService) { }
+  constructor(private AdminService : AdminService,  private authService: AuthService,) { }
 
   ngOnInit(): void {
+    this.userRole = this.authService.getRole();
+    console.log(this.userRole);
     this.AdminService.listAdmin().subscribe(data =>{
       this.listadmins = data as String[];
     });
   }
-
+  
   token(){
     var token = window.localStorage.getItem('token');
   }
