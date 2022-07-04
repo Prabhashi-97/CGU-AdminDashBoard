@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,18 @@ export class VacancyService {
   
   constructor(private http:HttpClient) { }
 
+  generateHedaer() {
+    var token = window.localStorage.getItem('token');
+    const hedaerConfig = {
+      'Content-type': 'application/json',
+      Authorization:
+      `Token ${token}`,
+    };
+    return new HttpHeaders(hedaerConfig);
+  }
+  
   listVacancies(){
-    return this.http.get(this.baseurl + 'vacancies/');
+    return this.http.get(this.baseurl + 'vacancies/');   
   }
 
   ViewVacancies(vacancyId:String){
@@ -22,12 +32,16 @@ export class VacancyService {
     return this.http.delete(this.baseurl + 'vacancies/' + vacancyId);
   }
 
+  deleteAcceptedVacancies(vacancyId: any){
+    return this.http.delete(this.baseurl + 'vacancies/delete/' + vacancyId);
+  }
+
   acceptVacancies(vacancyId: any,vacancyObj: any){
     return this.http.put(this.baseurl + 'vacancies/'+vacancyId, vacancyObj);
   }
 
   listPendingVacancies(){
-    return this.http.get(this.baseurl + 'vacancies/pendingVacancy/');
+    return this.http.get(this.baseurl + 'vacancies/pendingVacancy/' );
   }
 
   listAcceptedVacancies(){
@@ -36,6 +50,10 @@ export class VacancyService {
 
   listLinks(){
     return this.http.get(this.baseurl + 'vacancies/apply');
+  }
+
+  sendEmail(id:String){
+    return this.http.get(this.baseurl + 'vacancies/applyVacancies/' +id);
   }
 }
 

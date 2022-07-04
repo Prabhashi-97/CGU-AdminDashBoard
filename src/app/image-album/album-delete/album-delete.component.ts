@@ -22,7 +22,6 @@ export class AlbumDeleteComponent implements OnInit {
       this.albumId = data.albumId;
     });
 
-    console.log(this.albumId);
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',

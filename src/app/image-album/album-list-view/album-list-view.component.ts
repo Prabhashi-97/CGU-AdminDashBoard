@@ -20,8 +20,6 @@ export class AlbumListViewComponent implements OnInit {
     this.albumService.listOfAlbums().subscribe((data: any) => {
       if (data !== undefined) {
         this.listOfAlbums = data;
-        console.log(this.listOfAlbums);
-        console.log(data[0].album_id);
       }
     });
   }

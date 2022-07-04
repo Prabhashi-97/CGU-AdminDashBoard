@@ -12,12 +12,19 @@
             <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label>Description</mat-label>
                 <textarea matInput formControlName="description"></textarea>
-
             </mat-form-field>
 
             <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Album Link</mat-label>
+                <input type="text" matInput formControlName="albumLink" />
+
+            </mat-form-field>
+
+
+
+            <mat-form-field class="example-full-width" appearance="outline">
                 <mat-label> Created Date</mat-label>
-                <input type="date" matInput formControlName="createdDate" />
+                <input type="date" matInput formControlName="createdDate" max="{{maxDate}}" />
 
             </mat-form-field>
 

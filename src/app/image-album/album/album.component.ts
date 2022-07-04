@@ -23,7 +23,6 @@ export class AlbumComponent implements OnInit {
       if (data !== undefined) {
         this.albumDetails = data;
         this.albumId = this.album?.album_id;
-        console.log(this.albumId);
       }
     });
   }

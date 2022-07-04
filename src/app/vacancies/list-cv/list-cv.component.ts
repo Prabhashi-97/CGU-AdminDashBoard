@@ -7,14 +7,14 @@ import { VacancyService } from 'src/app/services/vacancy.service';
   styleUrls: ['./list-cv.component.scss']
 })
 export class ListCvComponent implements OnInit {
-
-  listCVs : any = [];
+  listLinks : any = [];
+  p: number=1;
+  
   constructor(private VacancyService : VacancyService) { }
 
   ngOnInit(): void {
     this.VacancyService. listLinks().subscribe(data =>{
-      this.listCVs = data as String[];
-      console.log(this.listCVs);
+      this.listLinks = data as String[];
     });
   }
  }
