@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,11 +27,13 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   hide = true;
+ 
+
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -56,8 +59,20 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveToken(data.accessToken);
         localStorage.setItem('token', data.accessToken);
         if(localStorage.getItem('token') != null)
+        // {
+        //    alert("login successfull");
+        // }
+
         {
-           alert("login successfull");
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Logged In!',
+            text:'You Successfully logged in!',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 2500
+          });
         }
 
         this.userRole = this.authService.getRole();
@@ -76,9 +91,11 @@ export class LoginComponent implements OnInit {
   }
   reloadPage(): void {
     console.log('reload');
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('/overview');
     // window.location.reload();
   }
+
+  
 
 
 

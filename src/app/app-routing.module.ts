@@ -31,8 +31,6 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
-// import { AddNewsComponent } from './news/add-news/add-news.component';
-// import { ListNewsComponent} from './news/list-news/list-news.component';
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
 
 
@@ -46,10 +44,15 @@ const routes: Routes = [
   {
     path: 'overview',
     children:[
-      {path: '', component: OverviewComponent},
+
+      { path: '', component: OverviewComponent },
       {path: 'list', component: OverviewComponent},
       {path: 'login', component: LoginComponent},
     ],
+
+    data:{permittedRoles:['Admin','MainAdmin']}
+
+
   },
 
 
@@ -64,7 +67,8 @@ const routes: Routes = [
       { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
       
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
   },
 
@@ -94,7 +98,8 @@ const routes: Routes = [
       {path: 'view/:programId', component: ViewProgramComponent},
       {path: 'create', component: AddProgramComponent},
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
 },
 
@@ -123,7 +128,8 @@ data:{permittedRoles:['Admin','MainAdmin']}
       {path: 'update/:id', component:UpdateConsultantComponent},
       {path: 'add', component: AddConsultantComponent},
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
   },
   {
     path: 'image-album',
@@ -135,31 +141,11 @@ data:{permittedRoles:['Admin','MainAdmin']}
       { path: 'edit/:albumId', component: AlbumEditComponent },
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
   },
-
-
-//   {path: 'news',
-//     children:[
-//       {path: '', component: ListNewsComponent},
-//       {path: 'list', component: ListNewsComponent},
-//       // {path: 'delete/:newsId', component:DeleteNewsComponent},
-//       // {path: 'edit/:newsId', component: EditNewsComponent},
-//       // {path: 'view/:newsId', component: ViewNewsComponent},
-//       {path: 'create', component: AddNewsComponent},
-    
-// ],
-//   }
 ];
-
-//  }
-
-//];
-
-
-
-
 
 
 @NgModule({
