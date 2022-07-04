@@ -26,29 +26,37 @@ export class CompanySessionService {
   }
 
   listSessionAcceptedRequests() {
-    return this.http.get(this.baseUrl + 'comSessions/accepted');
+    return this.http.get(this.baseUrl + 'comSessions/accepted', {
+      headers: this.generateHedaer(),
+    });
   }
 
   acceptSession(id: any, programObj: any) {
-    return this.http.put(this.baseUrl + 'comSessions/' + id, programObj);
+    return this.http.put(this.baseUrl + 'comSessions/' + id, programObj , {
+      headers: this.generateHedaer(),
+    });
   }
 
   deleteSession(id: any, sessionObj: any) {
     return this.http.delete(this.baseUrl + 'comSessions/' + id, {
-      body: sessionObj,
+      body: sessionObj, headers: this.generateHedaer(),
     });
   }
 
   viewSession(id: String) {
-    return this.http.get(this.baseUrl + 'comSessions/' + id);
+    return this.http.get(this.baseUrl + 'comSessions/' + id , {
+      headers: this.generateHedaer(),
+    });
   }
 
   viewCompany(email: String) {
-    return this.http.get(this.baseUrl + 'company/' + email);
+    return this.http.get(this.baseUrl + 'company/' + email)
   }
 
   editSession(id: any, sessionObj: any) {
-    return this.http.put(this.baseUrl + 'comSessions/' + id, sessionObj);
+    return this.http.put(this.baseUrl + 'comSessions/' + id, sessionObj, {
+      headers: this.generateHedaer(),
+    });
   }
 
   getUndergrads(id: any) {
