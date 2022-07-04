@@ -44,12 +44,14 @@ const routes: Routes = [
   {
     path: 'overview',
     children:[
+
       { path: '', component: OverviewComponent },
       {path: 'list', component: OverviewComponent},
       {path: 'login', component: LoginComponent},
     ],
 
     data:{permittedRoles:['Admin','MainAdmin']}
+
 
   },
 
@@ -70,15 +72,20 @@ const routes: Routes = [
 
   },
 
-  {path: 'admins',
+{path: 'admins',
     children:[
       {path: 'list', component: ListAdministratorsComponent},
+    ],
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
+},
+
+{path: 'admins',
+    children:[
       {path: 'create', component: AddAdministratorsComponent },
-    ]
-    ,
+    ],
     canActivate : [AuthGuard],
     data:{permittedRoles:['MainAdmin']}
-
 },
 
 
