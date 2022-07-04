@@ -31,7 +31,6 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
-
 // import { AddNewsComponent } from './news/add-news/add-news.component';
 // import { ListNewsComponent} from './news/list-news/list-news.component';
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
@@ -42,11 +41,12 @@ import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.servic
 const routes: Routes = [
   {
     path : "",
-    component : OverviewComponent
+    component : LoginComponent
   },
   {
     path: 'overview',
     children:[
+      {path: '', component: OverviewComponent},
       {path: 'list', component: OverviewComponent},
       {path: 'login', component: LoginComponent},
     ],

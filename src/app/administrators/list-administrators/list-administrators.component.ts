@@ -18,14 +18,14 @@ export class ListAdministratorsComponent implements OnInit {
 
   ngOnInit(): void {
     this.userRole = this.authService.getRole();
-    console.log(this.userRole);
     this.AdminService.listAdmin().subscribe(data =>{
       this.listadmins = data as String[];
+    },
+    (err) => {
+      alert("An error occurred")
     });
   }
   
-  token(){
-    var token = window.localStorage.getItem('token');
-  }
+  
 }
 

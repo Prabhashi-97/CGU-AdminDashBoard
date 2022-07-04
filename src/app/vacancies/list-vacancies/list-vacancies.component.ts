@@ -20,9 +20,15 @@ export class ListVacanciesComponent implements OnInit {
   ngOnInit(): void {
     this.VacancyService.listPendingVacancies().subscribe(data =>{
       this.listVacancies = data as String[];
+    },
+    (err) => {
+      alert("An error occurred")
     })
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{
       this.acceptedvacancies = data as String[];
+    },
+    (err) => {
+      alert("An error occurred")
     }); 
     }  
   }
