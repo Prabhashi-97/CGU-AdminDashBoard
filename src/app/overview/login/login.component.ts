@@ -15,6 +15,7 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  userRole = String;
   logInForm: FormGroup = new FormGroup({});
   form: any = {
     email: null,
@@ -53,12 +54,22 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.logInForm.value).subscribe(
       (data) => {
+        console.log(data)
         this.tokenStorage.saveToken(data.accessToken);
+        localStorage.setItem('token', data.accessToken);
+        if(localStorage.getItem('token') != null)
+        {
+           alert("login successful");
+        }
+
+        this.userRole = this.authService.getRole();
+        console.log(this.userRole);
         this.tokenStorage.saveUser(data);
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
+
       },
       (err) => {
         this.errorMessage = err.error.message;
@@ -68,7 +79,7 @@ export class LoginComponent implements OnInit {
   }
   reloadPage(): void {
     console.log('reload');
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('overview');
     // window.location.reload();
   }
 

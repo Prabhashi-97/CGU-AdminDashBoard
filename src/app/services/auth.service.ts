@@ -14,6 +14,28 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) {}
 
+  getRole() {
+    var payLoad = JSON.parse(
+      window.atob(localStorage.getItem('token')!.split('.')[1])
+    );
+    var userRole = payLoad.role;
+    return userRole;
+  }
+
+
+  roleMatch(allowedRoles:any): boolean {
+    var isMatch = false;
+    var payLoad = JSON.parse(window.atob(localStorage.getItem('token')!.split('.')[1]));
+    var userRole = payLoad.role;
+    allowedRoles.forEach((element: any) => {
+      if (userRole == element) {
+        isMatch = true;
+      }
+    });
+    return isMatch;
+  }
+
+
   login(userValue: any): Observable<any> {
     var email: string[] = userValue.email;
     var adminPassword: string[] = userValue.adminPassword;

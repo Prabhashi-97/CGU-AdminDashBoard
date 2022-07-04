@@ -12,17 +12,20 @@ export class OverviewComponent implements OnInit {
   constructor(private adminService : AdminService) { }
 
   ngOnInit(): void {
-    this.generateToken();
+    if(localStorage.getItem('token') != null)
+    {
+      localStorage.removeItem('token');
+    }
   }
 
-  generateToken(){
-    this.adminService.generateToken().subscribe(data =>{
-      console.log(data);
-      var token = JSON.parse(JSON.stringify(data));
-      window.localStorage.setItem("token", token.token);
-    }, error=>{
-      console.log(error);
-    })
-  }
+  // generateToken(){
+  //   this.adminService.generateToken().subscribe(data =>{
+  //     console.log(data);
+  //     var token = JSON.parse(JSON.stringify(data));
+  //     window.localStorage.setItem("token", token.token);
+  //   }, error=>{
+  //     console.log(error);
+  //   })
+  // }
 
 }
