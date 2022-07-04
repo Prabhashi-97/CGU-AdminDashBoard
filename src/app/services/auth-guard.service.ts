@@ -21,7 +21,7 @@ export class AuthGuardService {
         if(roles){
           if(this.service.roleMatch(roles)) return true;
           else {
-            this.router.navigate(['/overview']);
+            this.router.navigate(['/overview/login']);
             return false;
           }
         }
