@@ -71,6 +71,6 @@ export class DeleteVacanciesComponent implements OnInit {
           swalWithBootstrapButtons.fire('Cancelled', '', 'error');
         }
       });
-    this.router.navigateByUrl('/vacancies/list');
+    this.router.navigateByUrl('/vacancies/list'); 
   }
 }

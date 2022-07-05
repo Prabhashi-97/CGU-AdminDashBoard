@@ -9,6 +9,7 @@ import { VacancyService } from 'src/app/services/vacancy.service';
 export class ListCvComponent implements OnInit {
   listLinks : any = [];
   p: number=1;
+  checked = false;
   
   constructor(private VacancyService : VacancyService) { }
 

@@ -33,13 +33,15 @@
             <th scope="col">Vacancy Title</th>
             <th scope="col">Email</th>
             <th scope="col">Company Name</th>
+            <th scope="col">Closing Date</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor= "let vacancy of acceptedvacancies.data | paginate: { id: 'pagination2', itemsPerPage: 5, currentPage: a}">
             <td width="300px"><span class="title"  [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{ vacancy.vacancyTitle}}</span></td>
             <td width="300px"><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
-            <td ><span class = "vacancy">{{vacancy.companyName}}</span></td>     
+            <td ><span class = "vacancy">{{vacancy.companyName}}</span></td> 
+            <td ><span class = "vacancy">{{vacancy.closingDate | date:'MM/dd/yyyy'}}</span></td>     
           </tr> 
         <pagination-controls id="pagination2" class="my-pagination" (pageChange) ="a = $event"></pagination-controls>       
         </tbody>

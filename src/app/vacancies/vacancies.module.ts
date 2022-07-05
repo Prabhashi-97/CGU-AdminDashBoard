@@ -21,6 +21,7 @@ import { ListCvComponent } from './list-cv/list-cv.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SendEmailsComponent } from './send-emails/send-emails.component';
 import { DeleteAcceptedvacanciesComponent } from './delete-acceptedvacancies/delete-acceptedvacancies.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { DeleteAcceptedvacanciesComponent } from './delete-acceptedvacancies/del
     MatNativeDateModule,
     MatSelectModule,
     MatPaginatorModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatCheckboxModule
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}
