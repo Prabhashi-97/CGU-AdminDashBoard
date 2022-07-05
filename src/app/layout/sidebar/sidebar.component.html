@@ -1,11 +1,12 @@
-<div class="sidebar">
+
+<div class="sidebar" *ngIf="islogged()">
     <mat-list role="list">
         <mat-list-item class="es-item" role="listitem"><b>DashBoard</b></mat-list-item>
 
 
         
         <mat-list-item class="item" role="listitem">
-            <a href="overview/list" class="item">Overview</a>
+            <a href="overview" class="item">Overview</a>
         </mat-list-item>
         <mat-list-item role="listitem">
             <a href="admins/list" class="item">Administrators</a>

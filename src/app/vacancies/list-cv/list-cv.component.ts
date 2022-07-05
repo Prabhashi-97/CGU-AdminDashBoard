@@ -15,6 +15,9 @@ export class ListCvComponent implements OnInit {
   ngOnInit(): void {
     this.VacancyService. listLinks().subscribe(data =>{
       this.listLinks = data as String[];
+    },
+    (err) => {
+      alert("An error occurred")
     });
   }
  }

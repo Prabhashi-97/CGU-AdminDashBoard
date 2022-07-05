@@ -21,18 +21,15 @@ export class AdminService {
   }
 
   listAdmin(){
-    return this.http.get(this.baseUrl + 'admins/');
+    return this.http.get(this.baseUrl + 'admins/', {
+      headers: this.generateHedaer(),
+    });
   }
 
   addAdmin(adminObj : any){
-    return this.http.post(this.baseUrl +'admins/', adminObj );
+    return this.http.post(this.baseUrl +'admins/', adminObj, {
+      headers: this.generateHedaer(),
+    } );
   }
 
-  generateADminToken(){
-    return this.http.post(this.baseUrl +'generateJWTToken/admin/', {} );
-  }
-
-  generateMainADminToken(){
-    return this.http.post(this.baseUrl +'generateJWTToken/mainadmin/', {} );
-  }
 }

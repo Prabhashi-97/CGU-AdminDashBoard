@@ -9,6 +9,8 @@ import { TokenStorageService } from 'src/app/services/token-storage.service'
 })
 export class SidebarComponent implements OnInit {
 
+  isLogged:boolean=false;
+
   constructor(private tokenStorage: TokenStorageService, private router: Router ) { }
 
   ngOnInit(): void {
@@ -17,8 +19,15 @@ export class SidebarComponent implements OnInit {
 
   logout(){
     localStorage.removeItem('token');
-    this.router.navigate(['/overview/list']);
+    this.router.navigateByUrl('');
     this.tokenStorage.logout();
+  }
+
+  islogged(){
+    if(localStorage.getItem('token') != null)
+    this.isLogged=true;
+    // console.log(this.isLogged +" hiii")
+    return this.isLogged;
   }
 
 }

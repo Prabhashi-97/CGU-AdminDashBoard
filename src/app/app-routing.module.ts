@@ -45,17 +45,19 @@ import { DeleteSessionComponent } from './consultation-sessions/delete-session/d
 const routes: Routes = [
   {
     path : "",
-    component : OverviewComponent
+    component : LoginComponent
   },
   {
     path: 'overview',
     children:[
+
+      { path: '', component: OverviewComponent },
       {path: 'list', component: OverviewComponent},
-
       {path: 'login', component: LoginComponent},
-    
-
     ],
+
+    data:{permittedRoles:['Admin','MainAdmin']}
+
 
   },
 
@@ -71,19 +73,25 @@ const routes: Routes = [
       { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
       
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
   },
 
-  {path: 'admins',
+{path: 'admins',
     children:[
       {path: 'list', component: ListAdministratorsComponent},
+    ],
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
+},
+
+{path: 'admins',
+    children:[
       {path: 'create', component: AddAdministratorsComponent },
-    ]
-    ,
+    ],
     canActivate : [AuthGuard],
     data:{permittedRoles:['MainAdmin']}
-
 },
 
 
@@ -96,7 +104,8 @@ const routes: Routes = [
       {path: 'view/:programId', component: ViewProgramComponent},
       {path: 'create', component: AddProgramComponent},
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
 },
 
@@ -150,31 +159,11 @@ data:{permittedRoles:['Admin','MainAdmin']}
       { path: 'edit/:albumId', component: AlbumEditComponent },
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
   },
-
-
-//   {path: 'news',
-//     children:[
-//       {path: '', component: ListNewsComponent},
-//       {path: 'list', component: ListNewsComponent},
-//       // {path: 'delete/:newsId', component:DeleteNewsComponent},
-//       // {path: 'edit/:newsId', component: EditNewsComponent},
-//       // {path: 'view/:newsId', component: ViewNewsComponent},
-//       {path: 'create', component: AddNewsComponent},
-    
-// ],
-//   }
 ];
-
-//  }
-
-//];
-
-
-
-
 
 
 @NgModule({

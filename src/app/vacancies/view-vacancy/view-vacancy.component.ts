@@ -23,6 +23,9 @@ export class ViewVacancyComponent implements OnInit {
 
     this.VacancyService.ViewVacancies(this.vacancyId).subscribe((data) => {
       this.VacancyDetails = data;
+    },
+    (err) => {
+      alert("An error occurred")
     });
   }
 }
