@@ -26,7 +26,7 @@ export class AddConsultantComponent implements OnInit {
       'email': new FormControl('',[Validators.required, Validators.email])
     })
   }
-  
+
   createConsultant(){
     
     this.consultantService.addConsultant(this.addConsultantForm.value).subscribe(data =>{

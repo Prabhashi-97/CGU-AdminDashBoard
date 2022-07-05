@@ -125,7 +125,8 @@ data:{permittedRoles:['Admin','MainAdmin']}
       { path: 'update/:consultantId', component: UpdateConsultantComponent },
       { path: 'add', component: AddConsultantComponent },
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
   },
   {
     path: 'consultation-session',
@@ -136,8 +137,8 @@ data:{permittedRoles:['Admin','MainAdmin']}
       { path: 'delete/:consultation_id', component: DeleteSessionComponent},
     ],
      
-    canActivate : [AuthGuard]
-
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
   },
   {
     path: 'image-album',

@@ -156,8 +156,8 @@
       </thead>
       <tbody>
         <tr *ngFor="let session of listScheduledSessions?.data | paginate: { id: 'pagination2', itemsPerPage: 5, currentPage: p2}">
-          <td >
-            <span class="undergradname">{{
+          <td width="170px">
+            <span class="undergradname" >{{
               session.undergradFName + " " + session.undergradLName
             }}</span>
           </td>

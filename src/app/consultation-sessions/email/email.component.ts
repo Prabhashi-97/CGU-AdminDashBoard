@@ -41,7 +41,7 @@ export class EmailComponent implements OnInit {
            icon: 'success',
            title: 'Email Sent! <br> Request added to Scheduled Sessions',
            showConfirmButton: false,
-           timer: 1000
+           timer: 2500
          })
          this.refreshPage();
         },err => {
@@ -50,7 +50,7 @@ export class EmailComponent implements OnInit {
            icon: 'error',
            title: 'Cannot Add to Scheduled Sessions',
            showConfirmButton: false,
-           timer: 1000
+           timer: 2500
         }) 
         this.refreshPage();
         });
