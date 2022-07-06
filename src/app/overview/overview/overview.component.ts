@@ -13,6 +13,7 @@ export class OverviewComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     // if(localStorage.getItem('token') != null)
     // {
     //   localStorage.removeItem('token');
@@ -21,6 +22,7 @@ export class OverviewComponent implements OnInit {
 
     // this.generateToken();
   }
+
 
   // generateToken(){
   //   this.adminService.generateToken().subscribe(data =>{

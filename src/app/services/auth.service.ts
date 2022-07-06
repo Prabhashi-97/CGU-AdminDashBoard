@@ -19,6 +19,7 @@ export class AuthService {
     var userRole = payLoad.role;
     return userRole;
   }
+
   roleMatch(allowedRoles:any): boolean {
     var isMatch = false;
     var payLoad = JSON.parse(window.atob(localStorage.getItem('token')!.split('.')[1]));
@@ -30,6 +31,7 @@ export class AuthService {
     });
     return isMatch;
   }
+
 
   login(userValue: any): Observable<any> {
     var email: string[] = userValue.email;
