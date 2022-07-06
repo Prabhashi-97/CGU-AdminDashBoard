@@ -86,6 +86,14 @@ export class LoginComponent implements OnInit {
       (err) => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: err.error.data,
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 2500
+        });
       }
     );
   }
