@@ -8,6 +8,7 @@
             <th scope="col">Job Role</th>
             <th scope="col">Company Name</th>
             <th scope="col">Linkedin Profile Link</th>
+            <th scope="col">Send Email</th>
           </tr>
         </thead>
         <tbody>
@@ -16,7 +17,21 @@
             <td ><span class = "vacancy">{{ link.vacancyTitle }}</span></td>
             <td>{{ link.companyName }}</td>
             <td><a href="{{  link.linkedin }}">{{ link.linkedin }}</a></td>
-            <!-- <td><button  mat-raised-button  color="primary" class="button-accept"  [routerLink] = "['/vacancies/send',link.id]">Send Email</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete']" >Delete</button></td> -->
+            <!-- <td><a href="{{  link.linkedin }}">{{ link.id }}</a></td> -->
+            <td> <div
+              *ngIf="
+                link.sendEmail== 0;
+                then thenBlock;
+                else elseBlock
+              ">
+            </div>
+            <ng-template #thenBlock>
+              <button  mat-raised-button  color="primary" class="button-accept"  [routerLink] = "['/vacancies/send',link.id]">Send Email</button>
+            </ng-template>
+            <ng-template #elseBlock>
+              <button  mat-raised-button  color="warn" class="button-reject">Email sent</button>
+            </ng-template>
+            </td>
           </tr>  
         </tbody>     
     </table>

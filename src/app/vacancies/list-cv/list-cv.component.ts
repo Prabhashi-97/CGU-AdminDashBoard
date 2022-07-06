@@ -8,6 +8,7 @@ import { VacancyService } from 'src/app/services/vacancy.service';
 })
 export class ListCvComponent implements OnInit {
   listLinks : any = [];
+  EmailStatus : any;
   p: number=1;
   checked = false;
   
@@ -16,6 +17,8 @@ export class ListCvComponent implements OnInit {
   ngOnInit(): void {
     this.VacancyService. listLinks().subscribe(data =>{
       this.listLinks = data as String[];
+      console.log(this.listLinks);
+      // this.EmailStatus = data.sendEmail;
     },
     (err) => {
       alert("An error occurred")

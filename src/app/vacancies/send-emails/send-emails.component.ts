@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./send-emails.component.scss'],
 })
 export class SendEmailsComponent implements OnInit {
-  linkedin: any;
+  id: any;
   obj: any;
 
   constructor(
@@ -21,9 +21,9 @@ export class SendEmailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((data) => {
-      this.linkedin = data.linkedin;
-      if (this.linkedin) {
-        this.VacancyService.sendEmail(this.linkedin).subscribe(
+      this.id = data.id;
+      if (this.id) {
+        this.VacancyService.sendEmail(this.id).subscribe(
           (data) => {
             Swal.fire({
               position: 'center',

@@ -69,7 +69,9 @@ export class VacancyService {
   }
 
   sendEmail(id:String){
-    return this.http.get(this.baseurl + 'vacancies/applyVacancies/' +id);
+    return this.http.get(this.baseurl + 'vacancies/applyVacancies/' +id, {
+      headers: this.generateHedaer(),
+    });
   }
 }
 
