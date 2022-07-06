@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { ActivatedRoute } from '@angular/router';
 import { VacancyService } from 'src/app/services/vacancy.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-delete-vacancies',
-  templateUrl: './delete-vacancies.component.html',
-  styleUrls: ['./delete-vacancies.component.scss'],
+  selector: 'app-delete-acceptedvacancies',
+  templateUrl: './delete-acceptedvacancies.component.html',
+  styleUrls: ['./delete-acceptedvacancies.component.scss']
 })
-export class DeleteVacanciesComponent implements OnInit {
+export class DeleteAcceptedvacanciesComponent implements OnInit {
+
   vacancyId: string = '';
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -20,6 +20,7 @@ export class DeleteVacanciesComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((data) => {
+      console.log("hi");
       this.vacancyId = data.vacancyId;
     });
 
@@ -39,14 +40,14 @@ export class DeleteVacanciesComponent implements OnInit {
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, reject it!',
+        confirmButtonText: 'Yes, delete it!',
         cancelButtonText: 'No, cancel!',
         reverseButtons: true,
       })
       .then((result) => {
         if (result.isConfirmed) {
           if (this.vacancyId) {
-            this.VacancyService.deleteVacancies(this.vacancyId).subscribe(
+            this.VacancyService. deleteAcceptedVacancies(this.vacancyId).subscribe(
               (data) => {
                 Swal.fire({
                   position: 'center',
@@ -73,4 +74,5 @@ export class DeleteVacanciesComponent implements OnInit {
       });
     this.router.navigateByUrl('/vacancies/list');
   }
+
 }

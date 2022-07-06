@@ -17,14 +17,14 @@ export class AddAdministratorsComponent implements OnInit {
     private router: Router) { }
 
   namePattern ="[a-zA-Z]*"; 
-  phoneNumPattern = "^((\\+94-?)|0)?[0-9]{10}$";
+  phoneNumPattern = "^[0-9]{10}$";
 
   ngOnInit(): void {
     this.addAdminForm= this.formBuilder.group({
       'adminFName' : new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
       'adminLName': new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
       'email': new FormControl('', [Validators.required, Validators.email]),
-      'adminPassword': new FormControl('', [Validators.required, Validators.minLength(8)]),
+      'Password': new FormControl('', [Validators.required, Validators.minLength(8)]),
       'phone_number': new FormControl('', [Validators.required, Validators.pattern(this.phoneNumPattern)])
     })
   }

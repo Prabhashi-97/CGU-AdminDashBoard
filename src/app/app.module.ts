@@ -64,15 +64,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     NoopAnimationsModule,
     // AngularImageViewerModule,
     ImageAlbumModule,
-    NgxPaginationModule,
-
+    //NgxPaginationModule,
 
     RouterModule,
-    MatDialogModule,
-  //  NewsModule
-
-
-
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

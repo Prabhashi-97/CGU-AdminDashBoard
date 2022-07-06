@@ -1,5 +1,4 @@
 <h1 class="heading"><b>Linkedin Profile Links</b></h1><br>
-
 <div>
   <mat-card class="card"  role="list">
     <table  class="table table-hover">
@@ -12,15 +11,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor= "let cv of listCVs.data">
-            <td ><span class="companyname">{{ cv.fullname }}</span></td>
-            <td ><span class = "vacancy">{{ cv.vacancyTitle }}</span></td>
-            <td>{{ cv.companyName }}</td>
-            <td>{{ cv.linkedin }}</td>
-          </tr>     
-        </tbody>
+          <tr *ngFor= "let link of listLinks.data | paginate: { itemsPerPage: 10, currentPage: p}">
+            <td ><span class="companyname">{{ link.fullname }}</span></td>
+            <td ><span class = "vacancy">{{ link.vacancyTitle }}</span></td>
+            <td>{{ link.companyName }}</td>
+            <td><a href="{{  link.linkedin }}">{{ link.linkedin }}</a></td>
+            <!-- <td><button  mat-raised-button  color="primary" class="button-accept"  [routerLink] = "['/vacancies/send',link.id]">Send Email</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete']" >Delete</button></td> -->
+          </tr>  
+        </tbody>     
     </table>
-        <!-- <mat-paginator [length]="200" [pageSizeOptions]="[2,3,4]" aria-label="Select page">
-        </mat-paginator> -->
+    <pagination-controls  class="my-pagination" (pageChange) ="p = $event"></pagination-controls>
   </mat-card>
 </div>

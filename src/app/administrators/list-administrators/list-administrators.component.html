@@ -1,8 +1,9 @@
-
 <h1 class="heading"><b>Administrators</b></h1><br>
-
-<span class = "btn"> <button class="btn btn-info"[routerLink]="['/admins/create']">Add New Administrator</button></span> 
-
+<div *ngIf="userRole=='MainAdmin'; then thenBlock"></div>
+    <ng-template #thenBlock>
+      <span class = "btn"> <button class="btn btn-info"[routerLink]="['/admins/create']">Add New Administrator</button></span> 
+    </ng-template>
+    
 <mat-card class="card"  role="list">
   <h1>All Administrators</h1>
     <table  class="table table-hover">
@@ -15,14 +16,13 @@
         </thead>
 
         <tbody>
-          <tr *ngFor= "let admin of listadmins.data">
+          <tr *ngFor= "let admin of listadmins.data | paginate: { itemsPerPage: 8, currentPage: p}">
             <td width="250px" ><span class="name">{{admin.fullname}}</span></td>
             <td width="200px" ><span class = "email">{{admin.email }}</span></td>
             <td width="200px" ><span class = "email">{{admin.phone_number}}</span></td>
           </tr>     
         </tbody>
+        <pagination-controls class="my-pagination"  (pageChange) ="p = $event"></pagination-controls>
     </table>
-        <!-- <mat-paginator [length]="200" [pageSizeOptions]="[2,3,4]" aria-label="Select page">
-        </mat-paginator> -->
 </mat-card>
 

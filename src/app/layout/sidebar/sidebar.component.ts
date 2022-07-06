@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/services/token-storage.service'
 
 @Component({
@@ -8,14 +9,25 @@ import { TokenStorageService } from 'src/app/services/token-storage.service'
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  isLogged:boolean=false;
+
+  constructor(private tokenStorage: TokenStorageService, private router: Router ) { }
 
   ngOnInit(): void {
   }
 
 
   logout(){
-this.tokenStorage.logout();
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
+    this.tokenStorage.logout();
+  }
+
+  islogged(){
+    if(localStorage.getItem('token') != null)
+    this.isLogged=true;
+    // console.log(this.isLogged +" hiii")
+    return this.isLogged;
   }
 
 }

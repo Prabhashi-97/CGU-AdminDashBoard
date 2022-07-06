@@ -14,14 +14,11 @@ const httpOptions = {
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  getRole() {
-    var payLoad = JSON.parse(
-      window.atob(localStorage.getItem('token')!.split('.')[1])
-    );
+  getRole(){
+    var payLoad = JSON.parse(window.atob(localStorage.getItem('token')!.split('.')[1]));
     var userRole = payLoad.role;
     return userRole;
   }
-
 
   roleMatch(allowedRoles:any): boolean {
     var isMatch = false;

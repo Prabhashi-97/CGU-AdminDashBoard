@@ -6,7 +6,9 @@ import { ListConsultantsComponent } from './consultants/list-consultants/list-co
 import { UpdateConsultantComponent } from './consultants/update-consultant/update-consultant.component';
 import { ViewConsultantComponent } from './consultants/view-consultant/view-consultant.component';
 import { DeleteVacanciesComponent } from './vacancies/delete-vacancies/delete-vacancies.component';
+import { DeleteAcceptedvacanciesComponent } from './vacancies/delete-acceptedvacancies/delete-acceptedvacancies.component';
 import { ListVacanciesComponent } from './vacancies/list-vacancies/list-vacancies.component';
+import { SendEmailsComponent } from './vacancies/send-emails/send-emails.component';
 import { ViewVacancyComponent } from './vacancies/view-vacancy/view-vacancy.component';
 import { AcceptVacanciesComponent } from './vacancies/accept-vacancies/accept-vacancies.component';
 import { DeleteSessionRequestComponent } from './company-sessions/delete-session-request/delete-session-request.component';
@@ -29,9 +31,6 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
-
-// import { AddNewsComponent } from './news/add-news/add-news.component';
-// import { ListNewsComponent} from './news/list-news/list-news.component';
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
 
 
@@ -40,17 +39,19 @@ import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.servic
 const routes: Routes = [
   {
     path : "",
-    component : OverviewComponent
+    component : LoginComponent
   },
   {
     path: 'overview',
     children:[
+
+      { path: '', component: OverviewComponent },
       {path: 'list', component: OverviewComponent},
-
       {path: 'login', component: LoginComponent},
-    
-
     ],
+
+    data:{permittedRoles:['Admin','MainAdmin']}
+
 
   },
 
@@ -66,18 +67,25 @@ const routes: Routes = [
       { path: 'view/accepted/:sessionId', component: ListAcceptedRequestsComponent},
       
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
   },
 
-  {path: 'admins',
+{path: 'admins',
     children:[
       {path: 'list', component: ListAdministratorsComponent},
-      {path: 'create', component: AddAdministratorsComponent },
-    ]
-    ,
-    canActivate : [AuthGuard]
+    ],
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
+},
 
+{path: 'admins',
+    children:[
+      {path: 'create', component: AddAdministratorsComponent },
+    ],
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['MainAdmin']}
 },
 
 
@@ -90,25 +98,27 @@ const routes: Routes = [
       {path: 'view/:programId', component: ViewProgramComponent},
       {path: 'create', component: AddProgramComponent},
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
 },
 
- 
 
- 
 {path: 'vacancies',
 children: [
   {path: '', component: ListVacanciesComponent},
   {path: 'list', component: ListVacanciesComponent},
   {path: 'delete/:vacancyId', component: DeleteVacanciesComponent},
+  {path: 'delete/acceptedvacancies/:vacancyId', component: DeleteAcceptedvacanciesComponent},
   {path: 'view/:vacancyId', component: ViewVacancyComponent},
   {path: 'accept/:vacancyId', component: AcceptVacanciesComponent},
   {path: 'list/cv', component: ListCvComponent},
+  {path: 'send/:id', component: SendEmailsComponent},
 ],
-canActivate : [AuthGuard]
-
+canActivate : [AuthGuard],
+data:{permittedRoles:['Admin','MainAdmin']}
 },
+
 {path:'consultants',
     children:[
       // {path: '', component:ListConsultantsComponent},
@@ -118,8 +128,8 @@ canActivate : [AuthGuard]
       {path: 'update/:id', component:UpdateConsultantComponent},
       {path: 'add', component: AddConsultantComponent},
     ],
-    canActivate : [AuthGuard]
-
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
   },
   {
     path: 'image-album',
@@ -131,31 +141,11 @@ canActivate : [AuthGuard]
       { path: 'edit/:albumId', component: AlbumEditComponent },
       { path: 'view/:albumId', component: AlbumViewComponent },
     ],
-    canActivate : [AuthGuard]
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
 
   },
-
-
-//   {path: 'news',
-//     children:[
-//       {path: '', component: ListNewsComponent},
-//       {path: 'list', component: ListNewsComponent},
-//       // {path: 'delete/:newsId', component:DeleteNewsComponent},
-//       // {path: 'edit/:newsId', component: EditNewsComponent},
-//       // {path: 'view/:newsId', component: ViewNewsComponent},
-//       {path: 'create', component: AddNewsComponent},
-    
-// ],
-//   }
 ];
-
-//  }
-
-//];
-
-
-
-
 
 
 @NgModule({

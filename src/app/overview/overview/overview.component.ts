@@ -12,11 +12,17 @@ export class OverviewComponent implements OnInit {
   constructor(private adminService : AdminService) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') != null)
-    {
-      localStorage.removeItem('token');
-    }
+
+
+    // if(localStorage.getItem('token') != null)
+    // {
+    //   localStorage.removeItem('token');
+    // }
+  } 
+
+    // this.generateToken();
   }
+
 
   // generateToken(){
   //   this.adminService.generateToken().subscribe(data =>{
@@ -28,4 +34,5 @@ export class OverviewComponent implements OnInit {
   //   })
   // }
 
-}
+
+

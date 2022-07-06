@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -26,15 +27,16 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   hide = true;
+ 
+
   constructor(
     private authService: AuthService,
     private tokenStorage: TokenStorageService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
-
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
@@ -51,15 +53,28 @@ export class LoginComponent implements OnInit {
     console.log(this.logInForm.value)
   }
   onSubmit(): void {
-
     this.authService.login(this.logInForm.value).subscribe(
       (data) => {
         console.log(data)
         this.tokenStorage.saveToken(data.accessToken);
         localStorage.setItem('token', data.accessToken);
         if(localStorage.getItem('token') != null)
+
+        // {
+        //    alert("login successfull");
+        // }
+
         {
-           alert("login successful");
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Logged In!',
+            text:'You Successfully logged in!',
+            showConfirmButton: false,
+            timerProgressBar: true,
+            timer: 2500
+          });
+
         }
 
         this.userRole = this.authService.getRole();
@@ -74,14 +89,26 @@ export class LoginComponent implements OnInit {
       (err) => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: err.error.data,
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 2500
+        });
       }
     );
   }
   reloadPage(): void {
     console.log('reload');
-    this.router.navigateByUrl('overview');
+
+    this.router.navigateByUrl('/overview');
+
     // window.location.reload();
   }
+
+  
 
 
 
