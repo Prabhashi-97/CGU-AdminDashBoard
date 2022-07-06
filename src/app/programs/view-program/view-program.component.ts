@@ -24,6 +24,7 @@ export class ViewProgramComponent implements OnInit {
     this.ProgramService.viewProgram(this.programId).subscribe(data => {
       
       this.programDetails=data;
+      console.log(this.programDetails)
     })
 
     this.ProgramService.getUndergrads(this.programId).subscribe(data => {
