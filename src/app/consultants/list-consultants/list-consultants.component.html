@@ -1,14 +1,10 @@
-<div class="margin">
- <br><h1 class="heading"><b>Consultants</b></h1><br>
+<h1 class="heading"><b>Consultants</b></h1><br>
 
     <button class="btn btn-info" [routerLink]="['/consultants/add']">Add New Consultant</button>
 
-
-
-
     <mat-card class="card" role="list">
         
-        <h1>All Consultants</h1>
+        <h1>All Consultants ({{ listConsultants.data.length }})</h1>
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -16,12 +12,11 @@
                     <th scope="col">University Name</th>
                     <th scope="col">Post</th>
                     <th scope="col">Email</th>
-                    <th scope="col" >Action</th>
-          
+                    <th scope="col" >Action</th>      
                 </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let consultant of listConsultants?.data">
+                    <tr *ngFor="let consultant of listConsultants?.data | paginate: { itemsPerPage: 5, currentPage: p}">
                         <td width="220px"><span class="consultantname"><a class="action-link" [routerLink]="['/consultants/view',consultant.consultantId]">{{consultant.consultantFName +" "+consultant.consultantLName}}</a></span></td>
                         <td width="200px" ><span>{{consultant.universityName}}</span></td>
                         <td width="250px" ><span>{{consultant.post}}</span></td>
@@ -31,17 +26,11 @@
                         </td>
                         
                     </tr>
-                </tbody>
-               
-                    
-                   
-             
-                
+                </tbody>    
             </table>
-              
-   
+            <pagination-controls  class="my-pagination" (pageChange) ="p = $event"></pagination-controls>
     </mat-card>
-  </div>  
+
 
 
 

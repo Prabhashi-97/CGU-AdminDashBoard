@@ -15,7 +15,6 @@ export class AddConsultantComponent implements OnInit {
 
   addConsultantForm: FormGroup =new FormGroup({});
 
-
   constructor(private formBuilder: FormBuilder, private consultantService:ConsultantService, private router: Router,private  _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
@@ -35,21 +34,25 @@ export class AddConsultantComponent implements OnInit {
       Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'Consultant Created Successfully',
+        title: 'Added!',
+        text:'Consultant Added Successfully!',
         showConfirmButton: false,
-        timer: 1500
+        timerProgressBar: true,
+        timer: 2500
       });
       
     },err =>{
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'Unable to Create Consultant',
+        title: 'Consultant Email Already Exists!',
         showConfirmButton: false,
-        timer: 1500
+        timerProgressBar: true,
+        timer: 2500
       });
     })
     this.router.navigate(["/consultants/list"]);
+   
   }
 
 }

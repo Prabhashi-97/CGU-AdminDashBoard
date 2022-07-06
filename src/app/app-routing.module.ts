@@ -31,9 +31,15 @@ import { AlbumAddComponent } from './image-album/album-add/album-add.component';
 import { AlbumViewComponent } from './image-album/album-view/album-view.component';
 import { AlbumEditComponent } from './image-album/album-edit/album-edit.component';
 import { AlbumDeleteComponent } from './image-album/album-delete/album-delete.component';
+import { ListConsultationRequestsComponent } from './consultation-sessions/list-consultation-requests/list-consultation-requests.component';
+
+// import { AddNewsComponent } from './news/add-news/add-news.component';
+// import { ListNewsComponent} from './news/list-news/list-news.component';
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
 
 
+import { EmailComponent } from './consultation-sessions/email/email.component';
+import { DeleteSessionComponent } from './consultation-sessions/delete-session/delete-session.component';
 
 
 const routes: Routes = [
@@ -121,13 +127,25 @@ data:{permittedRoles:['Admin','MainAdmin']}
 
 {path:'consultants',
     children:[
-      // {path: '', component:ListConsultantsComponent},
-      {path: 'list', component:ListConsultantsComponent},
-      {path: 'view/:consultantId', component:ViewConsultantComponent},
-      {path: 'delete/:consultantId', component:DeleteConsultantComponent},
-      {path: 'update/:id', component:UpdateConsultantComponent},
-      {path: 'add', component: AddConsultantComponent},
+      { path: '', component:ListConsultantsComponent},
+      { path: 'list', component: ListConsultantsComponent },
+      { path: 'view/:consultantId', component: ViewConsultantComponent },
+      { path: 'delete/:consultantId', component: DeleteConsultantComponent },
+      { path: 'update/:consultantId', component: UpdateConsultantComponent },
+      { path: 'add', component: AddConsultantComponent },
     ],
+    canActivate : [AuthGuard],
+    data:{permittedRoles:['Admin','MainAdmin']}
+  },
+  {
+    path: 'consultation-session',
+    children: [
+      {path: '', component:ListConsultantsComponent},
+      { path: 'list', component: ListConsultationRequestsComponent },
+      { path: 'email/:undergradEmail', component: EmailComponent },
+      { path: 'delete/:consultation_id', component: DeleteSessionComponent},
+    ],
+     
     canActivate : [AuthGuard],
     data:{permittedRoles:['Admin','MainAdmin']}
   },

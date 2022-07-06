@@ -19,6 +19,7 @@ import { CompanySessionsModule } from './company-sessions/company-sessions.modul
 import { AdministratorsModule } from './administrators/administrators.module';
 import { OverviewModule } from './overview/overview.module';
 import { ImageAlbumModule } from './image-album/image-album.module';
+import { ConsultationSessionsModule } from './consultation-sessions/consultation-sessions.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,7 +29,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 // import { AngularImageViewerModule } from '@hreimer/angular-image-viewer';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
-
 // import {NewsModule} from './news/news.module';
 
 import {MatDialogModule} from '@angular/material/dialog';
@@ -55,6 +55,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     CompanySessionsModule,
     NgbModule,
     ImageAlbumModule,
+    ConsultationSessionsModule,
     ReactiveFormsModule,
     MatCardModule,
     MatToolbarModule,
@@ -67,6 +68,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     //NgxPaginationModule,
 
     RouterModule,
+    // NewsModule
     MatDialogModule
   ],
   providers: [],

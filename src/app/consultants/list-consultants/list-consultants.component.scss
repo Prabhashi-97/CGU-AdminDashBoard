@@ -11,9 +11,11 @@
 }
 
 .card{
-    margin-top: 40px;
+    //margin-top: 40px;
     margin-right: 50px;
-    //margin-left: 30px;
+    margin-block-start: 40px;
+    margin-block-end: 70px;
+    
 }
 
 .heading{
@@ -27,6 +29,10 @@
 .button-delete{
     margin-left: 20px;
 }
-.margin{
-    margin-left: 30px;
-}
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(38, 124, 146);
+  }
+// .margin{
+//     margin-left: 30px;
+    
+// }

@@ -1,24 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ConsultantService } from 'src/app/services/consultant.service';
+import { ConsultationSessionService } from 'src/app/services/consultation-session.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-delete-consultant',
-  templateUrl: './delete-consultant.component.html',
-  styleUrls: ['./delete-consultant.component.scss'],
+  selector: 'app-delete-session',
+  templateUrl: './delete-session.component.html',
+  styleUrls: ['./delete-session.component.scss'],
 })
-export class DeleteConsultantComponent implements OnInit {
-  consultantId: string = '';
+export class DeleteSessionComponent implements OnInit {
+  consultation_id: any;
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    private consultantService: ConsultantService,
+    private consultantationSessionService: ConsultationSessionService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((data) => {
-      this.consultantId = data['consultantId'];
+      this.consultation_id = data.consultation_id;
     });
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
@@ -42,29 +43,29 @@ export class DeleteConsultantComponent implements OnInit {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          if (this.consultantId) {
-            this.consultantService
-              .deleteConsultant(this.consultantId)
+          if (this.consultation_id) {
+            this.consultantationSessionService
+              .deleteSession(this.consultation_id)
               .subscribe(
                 (data) => {
                   swalWithBootstrapButtons.fire({
                     position: 'center',
                     icon: 'success',
                     title: 'Deleted!',
-                    text: 'Consultant Deleted Successfully!',
+                    text: 'Consultation Session Deleted Successfully!',
                     showConfirmButton: false,
                     timerProgressBar: true,
-                    timer: 2500,
+                    timer: 1000,
                   });
                 },
                 (err) => {
                   swalWithBootstrapButtons.fire({
                     position: 'center',
                     icon: 'error',
-                    title: 'Unable to Delete Consultant!',
+                    title: 'Unable to Delete Consultation Session!',
                     showConfirmButton: false,
                     timerProgressBar: true,
-                    timer: 2500,
+                    timer: 1000,
                   });
                 }
               );
@@ -72,7 +73,7 @@ export class DeleteConsultantComponent implements OnInit {
         } else if (result.dismiss === Swal.DismissReason.cancel) {
           swalWithBootstrapButtons.fire('Cancelled', '', 'error');
         }
-        this.router.navigate(['/consultants/list']);
+        this.router.navigate(['/consultation-session/list']);
       });
   }
 }

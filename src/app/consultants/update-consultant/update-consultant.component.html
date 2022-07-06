@@ -1,71 +1,41 @@
+<mat-card class="form-card">
+  <mat-card-title>Update Consultant</mat-card-title><br />
+  <mat-card-content>
+    <div *ngIf="dataLoaded">
+      <form [formGroup]="updateConsultantForm" (submit)="editConsultant()">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input type="text" matInput formControlName="consultantFName" />
+        </mat-form-field>
 
-<mat-card class="form-card" >
-    <mat-card-title>Update Consultant</mat-card-title><br>
-    <mat-card-content>
-        <div *ngIf="dataLoaded" >
-            <form [formGroup]="updateConsultantForm" (submit)="editConsultant()">
-              <p>
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>First Name</mat-label>
-                  <input
-                    type="text" matInput
-                    
-                    formControlName="consultantFName"
-                  />
-                  
-              
-                </mat-form-field>
-              </p>
-              <p>
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Last Name</mat-label>
-                  <input
-                    type="text" matInput
-                    
-                    formControlName="consultantLName"
-                  />
-                  
-              
-                </mat-form-field>
-              </p>
-              <p>
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>University Name</mat-label>
-                  <input
-                    type="text" matInput
-                    
-                    formControlName="universityName"
-                  />
-                  
-              
-                </mat-form-field>
-              </p>
-              <p>
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Post</mat-label>
-                  <input type="text" matInput  formControlName="post" />
-                  
-                
-                </mat-form-field>
-              </p>
-          
-              <p>
-                <mat-form-field class="example-full-width" appearance="outline">
-                  <mat-label>Email Address</mat-label>
-                  <input type="email" matInput  formControlName="email" />
-                  
-                 
-                </mat-form-field>
-              </p>
-    
-                <p>
-                    <button mat-raised-button color="primary" [disabled]="!updateConsultantForm.valid"> Update Consultant</button>
-                </p>
-              </form>
-        </div>
-        
-    </mat-card-content>
-  
-  
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input type="text" matInput formControlName="consultantLName" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>University Name</mat-label>
+          <input type="text" matInput formControlName="universityName" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Post</mat-label>
+          <input type="text" matInput formControlName="post" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Email Address</mat-label>
+          <input type="email" matInput formControlName="email" />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!updateConsultantForm.valid"
+        >
+          Update Consultant
+        </button>
+      </form>
+    </div>
+  </mat-card-content>
 </mat-card>
-
