@@ -24,7 +24,6 @@ export class UpdateConsultantComponent implements OnInit {
     this.dataLoaded=false;
     this.activatedRoute.params.subscribe(data =>{
       this.consultantId=data.consultantId;
-      console.log(this.consultantId);
     });
     if(this.consultantId !== ''){
       //view user details
@@ -32,32 +31,24 @@ export class UpdateConsultantComponent implements OnInit {
       .toPromise()
       .then(data =>{
         this.consultantDetails=data;
-        // Object.assign(this.consultantDetails, data);
-        console.log(this.consultantDetails);
         //build edit form     
         this.updateConsultantForm=this.formBuilder.group({
           'consultantFName': new FormControl(this.consultantDetails.data[0].consultantFName,[Validators.required]),
-        
           'consultantLName': new FormControl(this.consultantDetails.data[0].consultantLName,[Validators.required]),
           'universityName': new FormControl(this.consultantDetails.data[0].universityName,[Validators.required]),
           'post': new FormControl(this.consultantDetails.data[0].post,[Validators.required]),
           'email': new FormControl(this.consultantDetails.data[0].email,[Validators.required, Validators.email])
         })
-          
-        //console.log(this.updateConsultantForm.value.consultantName);
         this.dataLoaded=true;
       })
       .catch(err =>{
         console.log(err);
       })
-    }
-    
+    }   
   }
   
   editConsultant(){
-
     this.consultantService.updateConsultant(this.consultantId, this.updateConsultantForm.value).subscribe(data =>{
-      
       Swal.fire({
         position: 'center',
         icon: 'success',

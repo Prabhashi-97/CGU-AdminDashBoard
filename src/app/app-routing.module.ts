@@ -127,7 +127,7 @@ data:{permittedRoles:['Admin','MainAdmin']}
 
 {path:'consultants',
     children:[
-      // {path: '', component:ListConsultantsComponent},
+      { path: '', component:ListConsultantsComponent},
       { path: 'list', component: ListConsultantsComponent },
       { path: 'view/:consultantId', component: ViewConsultantComponent },
       { path: 'delete/:consultantId', component: DeleteConsultantComponent },
@@ -140,7 +140,7 @@ data:{permittedRoles:['Admin','MainAdmin']}
   {
     path: 'consultation-session',
     children: [
-      // {path: '', component:ListConsultantsComponent},
+      {path: '', component:ListConsultantsComponent},
       { path: 'list', component: ListConsultationRequestsComponent },
       { path: 'email/:undergradEmail', component: EmailComponent },
       { path: 'delete/:consultation_id', component: DeleteSessionComponent},

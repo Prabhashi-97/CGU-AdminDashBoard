@@ -33,7 +33,6 @@ export class ConsultantService {
     return this.http.delete(this.baseUrl+'consultants/delete/'+ consultantId,{headers: this.generateHedaer(),});
   }
   updateConsultant(consultantId: any, consultantObj: any){
-    console.log(consultantId);
     return this.http.put(this.baseUrl +'consultants/update/'+consultantId, consultantObj,{headers: this.generateHedaer(),});
   }
 

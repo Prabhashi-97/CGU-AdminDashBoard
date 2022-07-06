@@ -1,32 +1,24 @@
-
-
-
 <mat-card class="card">
-<!-- <div class="readersack"> -->
-  <!-- <div class="container"> -->
-    <div class="row">
-      <div class="col-md-7 offset-md-1">
-        <h1 class="align">Send Email</h1>
-    
-        <form [formGroup]="emailForm" (submit)="sendToScheduled()" class="card-content">
- 
-          <div class="form-group">
-            <label>Scheduled Date</label>
-            <input type="date" formControlName="sessionDate" class="form-control" min="{{minDate}}" required/>
-            
-          </div>
-          <div class="form-group">
-            <label>Scheduled Time</label>
-            <input type="time" formControlName="sessionTime" class="form-control" required/>
-          </div>
+  <div class="row">
+    <div class="col-md-7 offset-md-1">
+      <h1 class="align">Send Email</h1>
 
-          <div class="form-group align-button">
-            <button class="btn btn-primary btn-color" [disabled]="!emailForm.valid">Send</button>
-          </div>
-        </form>
-      </div>
+      <form [formGroup]="emailForm" (submit)="sendToScheduled()" class="card-content">
+        <div class="form-group">
+          <label>Scheduled Date</label>
+          <input type="date" formControlName="sessionDate" class="form-control" min="{{ minDate }}" required />
+        </div>
+        <div class="form-group">
+          <label>Scheduled Time</label>
+          <input type="time" formControlName="sessionTime" class="form-control" required />
+        </div>
+
+        <div class="form-group align-button">
+          <button class="btn btn-primary btn-color" [disabled]="!emailForm.valid">
+            Send
+          </button>
+        </div>
+      </form>
     </div>
-  <!-- </div> -->
-<!-- </div> -->
+  </div>
 </mat-card>
-
