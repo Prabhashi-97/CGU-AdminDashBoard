@@ -1,15 +1,15 @@
 <mat-card class="album-view">
-    <a class="action-link" [routerLink]="['/image-album/view', albumId]">
-        <mat-card-title>
-            {{album?.name}}
-        </mat-card-title>
-    </a><br>
+  <a class="action-link" [routerLink]="['/image-album/view', albumId]">
+    <mat-card-title>
+      {{album?.name}}
+    </mat-card-title>
+  </a><br>
 
-    <mat-card-content>
-        <p>{{album?.description}}</p>
-    </mat-card-content>
+  <mat-card-content>
+    <p>{{album?.description}}</p>
+  </mat-card-content>
 
-    <!--
+  <!--
     <br>
 
 
@@ -18,10 +18,12 @@
 
 
 
-    &nbsp;&nbsp;
+  &nbsp;&nbsp;
 
-    <button mat-raised-button class="button-update" color="primary" [routerLink]="['/image-album/edit',albumId]">Update
+
+  <button mat-raised-button class="button-update" color="primary" [routerLink]="['/image-album/edit',albumId]">Update
     Album</button>&nbsp;&nbsp;
-    <button mat-raised-button class="button-delete" color="warn" [routerLink]="['/image-album/delete',albumId]">Delete
+  <button mat-raised-button class="button-delete" color="warn" [routerLink]="['/image-album/delete',albumId]">Delete
     Album</button>
+
 </mat-card>

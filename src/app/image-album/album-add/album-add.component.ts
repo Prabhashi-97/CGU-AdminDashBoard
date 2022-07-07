@@ -66,6 +66,7 @@ export class AlbumAddComponent implements OnInit {
         reader.onload = (e: any) => {
           console.log(e.target.result);
           this.previews.push(e.target.result);
+          console.log('pushed');
         };
         reader.readAsDataURL(this.selectedFiles[i]);
         console.log(i);
@@ -85,6 +86,7 @@ export class AlbumAddComponent implements OnInit {
     if (formData) {
       this.albumService.upload(formData).subscribe(
         (event: any) => {
+          console.log('event');
           if (event.type === HttpEventType.UploadProgress) {
             this.progressInfos[idx].value = Math.round(
               (100 * event.loaded) / event.total
@@ -98,6 +100,7 @@ export class AlbumAddComponent implements OnInit {
           }
         },
         (err: any) => {
+          console.log('err');
           this.progressInfos[idx].value = 0;
           const msg = 'Could not upload the file: ' + file.name;
           this.message.push(msg);
