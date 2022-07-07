@@ -1,3 +1,8 @@
 export class Album {
-  constructor(public name: string, public description: string) {}
+  constructor(
+    public album_id: string,
+    public name: string,
+    public description: string,
+    public imagePath: string
+  ) {}
 }

@@ -11,6 +11,7 @@ export class ViewProgramComponent implements OnInit {
 
   programId: String="";
   programDetails:any;
+  undergradDetails:any;
   router: any;
   constructor(private ProgramService: ProgramService, private activatedRoute: ActivatedRoute) { }
 
@@ -18,14 +19,17 @@ export class ViewProgramComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(data => {
       this.programId=data.programId;
-      console.log( data.programId)
-      console.log( this.programId)
     })
 
     this.ProgramService.viewProgram(this.programId).subscribe(data => {
       
       this.programDetails=data;
       console.log(this.programDetails)
+    })
+
+    this.ProgramService.getUndergrads(this.programId).subscribe(data => {
+      
+      this.undergradDetails=data;
     })
 
      

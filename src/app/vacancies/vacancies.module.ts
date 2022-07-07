@@ -4,7 +4,6 @@ import { ViewVacancyComponent } from './view-vacancy/view-vacancy.component';
 import { DeleteVacanciesComponent } from './delete-vacancies/delete-vacancies.component';
 import { AcceptVacanciesComponent } from './accept-vacancies/accept-vacancies.component';
 import { ListVacanciesComponent } from './list-vacancies/list-vacancies.component';
-
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_SNACK_BAR_DEFAULT_OPTIONS_FACTORY} from '@angular/material/snack-bar';
@@ -18,6 +17,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { ListCvComponent } from './list-cv/list-cv.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SendEmailsComponent } from './send-emails/send-emails.component';
+import { DeleteAcceptedvacanciesComponent } from './delete-acceptedvacancies/delete-acceptedvacancies.component';
 
 
 @NgModule({
@@ -25,7 +28,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ViewVacancyComponent,
     ListVacanciesComponent,
     DeleteVacanciesComponent,
-    AcceptVacanciesComponent
+    AcceptVacanciesComponent,
+    ListCvComponent,
+    SendEmailsComponent,
+    DeleteAcceptedvacanciesComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +47,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatNativeDateModule,
     MatSelectModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxPaginationModule
   ],
   providers: [
     { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {duration: 2500}}

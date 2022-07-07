@@ -1,3 +1,18 @@
 .album-view {
-    width: fit-content;
+    width: 45%;
+    height: 220px;
+    float: left;
+    padding: 10px;
+    margin: 10px;
+}
+
+.button-update {
+    background-color: limegreen;
+}
+
+.action-link {
+    min-width: 300px;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
 }

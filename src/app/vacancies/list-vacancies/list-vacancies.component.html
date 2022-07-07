@@ -1,29 +1,27 @@
 <h1 class="heading"><b>Vacancies</b></h1><br>
-
 <div>
   <mat-card class="card"  role="list">
-    <h1 *ngIf ="listVacancies" >Pending vacancies ({{listVacancies.data.length}})</h1>
-    <table  class="table table-hover">
+    <h1 *ngIf ="listVacancies" >Pending vacancies ({{listVacancies.data.length }})</h1>
+    <table  class="table table-hover table2">
         <thead>
           <tr>
-            <th scope="col">Company Name</th>
-            <th scope="col">Email</th>
             <th scope="col">Vacancy Title</th>
+            <th scope="col">Email</th>
+            <th scope="col">Company Name</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor= "let vacancy of listVacancies.data">
-            <td width="500px" ><span class="companyname"> <a class="action-link" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{vacancy.companyName}}</a></span></td>
-            <td width="200px" ><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
-            <td><span >{{ vacancy.vacancyTitle}}</span></td>
-            <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete',vacancy.vacancyId]" >Reject</button></td>       
-          </tr>     
+          <tr *ngFor= "let vacancy of listVacancies.data | paginate: { id: 'pagination1', itemsPerPage: 5, currentPage: p}">
+            <td width="300px"><span class="title"> <a class="action-link" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{ vacancy.vacancyTitle}}</a></span></td>
+            <td width="300px" ><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
+            <td ><span class = "vacancy">{{vacancy.companyName}}</span></td>
+            <td ><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/vacancies/accept',vacancy.vacancyId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn"  [routerLink] = "['/vacancies/delete',vacancy.vacancyId]" >Reject</button></td>       
+          </tr>  
+          <span ><pagination-controls id="pagination1" class="my-pagination" (pageChange) ="p = $event"></pagination-controls> </span>  
         </tbody>
-        </table>
-        <!-- <mat-paginator [length]="200" [pageSizeOptions]="[2,3,4]" aria-label="Select page">
-        </mat-paginator> -->
-      </mat-card>
+    </table>
+  </mat-card>
 </div>
 
 <div>
@@ -32,20 +30,21 @@
     <table  class="table table-hover">
         <thead>
           <tr>
-            <th scope="col">Company Name</th>
-            <th scope="col">Email</th>
             <th scope="col">Vacancy Title</th>
+            <th scope="col">Email</th>
+            <th scope="col">Company Name</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor= "let vacancy of acceptedvacancies.data">
-            <td width="500px" ><span class="companyname"> <a class="action-link" [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{vacancy.companyName}}</a></span></td>
-            <td width="200px" ><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
-            <td><span >{{ vacancy.vacancyTitle}}</span></td>     
-          </tr>     
+          <tr *ngFor= "let vacancy of acceptedvacancies.data | paginate: { id: 'pagination2', itemsPerPage: 5, currentPage: a}">
+            <td width="300px"><span class="title"  [routerLink] = "['/vacancies/view',vacancy.vacancyId]">{{ vacancy.vacancyTitle}}</span></td>
+            <td width="300px"><span class = "vacancy">{{ vacancy.companyEmail }}</span></td>
+            <td ><span class = "vacancy">{{vacancy.companyName}}</span></td>     
+          </tr> 
+        <pagination-controls id="pagination2" class="my-pagination" (pageChange) ="a = $event"></pagination-controls>       
         </tbody>
-        </table>
-      </mat-card>
+    </table>
+  </mat-card>
 </div>
 
 

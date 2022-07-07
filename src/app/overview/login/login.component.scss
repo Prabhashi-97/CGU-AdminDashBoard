@@ -1,0 +1,35 @@
+.card {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 75px;
+    width: 35%;
+}
+
+.form {
+    margin-left: 5px;
+    /* margin: auto;
+    width: 50%;
+    padding: 10px; */
+}
+
+.inputfield {
+    /* margin-left:2.5%;
+  margin-right:2.5%; */
+    width: 95%;
+    margin-left: 12px;
+}
+
+.login-button {
+    background-color:  rgb(6, 107, 114);
+}
+
+.title {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,12 +1,12 @@
 .heading{
     text-decoration-color: black;
     padding-top: 10px;
-    padding-left: 30px;
+    padding-left: 10px;
+    margin-left: 30px;
 }
 
-
 .action-link{
-    min-width: 300px;
+    min-width: 100px;
     padding: 10px;
     color: black;
     text-decoration: none;
@@ -20,24 +20,38 @@
     background-color: limegreen;
 }
 
-.card{
-    margin-right: 30px;
+.card-acceptedVacancies{
+    margin-top: 20px;
     margin-left: 30px;
+    margin-right: 40px;
     background-color: white;
 }
 
-.card-acceptedVacancies{
+.table2{
+    width: 95%;
+}
+
+.card{
     margin-top: 10px;
-    margin-right: 30px;
     margin-left: 30px;
+    margin-right: 40px;
     background-color: white;
 }
+
 .companyname{
     min-width: 15px;
     font-size: 16px;
     text-decoration: none;
 }
+
+.title{
+    font-size: 16px;
+}
+
 .vacancy{
     font-size: 16px;
 }
 
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(38, 124, 146);
+  }

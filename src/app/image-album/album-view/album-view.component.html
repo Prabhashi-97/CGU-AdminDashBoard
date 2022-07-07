@@ -1,1 +1,22 @@
-<p>album-view works!</p>
+<mat-card class="user-details" *ngIf="albumDetails">
+    <mat-card-title class="header">{{albumDetails[0].name}}</mat-card-title>
+    <br><br>
+    <div class="content">
+        <mat-card-content>
+            <b>Description:</b>{{ albumDetails[0].description }}<br><br>
+
+        </mat-card-content>
+
+        <a data-flickr-embed="true" href="{{albumDetails[0].albumLink}}" title="RDA_06"><img src="https://live.staticflickr.com/65535/52158882382_d112c77b02_z.jpg" height="400" alt="RDA_06"></a>
+        <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+
+        <mat-card-actions class="text-right action-link">
+            <button mat-raised-button class="button-update" color="primary">
+        <a class="action-link" [routerLink]="['/image-album/edit',albumId]">Update</a>
+      </button>
+            <button mat-raised-button class="button-delete" color="warn">
+        <a class="action-link" [routerLink]="['/image-album/delete', albumId]">Delete</a>
+      </button>
+        </mat-card-actions>
+    </div>
+</mat-card>

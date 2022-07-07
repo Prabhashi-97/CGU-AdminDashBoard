@@ -1,13 +1,24 @@
-<div class="sidebar">
+
+<div class="sidebar" *ngIf="islogged()">
     <mat-list role="list">
         <mat-list-item class="es-item" role="listitem"><b>DashBoard</b></mat-list-item>
 
-        <mat-list-item class="item" role="listitem">Overview</mat-list-item>
+
+        
+        <mat-list-item class="item" role="listitem">
+            <a href="overview" class="item">Overview</a>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <a href="admins/list" class="item">Administrators</a>
+        </mat-list-item>
         <mat-list-item role="listitem">
             <a href="programs/list" class="item">Events and Workshops</a>
         </mat-list-item>
         <mat-list-item class="item" role="listitem">
             <a href="vacancies/list" class="item">Vacancies</a>
+        </mat-list-item>
+        <mat-list-item class="item" role="listitem">
+            <a href="vacancies/list/cv" class="item">Linkedin Link List</a>
         </mat-list-item>
         <mat-list-item class="item" role="listitem">Student Satisfaction</mat-list-item>
         <mat-list-item class="item" role="listitem">
@@ -27,6 +38,17 @@
         </mat-list-item>
         <mat-list-item class="item" role="listitem">
             <a href="about-us/list" class="item">About Us</a>
+        <br>
+        <br>
+        <br>
+
+
+
+
+        <mat-list-item class="item" role="listitem">
+            <a href="overview/login" class="item" (click)="logout()">Logout</a>
+
+
         </mat-list-item>
 
     </mat-list>

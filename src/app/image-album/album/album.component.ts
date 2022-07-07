@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Album } from '../album.model';
+import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+// import { count } from 'console';
 
 @Component({
   selector: 'app-album',
@@ -8,24 +11,38 @@ import { Album } from '../album.model';
 })
 export class AlbumComponent implements OnInit {
   @Input() album?: Album;
-  @Input() albumId: number = 0;
-  constructor() {}
+  albumDetails: any;
+  albumId: any;
+  url: SafeResourceUrl | undefined;
+  constructor(
+    private activatedRoute: ActivatedRoute // private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.album);
+    this.activatedRoute.params.subscribe((data) => {
+      if (data !== undefined) {
+        this.albumDetails = data;
+        this.albumId = this.album?.album_id;
+      }
+    });
   }
-
-  onDelete() {
-    console.log(this.album);
-    console.log(this.albumId);
-    console.log(`Delete called`);
-  }
-
-  // onEdit() {
-  //   this.router.navigate(['/edit/:id', this.index]);
-  // }
-
-  // albumViewCall() {
-  //   this.router.navigate(['/view/:id', this.index]);
-  // }
 }
+
+// -----------------------------------------------------------------------
+
+// public url: SafeResourceUrl;
+
+// constructor(private http: HttpClient, private sanitizer: DomSanitizer) {
+//   this.getImage('URL').subscribe(x => this.url = x)
+// }
+
+// public getImage(url: string): Observable<SafeResourceUrl> {
+//   return this.http
+//     .get(url, { responseType: 'blob' })
+//     .pipe(
+//       map(x => {
+//         const urlToBlob = window.URL.createObjectURL(x) // get a URL for the blob
+//         return this.sanitizer.bypassSecurityTrustResourceUrl(urlToBlob); // tell Anuglar to trust this value
+//       }),
+//     );
+// }

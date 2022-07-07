@@ -8,6 +8,10 @@ import {RouterModule} from '@angular/router';
 import {MatCardModule} from '@angular/material/card';
 import { ListAcceptedRequestsComponent } from './list-accepted-requests/list-accepted-requests.component';
 import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -23,7 +27,13 @@ import {MatButtonModule} from '@angular/material/button';
     CommonModule,
     RouterModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxPaginationModule 
+    
   ]
 })
 export class CompanySessionsModule { }

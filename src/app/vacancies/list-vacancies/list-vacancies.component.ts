@@ -1,13 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { observable } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { IfStmt } from '@angular/compiler';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { VacancyService } from 'src/app/services/vacancy.service';
-import { CommonModule } from "@angular/common";
-import { ActivatedRoute } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
-import {AfterViewInit, ViewChild} from '@angular/core';
-import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-list-vacancies',
@@ -17,30 +12,25 @@ import { Router } from '@angular/router';
 export class ListVacanciesComponent implements OnInit {
   listVacancies : any = [];
   acceptedvacancies: any = [];
+  p:number=1;
+  a:number=1;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
-
-  constructor(private activatedRoute: ActivatedRoute,private VacancyService : VacancyService, private router: Router) { }
-
-  ngAfterViewInit() {
-    this.listVacancies.paginator = this.paginator;
-  }
-
+  constructor(private VacancyService : VacancyService, private router: Router) { }
+ 
   ngOnInit(): void {
     this.VacancyService.listPendingVacancies().subscribe(data =>{
       this.listVacancies = data as String[];
-      console.log(this.listVacancies);
-      console.log(this.listVacancies.data.length);
-    });
-
+    },
+    (err) => {
+      alert("An error occurred")
+    })
     this.VacancyService.listAcceptedVacancies().subscribe(data =>{
       this.acceptedvacancies = data as String[];
-      console.log(this.acceptedvacancies);
-      console.log(this.acceptedvacancies.data.length);
-    });
-      
-    }
-     
+    },
+    (err) => {
+      alert("An error occurred")
+    }); 
+    }  
   }
   
 

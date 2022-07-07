@@ -1,12 +1,10 @@
 <h1 class="heading"><b>Company Sessions</b></h1>
 <div>
 <mat-card class="card" role="list">
-  <!-- <h1>Pending vacancies ({{listSessionPendingRequests.data.length}})</h1> -->
   <h1>Pending Session Requets</h1>
     <table  class="table table-hover">
     <thead>
       <tr>
-        
         <th scope="col">Session Topic</th>
         <th scope="col">Session Date</th>
         <th scope="col">Target Group</th>
@@ -14,29 +12,25 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let request of listSessionPendingRequests">
-        
-        <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view',request.sessionId]">{{request.sessionTopic}}</a></span></td>
+      <tr *ngFor="let request of listSessionPendingRequests  | paginate: { id: 'pending',itemsPerPage: 3, currentPage: page} ">
+        <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view/pending',request.sessionId]">{{request.sessionTopic}}</a></span></td>
         <td width="250px" ><span>{{request.sessionDate | date:'longDate'}}</span></td>
         <td><span >{{request.TargetGroup}}</span></td>
-        <!-- <td><button class="btn btn-success"  [routerLink]="['/company-sessions/view',request.sessionId]">View Details</button></td> -->
-        <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/company-sessions/view/accepted',request.sessionId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/company-sessions/delete',request.sessionId]">Reject</button></td>       
+        <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/company-sessions/edit',request.sessionId]">Accept</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" (click)="onOpenDialogClick(request.sessionId)">Reject</button></td>       
       </tr>
-      
+      <pagination-controls  (pageChange) ="page = $event" id="pending"></pagination-controls>
     </tbody>
   </table >
+
 </mat-card>
 </div>
  
-
 <div>
-  
   <mat-card class="card" role="list">
     <h1 >Accepted Session Requests</h1>
-  <table  class="table table-hover">
+    <table  class="table table-hover">
     <thead>
       <tr>
-     
         <th scope="col">Session Topic</th>
         <th scope="col">Session Date</th>
         <th scope="col">Target Group</th>
@@ -44,14 +38,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let request of listSessionAcceptedRequests">
-        
-        <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view',request.sessionId]">{{request.sessionTopic}}</a></span></td>
+      <tr *ngFor="let request of listSessionAcceptedRequests  | paginate: { id: 'accepted', itemsPerPage: 3, currentPage: p} ">
+        <td width="450px" ><span class="sessionTopic"> <a class="action-link" [routerLink]="['/company-sessions/view/accepted',request.sessionId]">{{request.sessionTopic}}</a></span></td>
         <td width="250px" ><span>{{request.sessionDate | date:'longDate'}}</span></td>
         <td><span >{{request.TargetGroup}}</span></td>
-        <!-- <td><button class="btn btn-success"  [routerLink]="['/company-sessions/view/accepted',request.sessionId]">View Details</button></td> -->
-      </tr>
-      
+        </tr>
+        <pagination-controls  (pageChange) ="p = $event" id="accepted" ></pagination-controls>
     </tbody>
   </table>
   </mat-card>
