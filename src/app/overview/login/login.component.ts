@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveToken(data.accessToken);
         localStorage.setItem('token', data.accessToken);
         if(localStorage.getItem('token') != null)
+
         // {
         //    alert("login successfull");
         // }
@@ -73,6 +74,7 @@ export class LoginComponent implements OnInit {
             timerProgressBar: true,
             timer: 2500
           });
+
         }
 
         this.userRole = this.authService.getRole();
@@ -82,16 +84,27 @@ export class LoginComponent implements OnInit {
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.reloadPage();
+
       },
       (err) => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: err.error.data,
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 2500
+        });
       }
     );
   }
   reloadPage(): void {
     console.log('reload');
+
     this.router.navigateByUrl('/overview');
+
     // window.location.reload();
   }
 
