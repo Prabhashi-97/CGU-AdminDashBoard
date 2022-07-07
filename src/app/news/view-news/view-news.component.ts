@@ -17,12 +17,12 @@ export class ViewNewsComponent implements OnInit {
   ngOnInit(): void {
 
     this.activatedRoute.params.subscribe(data => {
-      this.newsId=data.newsId;
+      this.newsId=data.newsID;
       console.log( data.newsId)
       console.log( this.newsId)
     })
 
-    this.NewsService.listNews().subscribe(data => {
+    this.NewsService.viewNews(this.newsId).subscribe(data => {
       
       this.newsDetails=data;
       console.log(this.newsDetails)

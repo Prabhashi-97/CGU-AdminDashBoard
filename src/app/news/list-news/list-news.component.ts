@@ -16,6 +16,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from 'src/app/services/news.service';
+// import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Component({

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NewsService} from 'src/app/services/news.service';
 import Swal from 'sweetalert2';
 import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
+import { getLocaleDateFormat } from '@angular/common';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -9,14 +11,37 @@ import { FormBuilder, FormControl, FormGroup,Validators} from '@angular/forms';
   templateUrl: './add-news.component.html',
   styleUrls: ['./add-news.component.scss']
 })
+
 export class AddNewsComponent implements OnInit {
 
   addNewsForm : FormGroup= new FormGroup ({});
   constructor(private formBuilder: FormBuilder,
-    private NewsService:NewsService) { }
+    private NewsService:NewsService,
+    private router: Router) { }
+
+    titlePattern= "[a-zA-Z]*";
+    currentDate = new Date();
+
+    maxDate:any="";
+  
+    getDate(){
+    var date:any= new Date();
+    var toDate:any=date.getDate();
+    if(toDate<10){
+      toDate= '0'+toDate;
+    }
+    var month = date.getMonth()+1;
+    if(month<10){
+      month='0'+month;
+    }
+    var year=date.getFullYear();
+    this.maxDate=year+"-"+month+"-"+toDate;
+  }
+    
 
   ngOnInit(): void {
-    this.addNewsForm= this.formBuilder.group({
+       this.getDate();
+     this.addNewsForm= this.formBuilder.group({
       // 'programImage': new FormControl(''),
       'title' : new FormControl(''),
       'newsDate': new FormControl(''),
@@ -28,6 +53,7 @@ export class AddNewsComponent implements OnInit {
 
   createNews(){
     this.NewsService.addNews(this.addNewsForm.value).subscribe(data =>{
+
       Swal.fire({
         position: 'center',
         icon: 'success',
@@ -48,7 +74,7 @@ export class AddNewsComponent implements OnInit {
         timer: 2500
       });
     })
- 
+    this.router.navigateByUrl('/news/list');
   }
 
   // onSelectFile(e: any){

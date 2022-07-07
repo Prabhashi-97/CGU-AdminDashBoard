@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {ActivatedRoute, Router} from '@angular/router';
-import { NewsService } from 'src/app/services/news.service';
+import { AboutUsService } from 'src/app/services/about-us.service';
 import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-delete-news',
-  templateUrl: './delete-news.component.html',
-  styleUrls: ['./delete-news.component.scss']
+  templateUrl: './delete-about-us.component.html',
+  styleUrls: ['./delete-about-us.component.scss']
 })
 
 
-export class DeleteNewsComponent implements OnInit {
+export class DeleteAboutUSComponent implements OnInit {
 
-  NewsId: String= '';
+  AboutUsId: String= '';
   constructor(private activatedRoute: ActivatedRoute,
-     private NewsService : NewsService,
+     private AboutUsService : AboutUsService,
     private _snackBar: MatSnackBar,
     private router: Router) { }
 
     ngOnInit(): void {
       this.activatedRoute.params.subscribe(data=>{
-        this.NewsId=data.newsID;
+        this.AboutUsId=data.ID;
       })
       const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -44,9 +44,9 @@ export class DeleteNewsComponent implements OnInit {
       }).then((result) => {
         if (result.isConfirmed){
          
-          if(this.NewsId){
+          if(this.AboutUsId){
         
-            this.NewsService.deleteNews(this.NewsId).subscribe(data=>{
+            this.AboutUsService.deleteAboutUs(this.AboutUsId).subscribe(data=>{
               swalWithBootstrapButtons.fire({
                 position: 'center',
                 icon: 'success',
@@ -80,7 +80,7 @@ export class DeleteNewsComponent implements OnInit {
               'error'
             )
           }
-          this.router.navigateByUrl('/news/list');
+          this.router.navigateByUrl('/about-us/list');
         })
         
       }

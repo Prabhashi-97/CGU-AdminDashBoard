@@ -1,0 +1,49 @@
+<mat-card class="form-card">
+    <mat-card-title>Update About Us</mat-card-title><br>
+    <mat-card-content>
+        <div *ngIf="dataLoaded"> 
+        <form [formGroup]="updateAboutUsForm" (ngSubmit)="updateAboutUs()">
+            <!-- <mat-form-field class="example-full-width" appearance="fill"> 
+                <mat-label>Upload Image</mat-label> 
+                <img [src]="url" height="200px" width="300px"><br><br> 
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onSelectFile($event)"   formContrlName="event-image"><br><br> 
+            </mat-form-field> -->
+    
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Title</mat-label>
+                <input type="text" matInput  formControlName="title" >
+            </mat-form-field>
+
+        <!-- <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>News Date</mat-label>
+                <input type="date" matInput  formControlName="newsDate"> 
+            </mat-form-field>  -->
+            
+            <!-- <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>News Category-1</mat-label>
+                <input type="text" matInput formControlName="newsCate" >
+            </mat-form-field> -->
+
+            <!-- <mat-form-field appearance="fill">
+                <mat-label>Category</mat-label>
+                <mat-select matNativeControl required formControlName="newsCate">
+                  <mat-option value="CGU">CGU</mat-option>
+                  <mat-option value="Company">Company</mat-option>
+                  <!-<mat-option value="mercedes"></mat-option> -->
+                  <!-- <mat-option value="audi"></mat-option> -->
+                <!-- </mat-select>
+              </mat-form-field> -->
+
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Description</mat-label>
+                <textarea type="text" matInput formControlName="newsDescription"></textarea>
+            </mat-form-field> 
+            
+            <button mat-raised-button color="primary" [disabled]="!updateAboutUsForm.valid">Update News</button>
+            
+        </form>
+    </div> 
+    </mat-card-content>
+</mat-card>
+

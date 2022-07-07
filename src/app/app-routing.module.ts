@@ -29,6 +29,11 @@ import { ListNewsComponent} from './news/list-news/list-news.component';
 import { DeleteNewsComponent } from './news/delete-news/delete-news.component';
 import { UpdateNewsComponent } from './news/update-news/update-news.component';
 import { ViewNewsComponent } from './news/view-news/view-news.component';
+import { ListAboutUsComponent } from './about-us/list-about-us/list-about-us.component';
+import { DeleteAboutUSComponent } from './about-us/delete-about-us/delete-about-us.component';
+import { UpdateAboutUSComponent } from './about-us/update-about-us/update-about-us.component';
+import { AddAboutUsComponent } from './about-us/add-about-us/add-about-us.component';
+import { ViewAboutUsComponent } from './about-us/view-about-us/view-about-us.component';
 
 const routes: Routes = [
   {
@@ -98,6 +103,17 @@ const routes: Routes = [
       {path: 'view/:newsID', component: ViewNewsComponent},
       {path: 'create', component: AddNewsComponent},
     
+],
+  },
+
+  {path: 'about-us',
+    children:[
+      {path: '', component: ListAboutUsComponent},
+      {path: 'list', component: ListAboutUsComponent},
+      {path: 'delete/:ID', component:DeleteAboutUSComponent},
+      {path: 'edit/:ID', component: UpdateAboutUSComponent},
+      {path: 'create', component: AddAboutUsComponent}, 
+      {path: 'view/:ID', component: ViewAboutUsComponent},
 ],
   }]
 

@@ -17,6 +17,7 @@ import { ImageAlbumModule } from './image-album/image-album.module';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
 import {NewsModule} from './news/news.module';
+import {AboutUsModule} from './about-us/about-us.module';
 import { CommonModule } from '@angular/common';
 
 
@@ -42,6 +43,7 @@ import { CommonModule } from '@angular/common';
     NgxPaginationModule,
     RouterModule,
     NewsModule,
+    AboutUsModule,
     CommonModule,
   ],
   providers: [],

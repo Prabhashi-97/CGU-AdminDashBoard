@@ -1,6 +1,6 @@
-<h1 class="heading"><b>News and Achievements</b></h1><br>
+<h1 class="heading"><b>About Us</b></h1><br>
 
-  <button class="btn btn-info"  [routerLink]="['/news/create']">Add News/Achievements</button>
+  <div><button class="btn btn-info"  [routerLink]="['/about-us/create']">Add New</button></div>
    <!-- <div class="main-content">
    <mat-card role="list">
        <mat-list-item  class="user-details" role="listitem" *ngFor="let program of listPrograms">
@@ -11,28 +11,28 @@
        
   
    </div> -->
-  
+   
    <mat-card class="card" role="list">
-     <h1>All News and Achievements</h1>
    <table  class="table table-hover">
        <thead>
          <tr>
            <th  scope="col">Title</th>
            <th scope="col">Description</th>
-           <th scope="col">Date</th>
            <th scope="col">Action</th>
          </tr>
        </thead>
        <tbody>
-         <tr *ngFor="let News of listNews">
-           <td width="300px" ><span class="news"> <a class="action-link" [routerLink]="['/news/view',News.newsID]">{{News.title}}</a></span></td>
-           <td width="500px"><span>{{(News.newsDescription.length>30)? (News.newsDescription | slice:0:300)+'...':(News.newsDescription)}}</span></td>
-           <td><span >{{News.newsDate | date:'longDate'}}</span></td>
+         <tr *ngFor="let AboutUs of listAboutUs">
+           <td width="200px" ><span class="AboutUs"> <a class="action-link" [routerLink]="['/about-us/view',AboutUs.ID]">{{AboutUs.title}}</a></span></td>
+           <td width="650px" ><span>{{(AboutUs.aboutUsDescription.length>30)? (AboutUs.aboutUsDescription | slice:0:300)+'...':(AboutUs.aboutUsDescription)}}</span></td>
+           <!-- <td><span >{{News.newsDate | date:'longDate'}}</span></td> -->
            <!-- <td><button mat-raised-button class="button-accept" [routerLink]="['/programs/edit',program.programId]">Update</button>&nbsp;&nbsp;<button class="btn btn-danger" [routerLink]="['/programs/delete',program.programId]">Delete</button></td> -->
-           <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/news/edit',News.newsID]">Update</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/news/delete',News.newsID]">Delete</button></td>
+           <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/about-us/edit',AboutUs.ID]">Update</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/about-us/delete',AboutUs.ID]">Delete</button></td>
          </tr>
          
        </tbody>
      </table >
    </mat-card> 
+
+
 
