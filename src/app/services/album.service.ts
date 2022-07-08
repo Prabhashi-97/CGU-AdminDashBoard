@@ -20,6 +20,7 @@ export class AlbumService {
   }
 
   upload(file: any) {
+    // console.log('line 23');
     return this.http.post(this.baseUrl + '/upload', file, {
       reportProgress: true,
       responseType: 'json',
