@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import Swal from 'sweetalert2';
+import {SidebarComponent} from '../../layout/sidebar/sidebar.component'
 
 @Component({
   selector: 'app-login',
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   hide = true;
+  // expiresIn:string;
  
 
   constructor(
@@ -58,7 +60,9 @@ export class LoginComponent implements OnInit {
         console.log(data)
         this.tokenStorage.saveToken(data.accessToken);
         localStorage.setItem('token', data.accessToken);
+        this.autoLogout();
         if(localStorage.getItem('token') != null)
+
         // {
         //    alert("login successfull");
         // }
@@ -100,8 +104,28 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     console.log('reload');
     this.router.navigateByUrl('/overview');
-    // window.location.reload();
   }
+
+  logout(){
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('');
+    this.tokenStorage.logout();
+  }
+
+  
+
+  autoLogout(){
+    setTimeout(()=>{
+      this.logout();
+    }, 10000 );
+  }
+
+
+
+
+ 
+
+ 
 
   
 

@@ -14,20 +14,32 @@ export class SidebarComponent implements OnInit {
   constructor(private tokenStorage: TokenStorageService, private router: Router ) { }
 
   ngOnInit(): void {
+    this.autoLogout();
   }
 
 
   logout(){
     localStorage.removeItem('token');
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/overview/login');
     this.tokenStorage.logout();
+    
+    
   }
 
   islogged(){
     if(localStorage.getItem('token') != null)
     this.isLogged=true;
-    // console.log(this.isLogged +" hiii")
     return this.isLogged;
   }
+
+
+  autoLogout(){
+    setTimeout(()=>{
+      this.logout();
+    }, 3600000 );
+  
+
+  }
+ 
 
 }
