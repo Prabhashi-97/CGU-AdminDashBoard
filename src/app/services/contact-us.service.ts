@@ -50,4 +50,9 @@ export class ContactUsService {
       headers: this.generateHedaer(),
     } );
   }
+  
+  listContactsbyFac(Faculty:any){
+    return this.http.get(this.baseUrl +'contact-us/Faculty/' + Faculty);
+  }
+
 }
