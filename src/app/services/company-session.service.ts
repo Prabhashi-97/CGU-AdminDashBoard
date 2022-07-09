@@ -49,20 +49,6 @@ export class CompanySessionService {
     });
   }
 
-  viewCompany(email: String) {
-    return this.http.get(this.baseUrl + 'company/' + email)
-  }
-
-  editSession(id: any, sessionObj: any) {
-    return this.http.put(this.baseUrl + 'comSessions/' + id, sessionObj, {
-      headers: this.generateHedaer(),
-    });
-  }
-
-  getUndergrads(id: any) {
-    return this.http.get(this.baseUrl + 'registerSession/' + id);
-  }
-
   viewCompany(email : String){
     return this.http.get(this.baseUrl + 'company/'+ email );
   }
@@ -74,4 +60,4 @@ export class CompanySessionService {
   getUndergrads(id:any){
     return this.http.get(this.baseUrl + 'registerSession/'+ id );
   }
-}
+ }

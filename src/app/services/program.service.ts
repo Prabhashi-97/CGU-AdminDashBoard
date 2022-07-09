@@ -58,8 +58,9 @@ export class ProgramService {
       headers: this.generateHedaer(),
     });
   }
-
-  getUndergrads(id:any){
-    return this.http.get(this.baseUrl + 'registerEvent/'+ id );
-  }
 }
+
+//   getUndergrads(id:any){
+//     return this.http.get(this.baseUrl + 'registerEvent/'+ id );
+//   }
+// }

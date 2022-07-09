@@ -27,21 +27,21 @@ export class ViewSessionRequestComponent implements OnInit {
       
       this.sessionDetails=data;
 
-      this.CompanySessionService.viewCompany(this.sessionDetails[0].companyEmail).subscribe(data => {
+      // this.CompanySessionService.viewCompany(this.sessionDetails[0].companyEmail).subscribe(data => {
       
-        this.companyDetails=data;
+      //   this.companyDetails=data;
         
       })
-    })
+    // })
 
   }
 
   
-  onOpenDialogClick(){
-    this.MatDialog.open(DeleteSessionRequestComponent,{
-      width: '500px',
-      data:this.sessionId
-    });
-  }
+  // onOpenDialogClick(){
+  //   this.MatDialog.open(DeleteSessionRequestComponent,{
+  //     width: '500px',
+  //     data:this.sessionId
+  //   });
+  // }
 
 }
