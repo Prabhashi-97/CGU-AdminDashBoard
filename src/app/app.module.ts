@@ -23,6 +23,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {RouterModule} from '@angular/router';
 import {NewsModule} from './news/news.module';
 import {AboutUsModule} from './about-us/about-us.module';
+import {ContactUsModule} from './contact-us/contact-us.module';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -57,6 +58,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     AdministratorsModule,
     OverviewModule,
     CompanySessionsModule,
+    ContactUsModule,
     NgbModule,
     ImageAlbumModule,
     NgxPaginationModule,

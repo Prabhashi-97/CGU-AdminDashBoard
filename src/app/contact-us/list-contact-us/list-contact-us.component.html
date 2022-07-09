@@ -1,0 +1,46 @@
+<h1 class="heading"><b>Contact Us</b></h1><br>
+
+  <button class="btn btn-info"  [routerLink]="['/contact-us/create']">Add Contacts</button>
+   <!-- <div class="main-content">
+   <mat-card role="list">
+       <mat-list-item  class="user-details" role="listitem" *ngFor="let program of listPrograms">
+           <span class="programname"> <a class="action-link" [routerLink]="['/programs/view',program.id]">{{ program.productName }}</a></span> |  <a class="action-link" [routerLink]="['/programs/edit',program.id]">Update</a> |  <a class="action-link" [routerLink]="['/programs/delete',program.id]">Delete</a>
+       </mat-list-item>
+
+   </mat-card>
+       
+  
+   </div> -->
+  
+   <!-- <mat-card class="card" role="list"> -->
+<br>
+    <br>
+    <br>
+     <h1>All Contacts</h1>
+   <table  class="table table-hover">
+       <thead>
+         <tr>
+           <th  scope="col">Name</th>
+           <th scope="col">Title</th>
+           <th scope="col">Faculty</th>
+           <th scope="col">Email</th>
+           <th scope="col">Phone number</th>
+           <th scope="col">Action</th>
+         </tr>
+       </thead>
+       <tbody>
+          <tr *ngFor="let ContactUs of listContactUs">
+           <td width="200px" ><span class="contact-us">{{ContactUs.NameOf}}</span></td>
+           <td width="200px"><span>{{ContactUs.Title}}</span></td>
+           <td width="200px"><span>{{ContactUs.Faculty}}</span></td>
+           <td width="200px"><span>{{ContactUs.Email}}</span></td>
+           <td width="200px"><span>{{ContactUs.PhNum}}</span></td>
+           <!-- <td><span >{{News.newsDate | date:'longDate'}}</span></td> -->
+           <!-- <td><button mat-raised-button class="button-accept" [routerLink]="['/programs/edit',program.programId]">Update</button>&nbsp;&nbsp;<button class="btn btn-danger" [routerLink]="['/programs/delete',program.programId]">Delete</button></td> -->
+           <td><button  mat-raised-button class="button-accept" color="primary" [routerLink] = "['/contact-us/edit',ContactUs.ID]">Update</button>&nbsp;&nbsp;<button mat-raised-button class="button-reject" color="warn" [routerLink] = "['/contact-us/delete',ContactUs.ID]">Delete</button></td>
+         </tr>
+         
+       </tbody>
+     </table >
+   <!-- </mat-card>  -->
+

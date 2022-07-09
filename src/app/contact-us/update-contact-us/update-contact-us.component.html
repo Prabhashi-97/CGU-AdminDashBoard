@@ -2,7 +2,7 @@
     <mat-card-title>Update Contacts</mat-card-title><br>
     <mat-card-content>
         <div *ngIf="dataLoaded"> 
-        <form [formGroup]="updateNewsForm" (ngSubmit)="updateNews()">
+        <form [formGroup]="updateContactForm" (ngSubmit)="updateContacts()">
             <!-- <mat-form-field class="example-full-width" appearance="fill"> 
                 <mat-label>Upload Image</mat-label> 
                 <img [src]="url" height="200px" width="300px"><br><br> 
@@ -10,13 +10,13 @@
             </mat-form-field> -->
     
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>News Title</mat-label>
-                <input type="text" matInput  formControlName="title" >
+                <mat-label>Name</mat-label>
+                <input type="text" matInput  formControlName="NameOf" >
             </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>News Date</mat-label>
-                <input type="date" matInput  formControlName="newsDate"> 
+                <mat-label>Title</mat-label>
+                <input type="text" matInput  formControlName="Title"> 
             </mat-form-field> 
             
             <!-- <mat-form-field class="example-full-width" appearance="fill">
@@ -25,26 +25,30 @@
             </mat-form-field> -->
 
             <mat-form-field appearance="fill">
-                <mat-label>Category</mat-label>
-                <mat-select matNativeControl required formControlName="newsCate">
+                <mat-label>Faculty</mat-label>
+                <mat-select matNativeControl required formControlName="Faculty">
                   <mat-option value="CGU">CGU</mat-option>
-                  <mat-option value="Company">Company</mat-option>
-                  <!-- <mat-option value="mercedes"></mat-option>
-                  <mat-option value="audi"></mat-option> -->
+                  <mat-option value="Faculty of IT">Faculty of IT</mat-option>
+                  <mat-option value="Faculty of Eng">Faculty of Eng</mat-option>
+                  <mat-option value="Faculty of Archi">Faculty of Archi</mat-option>
                 </mat-select>
               </mat-form-field>
 
 
             <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>News Description</mat-label>
-                <textarea type="text" matInput formControlName="newsDescription"></textarea>
+                <mat-label>Email</mat-label>
+                <input type="text" matInput formControlName="Email">
+            </mat-form-field> 
+
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input type="text" matInput  formControlName="PhNum"> 
             </mat-form-field> 
             
-            <button mat-raised-button color="primary" [disabled]="!updateNewsForm.valid">Update News</button>
+            <button mat-raised-button color="primary" [disabled]="!updateContactForm.valid">Update News</button>
             
         </form>
     </div> 
     </mat-card-content>
 </mat-card>
-
 

@@ -42,6 +42,10 @@ import { UpdateAboutUSComponent } from './about-us/update-about-us/update-about-
 import { AddAboutUsComponent } from './about-us/add-about-us/add-about-us.component';
 import { ViewAboutUsComponent } from './about-us/view-about-us/view-about-us.component';
 import { AuthGuardService as AuthGuard } from '../app/services/auth-guard.service';
+import { ListContactUsComponent } from './contact-us/list-contact-us/list-contact-us.component';
+import { DeleteContactUsComponent } from './contact-us/delete-contact-us/delete-contact-us.component';
+import { UpdateContactUsComponent } from './contact-us/update-contact-us/update-contact-us.component';
+import { AddContactUsComponent } from './contact-us/add-contact-us/add-contact-us.component';
 
 
 
@@ -164,6 +168,18 @@ data:{permittedRoles:['Admin','MainAdmin']}
       {path: 'edit/:newsID', component: UpdateNewsComponent},
       {path: 'view/:newsID', component: ViewNewsComponent},
       {path: 'create', component: AddNewsComponent},
+    
+],
+  },
+
+  {path: 'contact-us',
+    children:[
+      {path: '', component: ListContactUsComponent},
+      {path: 'list', component: ListContactUsComponent},
+      {path: 'delete/:ID', component:DeleteContactUsComponent},
+      {path: 'edit/:ID', component: UpdateContactUsComponent},
+      // {path: 'view/:newsID', component: ViewNewsComponent},
+      {path: 'create', component: AddContactUsComponent},
     
 ],
   },
